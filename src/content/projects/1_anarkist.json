@@ -1,0 +1,14 @@
+{
+    "id": 1,
+    "title": "Anarkist Bar CMS",
+    "urls": [
+        {
+            "title": "CMS",
+            "href": "#"
+        },
+        {
+            "title": "Menu",
+            "href": "#"
+        }
+    ]
+}
