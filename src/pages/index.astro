@@ -1,19 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Portfolio from '../components/Portfolio.astro';
 import { getCollection } from 'astro:content';
 
 const projects = await getCollection('projects');
 ---
 
 <Layout title="Morten Schou Gross">
-	<header>
-		<h1>
-			Morten Schou Gross
-			<span>Portfolio</span>
+	<header class="flex flex-col justify-center items-center w-full h-screen pb-4">
+		<h1 class="text-[1.7rem] sm:text-3xl md:text-4xl pb-4">
+			<span class="code opacity-0">&lt;Morten Schou Gross /&gt;</span>
+			<!-- <span class="neon text-6xl">Portfolio</span> -->
 		</h1>
+		<div class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 -rotate-6">
+			<Portfolio />
+		</div>
+		
 	</header>
-	<main>
+	<main class="p-4">
 		<ul>
 			{projects.map(project => (
 				<li>
@@ -26,3 +30,71 @@ const projects = await getCollection('projects');
 		</ul>
 	</main>
 </Layout>
+
+<style>
+	header {
+		background: var(--color-5);
+		background: radial-gradient(circle, rgba(163,0,107,.5) 0%, var(--color-4) 35%);
+	}
+
+	header > h1 > span.code {
+		font-family: 'Source Code Pro', monospace;
+		-webkit-text-fill-color: transparent;
+		-webkit-text-stroke: .033em var(--color-1);
+    	text-shadow: 0 0 20px var(--color-1);
+	}
+
+	.neon {
+		display: block;
+		font-family: Satisfy;
+		text-shadow: 0 0 20px var(--color-1);
+		opacity: 0;
+		transform: rotate(-10deg);
+	}
+
+	.neon.on {
+		animation-name: on;
+		animation-duration: .2s;
+		animation-delay: .5s;
+		animation-fill-mode: forwards;
+	}
+
+	@keyframes on {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	}
+</style>
+
+<script>
+	"use strict";
+
+	window.addEventListener("DOMContentLoaded", init);
+	const code = document.querySelector(".code");
+	const text = code.textContent;
+	let n = 0;
+
+	function init() {
+		code.textContent = "";
+		console.log(text);
+		code.classList.remove("opacity-0");
+
+		nextLetter();
+	}
+
+	function nextLetter() {
+		code.textContent = text.substring(0,n);
+		n++;
+
+		if (n <= text.length) {
+			let randomTimer = Math.floor(Math.random() * 2 + 1);
+			console.log(randomTimer);
+			setTimeout(nextLetter, randomTimer * 100);
+		} else {
+			displayNeon();
+		}
+	}
+
+	function displayNeon() {
+		document.querySelector("#portfolio-mask").classList.add("on");
+	}
+</script>
