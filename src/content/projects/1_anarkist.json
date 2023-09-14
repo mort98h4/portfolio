@@ -1,6 +1,7 @@
 {
     "id": 1,
     "title": "Anarkist Bar CMS",
+    "body": "This is a very good description",
     "urls": [
         {
             "title": "CMS",
@@ -10,5 +11,18 @@
             "title": "Menu",
             "href": "#"
         }
+    ],
+    "repositories": [
+        {
+            "name": "Anarkist CMS",
+            "href": "#"
+        },
+        {
+            "name": "Anarkist Public",
+            "href": "#"
+        }
+    ],
+    "technologies": [
+        "Python", "Astro.build", "Tailwind CSS"
     ]
 }
