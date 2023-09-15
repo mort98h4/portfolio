@@ -11,7 +11,7 @@ const projects = defineCollection({
                 title: z.string(),
                 href: z.string()
             })
-        ),
+        ).optional(),
         repositories: z.array(
             z.object({
                 name: z.string(),
