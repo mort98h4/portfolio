@@ -52,28 +52,34 @@ const { id, title, body, urls, repositories, technologies } = Astro.props;
 		
 		<h3 class="text-[var(--color-1)] text-base font-semibold">{title}</h3>
 		<p class="pb-4">{body}</p>
+		{urls ?
+			<div class="pb-2">
+				<h4>
+					<i class="fa-solid fa-globe mr-1"></i>
+					{urls.length === 1 ? "URL" : "URLs"}
+				</h4>
+				<ul>
+					{urls.map(url => (
+						<li>
+							<a href={url.href} target="_blank">{url.title}</a>
+						</li>
+					))}
+				</ul>
+			</div>
+		 : ""}
 		<div class="pb-2">
 			<h4>
-				<i class="fa-solid fa-globe mr-1"></i>
-				URLs
-			</h4>
-			<ul>
-				{urls.map(url => (
-					<li>
-						<a href={url.href}>{url.title}</a>
-					</li>
-				))}
-			</ul>
-		</div>
-		<div class="pb-2">
-			<h4>
-				<i class="fa-brands fa-github mr-1"></i>
-				Repositories
+				<i 
+					class={repositories.map(repo => (
+						repo.href.includes("gitlab") ? "fa-gitlab" : "fa-github"
+					)) + " fa-brands mr-1"}
+				></i>
+				{repositories.length === 1 ? "Repository" : "Repositories"}
 			</h4>
 			<ul>
 				{repositories.map(repo => (
 					<li>
-						<a href={repo.href}>{repo.name}</a>
+						<a href={repo.href} target="_blank">{repo.name}</a>
 					</li>
 				))}
 			</ul>
