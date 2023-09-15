@@ -1,0 +1,20 @@
+{
+    "id": 6,
+    "title": "Strikkestedet",
+    "body": "My Multimediadesign final exam project, where we were tasked to do a rebranding of an existing company.",
+    "urls": [
+        {
+            "title": "Strikkestedet",
+            "href": "https://strikkestedet-orpin.vercel.app/"
+        }
+    ],
+    "repositories": [
+        {
+            "name": "strikkestedet",
+            "href": "https://github.com/mort98h4/strikkestedet"
+        }
+    ],
+    "technologies": [
+        "Next.js", "WordPress", "Tailwind CSS", "GraphQL"
+    ]
+}

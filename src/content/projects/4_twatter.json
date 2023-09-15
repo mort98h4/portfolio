@@ -1,0 +1,20 @@
+{
+    "id": 5,
+    "title": "Twatter",
+    "body": "My Web Dev first semester exam project, where we were tasked to create a copy of Twitter.",
+    "urls": [
+        {
+            "title": "Twatter",
+            "href": "https://mort98h4.eu.pythonanywhere.com/"
+        }
+    ],
+    "repositories": [
+        {
+            "name": "03_exam_project",
+            "href": "https://github.com/mort98h4/03_exam_project"
+        }
+    ],
+    "technologies": [
+        "Python", "Bottle.py", "Tailwind CSS", "JavaScript", "MySQL"
+    ]
+}

@@ -1,28 +1,36 @@
 {
-    "id": 1,
+    "id": 2,
     "title": "Anarkist Bar CMS",
-    "body": "This is a very good description",
+    "body": "My bachelor project, in which we set out to create an easy and efficient CMS for the Anarkist Bar in Tivoli.",
     "urls": [
         {
             "title": "CMS",
-            "href": "#"
+            "href": "http://anarkist.eu.pythonanywhere.com/sign-in"
+        },
+        {
+            "title": "Monitor menu 1",
+            "href": "http://anarkist.eu.pythonanywhere.com/menu/1/screen/1"
+        },
+        {
+            "title": "Monitor menu 2",
+            "href": "http://anarkist.eu.pythonanywhere.com/menu/1/screen/2"
         },
         {
             "title": "Menu",
-            "href": "#"
+            "href": "https://anarkist.vercel.app/"
         }
     ],
     "repositories": [
         {
             "name": "Anarkist CMS",
-            "href": "#"
+            "href": "https://github.com/mort98h4/anarkist_cms"
         },
         {
             "name": "Anarkist Public",
-            "href": "#"
+            "href": "https://github.com/mort98h4/anarkist_public"
         }
     ],
     "technologies": [
-        "Python", "Astro.build", "Tailwind CSS"
+        "Python", "Bottle.py", "Astro.build", "Tailwind CSS", "JavaScript", "MySQL"
     ]
 }
