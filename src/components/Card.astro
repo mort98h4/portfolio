@@ -70,9 +70,9 @@ const { id, title, body, urls, repositories, technologies } = Astro.props;
 		<div class="pb-2">
 			<h4>
 				<i 
-					class={repositories.map(repo => (
-						repo.href.includes("gitlab") ? "fa-gitlab" : "fa-github"
-					)) + " fa-brands mr-1"}
+					class={
+						(repositories[0].href.includes("gitlab") ? "fa-gitlab" : "fa-github")
+						+ " fa-brands mr-1"}
 				></i>
 				{repositories.length === 1 ? "Repository" : "Repositories"}
 			</h4>
