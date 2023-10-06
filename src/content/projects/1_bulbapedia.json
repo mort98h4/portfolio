@@ -1,0 +1,20 @@
+{
+    "id": 1,
+    "title": "Bulbapedia",
+    "body": "Small project to get reacquainted with Next.js, and try out Sanity.",
+    "urls": [
+        {
+            "title": "Bulbapedia",
+            "href": "https://bulbapedia.vercel.app/"
+        }
+    ],
+    "repositories": [
+        {
+            "name": "Bulbapedia",
+            "href": "https://github.com/mort98h4/bulbapedia"
+        }
+    ],
+    "technologies": [
+        "Next.js", "Sanity", "Tailwind CSS"
+    ]
+}
