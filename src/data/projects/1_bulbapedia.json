@@ -15,6 +15,14 @@
         }
     ],
     "technologies": [
-        "Next.js", "Sanity", "Tailwind CSS"
+        {
+            "name": "Next.js"
+        },
+        {
+            "name": "Sanity"
+        },
+        {
+            "name": "Tailwind CSS"
+        }
     ]
 }

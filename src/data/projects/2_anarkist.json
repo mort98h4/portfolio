@@ -31,6 +31,23 @@
         }
     ],
     "technologies": [
-        "Python", "Bottle.py", "Astro.build", "Tailwind CSS", "JavaScript", "MySQL"
+        {
+            "name": "Python"
+        }, 
+        {
+            "name": "Bottle.py"
+        }, 
+        {
+            "name": "Astro.build"
+        }, 
+        {
+            "name": "Tailwind CSS"
+        }, 
+        {
+            "name": "JavaScript"
+        }, 
+        {
+            "name": "MySQL"
+        }
     ]
 }

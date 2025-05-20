@@ -15,6 +15,20 @@
         }
     ],
     "technologies": [
-        "Python", "Bottle.py", "Tailwind CSS", "JavaScript", "MySQL"
+        {
+            "name": "Python"
+        }, 
+        {
+            "name": "Bottle.py"
+        }, 
+        {
+            "name": "Tailwind CSS"
+        }, 
+        {
+            "name": "JavaScript"
+        }, 
+        {
+            "name": "MySQL"
+        }
     ]
 }

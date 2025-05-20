@@ -15,6 +15,17 @@
         }
     ],
     "technologies": [
-        "PHP", "JavaScript", "Tailwind CSS", "MySQL"
+        {
+            "name": "PHP"
+        }, 
+        {
+            "name": "JavaScript"
+        },
+        {
+            "name": "Tailwind CSS"
+        },
+        {
+            "name": "MySQL"
+        }
     ]
 }

@@ -2,6 +2,7 @@
     "id": 3,
     "title": "Bank",
     "body": "My second semester exam project, where we were tasked to create a bank application.",
+    "urls": [],
     "repositories": [
         {
             "name": "bank_exam",
@@ -9,6 +10,17 @@
         }
     ],
     "technologies": [
-        "Python", "Django", "Docker", "HTMX"
+        {
+            "name": "Python"
+        }, 
+        {
+            "name": "Django"
+        }, 
+        {
+            "name": "Docker"
+        }, 
+        {
+            "name": "HTMX"
+        }
     ]
 }

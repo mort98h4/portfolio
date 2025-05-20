@@ -15,6 +15,17 @@
         }
     ],
     "technologies": [
-        "Next.js", "WordPress", "Tailwind CSS", "GraphQL"
+        {
+            "name": "Next.js"
+        }, 
+        {
+            "name": "WordPress"
+        }, 
+        {
+            "name": "Tailwind CSS"
+        }, 
+        {
+            "name": "GraphQL"
+        }
     ]
 }
