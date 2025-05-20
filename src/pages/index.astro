@@ -21,15 +21,9 @@ const projects = await getCollection('projects');
 	<main class="p-4 mx-auto max-w-6xl">
 		<h2 class="text-center text-xl text-[1.7rem] sm:text-2xl md:text-3xl pb-6">Projects</h2>
 		<ul class="grid grid-cols-12 py-4 gap-4">
+			
 			{projects.map(project => (
-				<Card
-					id={project.data.id}
-					title={project.data.title}
-					body={project.data.body}
-					urls={project.data.urls}
-					repositories={project.data.repositories}
-					technologies={project.data.technologies}
-				></Card>
+				<Card project={project}></Card>
 			))}
 		</ul>
 	</main>
@@ -79,7 +73,6 @@ const projects = await getCollection('projects');
 
 	function init() {
 		code.textContent = "";
-		console.log(text);
 		code.classList.remove("opacity-0");
 
 		nextLetter();
@@ -91,7 +84,6 @@ const projects = await getCollection('projects');
 
 		if (n <= text.length) {
 			let randomTimer = Math.floor(Math.random() * 2 + 1);
-			console.log(randomTimer);
 			setTimeout(nextLetter, randomTimer * 100);
 		} else {
 			displayNeon();

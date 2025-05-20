@@ -1,28 +1,16 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+
 interface Props {
-	id: number;
-	title: string;
-	body: string;
-	urls: [
-		{
-			title: string;
-			href: string;
-		}
-	];
-	repositories: [
-		{
-			name: string;
-			href: string;
-		}
-	]
-	technologies: [];
+	project: CollectionEntry<'projects'>;
 }
 
-const { id, title, body, urls, repositories, technologies } = Astro.props;
+const { project } = Astro.props;
+const p = project.data;
 ---
 
 <li 
-	id={'project-' + id}
+	id={'project-' + p.id}
 	class="
 		card
 		col-span-8
@@ -50,16 +38,16 @@ const { id, title, body, urls, repositories, technologies } = Astro.props;
 			<i class="fa-solid fa-code text-base text-[var(--color-1)]"></i>
 		</div>
 		
-		<h3 class="text-[var(--color-1)] text-base font-semibold">{title}</h3>
-		<p class="pb-4">{body}</p>
-		{urls ?
+		<h3 class="text-[var(--color-1)] text-base font-semibold">{p.title}</h3>
+		<p class="pb-4">{p.body}</p>
+		{p.urls ?
 			<div class="pb-2">
 				<h4>
 					<i class="fa-solid fa-globe mr-1"></i>
-					{urls.length === 1 ? "URL" : "URLs"}
+					{p.urls.length === 1 ? "URL" : "URLs"}
 				</h4>
 				<ul>
-					{urls.map(url => (
+					{p.urls.map(url => (
 						<li>
 							<a href={url.href} target="_blank">{url.title}</a>
 						</li>
@@ -71,13 +59,13 @@ const { id, title, body, urls, repositories, technologies } = Astro.props;
 			<h4>
 				<i 
 					class={
-						(repositories[0].href.includes("gitlab") ? "fa-gitlab" : "fa-github")
+						(p.repositories[0].href.includes("gitlab") ? "fa-gitlab" : "fa-github")
 						+ " fa-brands mr-1"}
 				></i>
-				{repositories.length === 1 ? "Repository" : "Repositories"}
+				{p.repositories.length === 1 ? "Repository" : "Repositories"}
 			</h4>
 			<ul>
-				{repositories.map(repo => (
+				{p.repositories.map(repo => (
 					<li>
 						<a href={repo.href} target="_blank">{repo.name}</a>
 					</li>
@@ -90,8 +78,8 @@ const { id, title, body, urls, repositories, technologies } = Astro.props;
 				Technologies
 			</h4>
 			<ul>
-				{technologies.map(tech => (
-					<li>{tech}</li>
+				{p.technologies.map(tech => (
+					<li>{tech.name}</li>
 				))}
 			</ul>
 		</div>
