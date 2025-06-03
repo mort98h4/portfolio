@@ -1,0 +1,265 @@
+---
+
+---
+
+<nav class="w-full py-2 px-4 flex flex-col md:flex-row justify-between md:items-center fixed top-0 z-[9999] bg-[var(--color-5)}/30 backdrop-blur-md">
+    <div class="title flex items-center justify-between md:w-auto">
+        <a href="#header" class="code text-lg">&lt;Morten Schou Gross /&gt;</a>
+        <button 
+            id="navigation-toggler"
+            role="button"
+            class="icon-btn md:hidden"
+            data-target="#navigation-content"
+            aria-controls="navigation-content"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <i class="fa-solid fa-bars text-[1.5rem] pointer-events-none absolute"></i>
+            <i class="fa-solid fa-x text-[1.5rem] pointer-events-none absolute"></i>
+        </button>
+    </div>
+    <div id="navigation-content" class="flex justify-end text-end">
+        <ul class="navigation-list md:flex md:flex-row md:gap-4 pt-3 md:pt-0">
+
+            <li class="w-full flex justify-end mb-2 md:mb-0 md:order-2">
+                <button id="dark-mode-toggler" title="Toggle dark mode" role="button" data-color-mode="light" class="icon-btn">
+                    <i class="fa-solid fa-moon text-[1.5rem] absolute pointer-events-none"></i>
+                    <i class="fa-solid fa-sun text-[1.5rem] absolute pointer-events-none"></i>
+                </button>
+            </li>
+            
+            <li class="order-1">
+                <a class="nav-link mb-2 inline-block md:mb-0" href="#about">About</a>
+            </li>
+            <li class="order-1">
+                <a class="nav-link mb-2 inline-block md:mb-0" href="#resume">Resume</a>
+            </li>
+            <li class="order-1">
+                <a class="nav-link mb-2 inline-block md:mb-0" href="#projects">Projects</a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+
+<style>
+    nav {
+        transform: translateY(-100%);
+        transition: transform .15s ease-in-out;
+    }
+
+    nav.show {
+        transform: translateY(0);
+    }
+
+    .text-lg.code {
+        -webkit-text-stroke: .06em var(--color-1);
+    }
+
+    .icon-btn {
+        position: relative;
+        width: 1.5rem;
+        height: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: color .15s ease-in-out;
+        color: var(--color-2);
+        cursor: pointer;
+    }
+
+    .icon-btn:focus, .icon-btn:hover {
+        color: var(--color-1);
+    }
+
+    #navigation-toggler > i,
+    #dark-mode-toggler > i {
+        opacity: 0;
+        transition: opacity .15s ease-in-out, transform .15s ease-in-out;
+        transform: rotate(0deg);
+    }
+
+    #navigation-toggler[aria-expanded="true"] > .fa-x,
+    #navigation-toggler[aria-expanded="false"] > .fa-bars,
+    html.dark #dark-mode-toggler > .fa-sun,
+    html:not(.dark) #dark-mode-toggler > .fa-moon {
+        opacity: 1;
+    }
+
+    #navigation-toggler[aria-expanded="false"] > .fa-bars,
+    html.dark #dark-mode-toggler > .fa-sun {
+        transform: rotate(-360deg);
+    }
+
+    #navigation-toggler[aria-expanded="true"] > .fa-x,
+    html:not(.dark) #dark-mode-toggler > .fa-moon {
+        transform: rotate(360deg);
+    }
+
+    #navigation-content {
+        overflow: hidden;
+        max-height: 0px;
+        transition: max-height .15s ease-in-out;
+    }
+
+    #navigation-content.show {
+        max-height: var(--navigation-list-height);
+    }
+
+    .nav-link {
+        display: inline-block;
+        /* margin-bottom: .5rem; */
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: .025em;
+        color: var(--color-2);
+        transition: color .15s ease-in-out;
+    }
+
+    .nav-link:hover, .nav-link:focus, .nav-link.active {
+        color: var(--color-1);
+    }
+
+    @media screen and (min-width: 768px) {
+        #navigation-toggler {
+            display: none;
+        }
+
+        #navigation-content {
+            max-height: unset;
+        }
+    }
+</style>
+
+<script type="module">
+    window.addEventListener('load', getColorMode);
+    window.addEventListener('DOMContentLoaded', initNavigation);
+    let nav;
+    let headerHeight;
+
+    const onIntersection = (entries) => {
+        for (const entry of entries) {
+            toggleActiveNavLink(entry);
+        }
+    };
+
+    const observer = new IntersectionObserver(onIntersection, {threshold: 0.5});
+
+    function getColorMode() {
+        if (!window.matchMedia) {
+            return;
+        }
+
+        const prefersColorMode = localStorage.getItem('prefersColorMode');
+        let colorMode = prefersColorMode ? prefersColorMode : 'dark';
+        toggleDarkMode(colorMode);
+
+        const query = window.matchMedia('(prefers-color-scheme: dark)');
+        query.addEventListener('change', (event) => {
+            colorMode = event.matches ? 'dark' : 'light';
+            toggleDarkMode(colorMode);
+        });
+    }
+
+    function initNavigation() {
+        nav = document.querySelector('nav');
+        headerHeight = document.querySelector('header').getBoundingClientRect().height;
+
+        window.addEventListener('scroll', windowScroll);
+
+        const navigationToggler = document.querySelector('#navigation-toggler');
+        navigationToggler.addEventListener('click', toggleMenu);
+        document.querySelector('#dark-mode-toggler').addEventListener('click', toggleDarkMode);
+        
+        document.querySelectorAll('.nav-link').forEach(el => {
+            el.addEventListener('click', () => navigationToggler.click());
+        });
+
+        document.querySelectorAll('section').forEach(el => {
+            observer.observe(el);
+        });
+    }
+
+    function windowScroll() {
+        const scrollY = window.scrollY;
+
+        if (scrollY > headerHeight/2) {
+            nav.classList.add('show');
+        } else {
+            nav.classList.remove('show');
+        }
+    }
+
+    function toggleActiveNavLink(intersectionEntry) {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const targetId = intersectionEntry.target.getAttribute('id');
+            
+        if (intersectionEntry.isIntersecting) {                
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === `#${targetId}`) {
+                    link.classList.add('active');
+                }
+            });
+        } else {
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === `#${targetId}`) {
+                    link.classList.remove('active');
+                }
+            });
+        }
+    }
+
+    function toggleMenu() {
+        const navToggler = event.target;
+        const navContent = document.querySelector(navToggler.dataset.target);
+        const navList = navContent.querySelector('.navigation-list');
+
+        
+        const childrenTotal = navList.childElementCount;
+        let navListChildrenHeight = 0;
+        navList.querySelectorAll('li').forEach((child) => {
+            const childHeight = child.getBoundingClientRect().height;
+            if (childHeight > navListChildrenHeight) {
+                navListChildrenHeight = childHeight;
+            } 
+        })
+
+        const navListHeight = (navListChildrenHeight * childrenTotal) + navList.getBoundingClientRect().height;
+
+        navContent.setAttribute('style', `--navigation-list-height: ${navListHeight}px;`);
+
+        const ariaExpanded = navToggler.getAttribute('aria-expanded');
+        if (ariaExpanded === 'false') {
+            navToggler.setAttribute('aria-expanded', 'true');
+        } else {
+            navToggler.setAttribute('aria-expanded', 'false');
+        }
+        
+        navContent.classList.toggle('show');
+    }
+
+    function toggleDarkMode(colorMode) {
+        let target = colorMode.target;
+        let mode = target ? target.dataset.colorMode : colorMode;
+
+        if (target) {
+            mode = target.dataset.colorMode;
+        } else {
+            mode = colorMode;
+            target = document.querySelector('#dark-mode-toggler');
+        }
+
+        console.log(mode);
+        const htmlEl = document.querySelector('html');
+        if (mode === 'dark') {
+            htmlEl.classList.add('dark');
+            target.dataset.colorMode = 'light';
+        } else {
+            htmlEl.classList.remove('dark');
+            target.dataset.colorMode = 'dark';
+        }
+
+        localStorage.setItem('prefersColorMode', mode);
+    }
+
+</script>
