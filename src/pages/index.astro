@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import { getCollection } from 'astro:content';
 import "../styles/global.css";
+import Card from '../components/shared/Card.astro';
 
 const projects = await getCollection('projects');
 ---
