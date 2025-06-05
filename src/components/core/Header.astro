@@ -5,8 +5,8 @@ import LinkBtn from "../shared/LinkBtn.astro";
 
 <header id="header" class="relative flex flex-col justify-center items-center w-full h-screen pb-4">
     <div class="background-gradient absolute h-full w-full z-[0]"></div>
-    <h1 class="text-[1.7rem] sm:text-3xl md:text-4xl pb-4">
-        <span class="code animate opacity-0">&lt;Morten Schou Gross /&gt;</span>
+    <h1 class="code text-[1.7rem] sm:text-3xl md:text-4xl pb-4">
+        <span class="animate opacity-0">&lt;Morten Schou Gross /&gt;</span>
     </h1>
     <div class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 -rotate-6">
         <Portfolio />
@@ -54,7 +54,7 @@ import LinkBtn from "../shared/LinkBtn.astro";
 	"use strict";
 
 	window.addEventListener("DOMContentLoaded", init);
-	const code = document.querySelector(".code.animate");
+	const code = document.querySelector(".code .animate");
 	const text = code.textContent;
 	let n = 0;
 

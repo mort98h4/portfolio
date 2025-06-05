@@ -28,9 +28,37 @@ html.dark {
     color: var(--color-1);
 }
 
+h1:not(.code),
+h2:not(.code),
+h3:not(.code),
+h4:not(.code) {
+    color: var(--color-3);
+    font-weight: 700;
+    letter-spacing: .025em;
+    text-transform: uppercase;
+}
+
+html.dark h1:not(.code),
+html.dark h2:not(.code),
+html.dark h3:not(.code),
+html.dark h4:not(.code) {
+    color: var(--color-2);
+}
+
 .code {
     font-family: 'Courier Prime', monospace;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: .04em var(--color-1);
     text-shadow: 0 0 20px var(--color-1);
+}
+
+a:not(.code) {
+    cursor: pointer;
+    transition: color .15s ease-in-out;
+    color: var(--color-2);
+    font-weight: 600;
+}
+
+a:hover {
+    color: var(--color-1);
 }

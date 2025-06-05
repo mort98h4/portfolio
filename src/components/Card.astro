@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import Tag from './shared/Tag.astro';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
@@ -9,46 +10,47 @@ const { project } = Astro.props;
 const p = project.data;
 ---
 
-<li 
-	id={'project-' + p.id}
-	class="
-		card
-		col-span-8
-		col-start-3
-		sm:col-start-auto
-		sm:col-span-6
-		md:col-span-4
-		lg:col-span-3
-		relative
-		list-none
-		p-4
-		pt-14
-		transition-all
-		shadow-md
-		shadow-[var(--color-5)]
-		rounded
-		border
-		border-[var(--color-3)]
-		hover:border-[var(--color-2)]
-		hover:shadow-lg
-		hover:shadow-[var(--color-5)]"
->
-	<div class="relative z-[2] text-sm">
-		<div class="icon inline-flex justify-center items-center w-8 h-8 rounded-full border border-[var(--color-2)] bg-[var(--color-3)] mb-4 transition-opacity opacity-50">
-			<i class="fa-solid fa-code text-base text-[var(--color-1)]"></i>
+<li id={'project-' + p.id} class="card col-span-8 col-start-3 sm:col-start-auto sm:col-span-6 md:col-span-4 lg:col-span-3 shadow-md hover:shadow-lg">
+	<div class="shine"></div>
+	<div class="background">
+		<div class="tiles">
+			<div class="tile tile-1"></div>	
+			<div class="tile tile-2"></div>	
+			<div class="tile tile-3"></div>	
+			<div class="tile tile-4"></div>	
+			<div class="tile tile-5"></div>	
+			<div class="tile tile-6"></div>	
+			<div class="tile tile-7"></div>	
+			<div class="tile tile-8"></div>	
+			<div class="tile tile-9"></div>	
+			<div class="tile tile-10"></div>	
+		</div>
+		<div class="vertical line line-1"></div>
+		<div class="vertical line line-2"></div>
+		<div class="vertical line line-3"></div>
+		<div class="horizontal line line-1"></div>
+		<div class="horizontal line line-2"></div>
+		<div class="horizontal line line-3"></div>
+	</div>
+
+	<div class="content p-4 pt-14 text-sm">
+		<div class="icon inline-flex justify-center items-center w-8 h-8 rounded-full border mb-1">
+			<i class="fa-solid fa-code text-base"></i>
 		</div>
 		
-		<h3 class="text-[var(--color-1)] text-base font-semibold">{p.title}</h3>
+		<h3 class="text-base mb-4">{p.title}</h3>
 		<p class="pb-4">{p.body}</p>
-		{p.urls ?
+		{p.urls.length > 0 ?
 			<div class="pb-2">
 				<h4>
 					<i class="fa-solid fa-globe mr-1"></i>
-					{p.urls.length === 1 ? "URL" : "URLs"}
+					{p.urls.length > 1 ? 
+						"URLs" : "URL"
+					}
 				</h4>
-				<ul>
+				<ul class="">
 					{p.urls.map(url => (
-						<li>
+						<li class="inline-block">
 							<a href={url.href} target="_blank">{url.title}</a>
 						</li>
 					))}
@@ -64,200 +66,212 @@ const p = project.data;
 				></i>
 				{p.repositories.length === 1 ? "Repository" : "Repositories"}
 			</h4>
-			<ul>
+			<ul class="">
 				{p.repositories.map(repo => (
-					<li>
+					<li class="inline-block">
 						<a href={repo.href} target="_blank">{repo.name}</a>
 					</li>
 				))}
 			</ul>
 		</div>
 		<div class="">
-			<h4>
+			<h4 class="mb-1">
 				<i class="fa-solid fa-file-code mr-1"></i>
 				Technologies
 			</h4>
-			<ul>
+			<ul class="flex flex-wrap gap-1 w-full">
 				{p.technologies.map(tech => (
-					<li>{tech.name}</li>
+					<Tag text={tech.name} />
 				))}
 			</ul>
 		</div>
-
-	</div>
-
-	<div class="shine"></div>
-	<div class="background">
-		<div class="tiles">
-			<div class="tile tile-1"></div>	
-			<div class="tile tile-2"></div>	
-			<div class="tile tile-3"></div>	
-			<div class="tile tile-4"></div>	
-			<div class="tile tile-5"></div>	
-			<div class="tile tile-6"></div>	
-			<div class="tile tile-7"></div>	
-			<div class="tile tile-8"></div>	
-			<div class="tile tile-9"></div>	
-			<div class="tile tile-10"></div>	
-		</div>
-		<div class="line line-1"></div>
-		<div class="line line-2"></div>
-		<div class="line line-3"></div>
 	</div>
 </li>
 
 <style>
-	h4 {
-		/* color: var(--color-1); */
-		font-weight: 600;
+	.icon {
+		transition-property: color, background-color, border-color;
+		transition-duration: .15s;
+		transition-timing-function: ease-in-out;
+		background-color: rgba(var(--color-1-rgb), .1);
+		border-color: rgba(var(--color-2-rgb), 1);
+		color: rgba(var(--color-2-rgb), 1);
+	}
+	
+	html.dark .icon {
+		background-color: var(--color-4);
+		border-color: var(--color-3);
+		color: var(--color-2);
 	}
 
-	div li {
-		display: inline-block;
+	.card:hover .icon {
+		background-color: rgba(var(--color-1-rgb), .3);
+		border-color: rgba(var(--color-3-rgb), 1);
+		color: rgba(var(--color-4-rgb), 1);
 	}
 
-	div li:not(:last-of-type)::after {
-		content: "⦁";
-		padding: 0 .25rem;
-	}
-
-	a {
-		cursor: pointer;
-		transition: color .15s ease-in-out;
-		font-weight: 300;
-	}
-
-	a:hover {
+	html.dark .card:hover .icon {
+		background-color: var(--color-3);
+		border-color: var(--color-2);
 		color: var(--color-1);
 	}
 
-	.card .shine {
-		border-radius: inherit;
-		position: absolute;
-		inset: 0;
-		z-index: 1;
-		overflow: hidden;
-		opacity: 0;
-		transition: opacity .5s;
+	.card li.inline-block:not(:last-of-type)::after {
+		content: "⦁";
+		padding: 0 .25rem;
+		color: var(--color-2);
 	}
 
-	.card .shine::before {
-		content: "";
+	.card {
+		--card-y-coord-perc-1: 0%;
+		--card-y-coord-perc-2: 10%;
+		--card-y-coord-perc-3: 32.5%;
+		--card-y-coord-perc-4: 55%;
+		--card-x-coord-perc-1: 0%;
+		--card-x-coord-perc-2: 22.5%;
+		--card-x-coord-perc-3: 50%;
+		--card-x-coord-perc-4: 77.5%;
+		--tw-shadow-color: rgba(var(--color-5-rgb), .2);
+		
+		border: 1px solid;
+		border-color: var(--color-3);
+		border-radius: .25rem;
+		overflow: hidden;
+		position: relative;
+		transition: border .15s ease-in-out, box-shadow .15s ease-in-out;
+	}
+
+	html.dark .card {
+		--tw-shadow-color: rgba(var(--color-1-rgb), .2);
+	}
+
+	.card:hover {
+		border-color: var(--color-2);
+	}
+
+	.shine {
+		pointer-events: none;
 		width: 150%;
-		padding-bottom: 150%;
-		border-radius: 50%;
+		height: 150%;
 		position: absolute;
+		z-index: -1;
 		left: 50%;
 		bottom: 55%;
+		border-radius: 50%;
+		will-change: opacity, transform;
+  		transform: translateX(-50%) translateZ(0);
 		filter: blur(35px);
-		opacity: .1;
-		transform: translateX(-50%);
-		background-image: conic-gradient(from 225deg at 50% 50%, rgba(16, 185, 129, 0) 0deg, #10B981 25deg, #EDFAF6 285deg, #FFFFFF 345deg, rgba(16, 185, 129, 0) 360deg);
-		background-image: conic-gradient(from 225deg at 50% 50%, rgba(255,3,143, 0) 0deg, var(--color-1) 25deg, rgb(251, 235, 244) 285deg, #FFFFFF 345deg, rgba(255,3,143, 0); 360deg);
+		opacity: 0;
+		transition: opacity .5s;
+		background-image: conic-gradient(from 225deg at 50% 50%, rgba(var(--color-1-rgb), 0) 0deg, var(--color-1) 25deg, rgb(251, 235, 244) 285deg, var(--white) 345deg, rgba(var(--color-1-rgb), 0) 360deg);
 	}
 
-	.card .background {
+	.background {
+		pointer-events: none;
 		border-radius: inherit;
 		position: absolute;
+		z-index: -1;
 		inset: 0;
 		overflow: hidden;
 		-webkit-mask-image: radial-gradient(circle at 60% 5%, #000 0%, #000 15%, transparent 60%);
   		mask-image: radial-gradient(circle at 60% 5%, #000 0%, #000 15%, transparent 60%);
 	}
-
-	.card .background .tiles .tile {
+	
+	.tile {
 		position: absolute;
-		background-color:rgba(255,3,143, .05);
-		-webkit-animation-duration: 8s;
-          animation-duration: 8s;
+		z-index: -1;
+		background-color:rgba(var(--color-1-rgb), .05);
+		animation-duration: 8s;
   		-webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  		opacity: 0;
+		animation-iteration-count: infinite;
+		opacity: 0;
 	}
 
-	.card .background .tiles .tile.tile-4,
-	.card .background .tiles .tile.tile-6,
-	.card .background .tiles .tile.tile-10 {
+	.tile-4,
+	.tile-6,
+	.tile-10 {
 		-webkit-animation-delay: -2s;
 		animation-delay: -2s;
 	}
 
-	.card .background .tiles .tile.tile-3,
-	.card .background .tiles .tile.tile-5,
-	.card .background .tiles .tile.tile-8 {
+	.tile-3,
+	.tile-5,
+	.tile-8 {
 		-webkit-animation-delay: -4s;
 		animation-delay: -4s;
 	}
 
-	.card .background .tiles .tile.tile-2,
-	.card .background .tiles .tile.tile-9 {
+	.tile-2,
+	.tile-9 {
 		-webkit-animation-delay: -6s;
 		animation-delay: -6s;
 	}
 
-	.card .background .tiles .tile.tile-1 {
-		top: 0;
-		left: 0;
+	.tile-1,
+	.tile-2,
+	.tile-3,
+	.tile-4 {
+		top: var(--card-y-coord-perc-1);
 		height: 10%;
-		width: 22.5%;
 	}
 
-	.card .background .tiles .tile.tile-2 {
-  		top: 0;
-  		left: 22.5%;
-  		height: 10%;
-  		width: 27.5%;
+	.tile-5,
+	.tile-6,
+	.tile-7,
+	.tile-8 {
+  		top: var(--card-y-coord-perc-2);
 	}
 
-	.card .background .tiles .tile.tile-3 {
-  		top: 0;
-  		left: 50%;
-  		height: 10%;
-  		width: 27.5%;
+	.tile-9,
+	.tile-10 {
+  		top: var(--card-y-coord-perc-3);
 	}
 
-	.card .background .tiles .tile.tile-4 {
-  		top: 0;
-  		left: 77.5%;
-  		height: 10%;
+	.tile-5,
+	.tile-6,
+	.tile-7,
+	.tile-8,
+	.tile-9,
+	.tile-10 {
+  		height: 22.5%;
+	}
+
+	.tile-1,
+	.tile-4,
+	.tile-5,
+	.tile-8,
+	.tile-10 {
   		width: 22.5%;
 	}
 
-	.card .background .tiles .tile.tile-5 {
-  		top: 10%;
-  		left: 0;
-  		height: 22.5%;
-  		width: 22.5%;
-	}
-	.card .background .tiles .tile.tile-6 {
-  		top: 10%;
-  		left: 22.5%;
-  		height: 22.5%;
+	.tile-2,
+	.tile-3,
+	.tile-6,
+	.tile-7,
+	.tile-9 {
   		width: 27.5%;
 	}
-	.card .background .tiles .tile.tile-7 {
-  		top: 10%;
-  		left: 50%;
-  		height: 22.5%;
-  		width: 27.5%;
+
+	.tile-1,
+	.tile-5 {
+		left: var(--card-x-coord-perc-1);
 	}
-	.card .background .tiles .tile.tile-8 {
-  		top: 10%;
-  		left: 77.5%;
-  		height: 22.5%;
-  		width: 22.5%;
+
+	.tile-2,
+	.tile-6 {
+  		left: var(--card-x-coord-perc-2);
 	}
-	.card .background .tiles .tile.tile-9 {
-  		top: 32.5%;
-  		left: 50%;
-  		height: 22.5%;
-  		width: 27.5%;
+
+	.tile-3, 
+	.tile-7,
+	.tile-9 {
+  		left: var(--card-x-coord-perc-3);
 	}
-	.card .background .tiles .tile.tile-10 {
-  		top: 32.5%;
-  		left: 77.5%;
-  		height: 22.5%;
-  		width: 22.5%;
+
+	.tile-4,
+	.tile-8,
+	.tile-10 {
+  		left: var(--card-x-coord-perc-4);
 	}
 
 	@-webkit-keyframes tile {
@@ -278,114 +292,76 @@ const p = project.data;
   		}
 	}
 
-	.card .background .line {
+	.card .line {
 		position: absolute;
+		z-index: -1;
 		inset: 0;
+		background-color: rgba(var(--color-3-rgb), .3);
 		opacity: 0;
-		transition: opacity .35s;
+		transition: opacity .35s, transform .35s;
 	}
 
-	.card .background .line::before, 
-	.card .background .line::after {
-		content: "";
-		position: absolute;
+	html.dark .card .line {
 		background-color: var(--color-3);
-		transition: transform .35s;
 	}
 
-	.card .background .line::before {
-		left: 0;
-		right: 0;
+	.card .vertical.line {
+		width: 1px;
+		height: 100%;
+		transform: scaleY(0);
+		transform-origin: 50% 0;
+	}
+
+	.card .vertical.line-1 {
+		left: var(--card-x-coord-perc-2);
+	}
+
+	.card .vertical.line-2 {
+		left: var(--card-x-coord-perc-3);
+	}
+
+	.card .vertical.line-3 {
+		left: var(--card-x-coord-perc-4);
+	}
+
+	.card .horizontal.line {
+		width: 100%;
 		height: 1px;
 		transform-origin: 0 50%;
 		transform: scaleX(0);
 	}
 
-	.card .background .line::after {
-		top: 0;
-		bottom: 0;
-		width: 1px;
-		transform-origin: 50% 0;
-		transform: scaleY(0);
+	.card .horizontal.line-1 {
+		top: var(--card-y-coord-perc-2);
 	}
 
-	.card .background .line.line-1:before {
-  		top: 10%;
+	.card .horizontal.line-2 {
+		top: var(--card-y-coord-perc-3);
 	}
 
-	.card .background .line.line-1:after {
-  		left: 22.5%;
-	}
-
-	.card .background .line.line-1:before, .card .background .line.line-1:after {
-		transition-delay: 0.3s;
-	}
-
-	.card .background .line.line-2:before {
-  		top: 32.5%;
-	}
-
-	.card .background .line.line-2:after {
-		left: 50%;
-	}
-
-	.card .background .line.line-2:before, .card .background .line.line-2:after {
-		transition-delay: 0.15s;
-	}
-
-	.card .background .line.line-3:before {
-		top: 55%;
-	}
-
-	.card .background .line.line-3:after {
-		right: 22.5%;
-	}
-
-	.card:hover .icon {
-		opacity: 1;
+	.card .horizontal.line-3 {
+		top: var(--card-y-coord-perc-4);
 	}
 
 	.card:hover .shine {
-		opacity: 1;
-		transition-duration: .5s;
-		transition-delay: 0s;
+		opacity: .1;
 	}
 
-	.card:hover .background .tiles {
+	.card:hover .tile {
 		opacity: 1;
 		transition-delay: .25s;
-	}
-
-	.card:hover .background .tiles .tile {
 		-webkit-animation-name: tile;
 		animation-name: tile;
 	}
 
-	.card:hover .background .line {
-		opacity: 1;
-		transition-duration: .15s;
-	}
-
-	.card:hover .background .line::before {
-		transform: scaleX(1);
-	}
-
-	.card:hover .background .line::after {
+	.card:hover .vertical.line {
 		transform: scaleY(1);
+		opacity: 1;
 	}
 
-	.card:hover .background .line.line-1:before, 
-	.card:hover .background .line.line-1:after {
-  		transition-delay: 0s;
+	.card:hover .horizontal.line {
+		transform: scaleX(1);
+		opacity: 1;
 	}
 
-	.card:hover .background .line.line-2:before, 
-	.card:hover .background .line.line-2:after {
-	  	transition-delay: 0.15s;
-	}
-
-	.card:hover .background .line.line-3:before, 
-	.card:hover .background .line.line-3:after {
-	  	transition-delay: 0.3s;
-	}
 </style>
