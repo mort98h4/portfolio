@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import "../styles/global.css";
 import Card from '../components/shared/Card.astro';
+import Section from '../components/shared/Section.astro';
 
 const projects = await getCollection('projects');
 ---
@@ -10,22 +11,22 @@ const projects = await getCollection('projects');
 <Layout title="Morten Schou Gross">
 	<main class="p-4 mx-auto max-w-6xl">
 
-		<section id="about" class="pt-12" style="min-height: 100vh; border: solid 1px white;">
+		<Section id="about">
 			<h2 class="code text-center text-xl sm:text-2xl md:text-3xl pb-6">About</h2>
-		</section>
+		</Section>
 
-		<section id="resume" class="pt-12" style="min-height: 100vh; border: solid 1px white;">
+		<Section id="resume">
 			<h2 class="code text-center text-xl sm:text-2xl md:text-3xl pb-6">Resume</h2>
-		</section>
+		</Section>
 
-		<section id="projects" class="pt-12">
+		<Section id="projects">
 			<h2 class="code text-center text-xl sm:text-2xl md:text-3xl pb-6">Projects</h2>
 			<ul class="grid grid-cols-12 py-4 gap-4">
 				{projects.map(project => (
 					<Card project={project}></Card>
 				))}
 			</ul>
-		</section>
+		</Section>
 		
 	</main>
 </Layout>
