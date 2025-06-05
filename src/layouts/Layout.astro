@@ -1,6 +1,6 @@
 ---
 import Footer from '../components/core/Footer.astro';
-import Header from '../components/core/Header.astro';
+import Hero from '../components/core/Hero.astro';
 import Navigation from '../components/core/Navigation.astro';
 
 interface Props {
@@ -23,7 +23,7 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<Navigation></Navigation>
-		<Header></Header>
+		<Hero />
 		<slot />
 		<Footer></Footer>
 	</body>
