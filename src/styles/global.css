@@ -31,17 +31,26 @@ html.dark {
 h1:not(.code),
 h2:not(.code),
 h3:not(.code),
-h4:not(.code) {
+h4:not(.code),
+h5:not(.code),
+h6:not(.code) {
     color: var(--color-3);
     font-weight: 700;
     letter-spacing: .025em;
     text-transform: uppercase;
 }
 
+h5:not(.code),
+h6:not(.code) {
+    font-weight: 500;
+}
+
 html.dark h1:not(.code),
 html.dark h2:not(.code),
 html.dark h3:not(.code),
-html.dark h4:not(.code) {
+html.dark h4:not(.code),
+html.dark h5:not(.code),
+html.dark h6:not(.code) {
     color: var(--color-2);
 }
 
