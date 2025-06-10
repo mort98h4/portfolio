@@ -18,6 +18,7 @@ const educations = defineCollection({
     schema: z.object({
         id: z.number(),
         institution: z.string(),
+        institutionShort: z.string().optional(),
         name: z.string(),
         level: z.string(),
         periodStart: z.string(),
