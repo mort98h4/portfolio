@@ -1,13 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
 import "../styles/global.css";
-import Card from '../components/shared/Card.astro';
 import Section from '../components/shared/Section.astro';
 import Header from '../components/shared/Header.astro';
 import Resume from '../components/core/Resume.astro';
+import Projects from '../components/core/Projects.astro';
 
-const projects = await getCollection('projects');
 ---
 
 <Layout title="Morten Schou Gross">
@@ -19,14 +17,7 @@ const projects = await getCollection('projects');
 
 		<Resume />
 
-		<Section id="projects">
-			<Header text='Projects' />
-			<ul class="grid grid-cols-12 py-4 gap-4">
-				{projects.map(project => (
-					<Card project={project}></Card>
-				))}
-			</ul>
-		</Section>
+		<Projects />
 		
 	</main>
 </Layout>

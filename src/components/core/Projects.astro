@@ -1,0 +1,18 @@
+---
+import { getCollection } from "astro:content";
+import Card from "../shared/Card.astro";
+import Header from "../shared/Header.astro";
+import Section from "../shared/Section.astro";
+
+const projects = await getCollection('projects');
+
+---
+
+<Section id="projects">
+    <Header text='Projects' />
+    <ul class="grid grid-cols-12 py-4 gap-4">
+        {projects.map(project => (
+            <Card project={project}></Card>
+        ))}
+    </ul>
+</Section>
