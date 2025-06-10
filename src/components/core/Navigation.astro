@@ -4,7 +4,7 @@
 
 <nav class="w-full py-2 px-4 flex flex-col md:flex-row justify-between md:items-center fixed top-0 z-[9999] bg-[var(--color-5)}/30 backdrop-blur-md">
     <div class="title flex items-center justify-between md:w-auto">
-        <a href="#header" class="code text-lg">&lt;Morten Schou Gross /&gt;</a>
+        <a href="#hero" class="code text-lg">&lt;Morten Schou Gross /&gt;</a>
         <button 
             id="navigation-toggler"
             role="button"
@@ -249,7 +249,6 @@
             target = document.querySelector('#dark-mode-toggler');
         }
 
-        console.log(mode);
         const htmlEl = document.querySelector('html');
         if (mode === 'dark') {
             htmlEl.classList.add('dark');
