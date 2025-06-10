@@ -5,6 +5,7 @@ import "../styles/global.css";
 import Card from '../components/shared/Card.astro';
 import Section from '../components/shared/Section.astro';
 import Header from '../components/shared/Header.astro';
+import Resume from '../components/core/Resume.astro';
 
 const projects = await getCollection('projects');
 ---
@@ -16,11 +17,9 @@ const projects = await getCollection('projects');
 			<Header text='About' />
 		</Section>
 
-		<Section id="resume">
-			<Header text='Resume' />
-		</Section>
+		<Resume />
 
-		<Section id="projects">,
+		<Section id="projects">
 			<Header text='Projects' />
 			<ul class="grid grid-cols-12 py-4 gap-4">
 				{projects.map(project => (

@@ -1,0 +1,27 @@
+---
+import ExperienceList from "../shared/ExperienceList.astro";
+import Header from "../shared/Header.astro";
+import Section from "../shared/Section.astro";
+
+
+---
+
+<Section id="resume">
+    <Header text='Resume' />
+    <article class="grid grid-cols-1 gap-2">
+        <header class="col-span-full">
+            <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl">Experience</h3>
+        </header>
+        
+        <ExperienceList id="work" />
+        
+    </article>
+    <!-- <article>
+        <h3>Education</h3>
+        <ul>
+            <li>Statistics of Denmark</li>
+            <li>Tivoli A/S</li>
+            <li>Vuffeli A/S</li>
+        </ul>
+    </article> -->
+</Section>
