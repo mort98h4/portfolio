@@ -4,7 +4,8 @@ import Card from "../shared/Card.astro";
 import Header from "../shared/Header.astro";
 import Section from "../shared/Section.astro";
 
-const projects = await getCollection('projects');
+let projects = await getCollection('projects');
+projects = projects.sort((a, b) => a.data.id - b.data.id);
 
 ---
 
