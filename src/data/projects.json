@@ -1,0 +1,205 @@
+[
+    {
+        "id": 1,
+        "title": "Bulbapedia",
+        "body": "Small project to get reacquainted with Next.js, and try out Sanity.",
+        "urls": [
+            {
+                "title": "Bulbapedia",
+                "href": "https://bulbapedia.vercel.app/"
+            }
+        ],
+        "repositories": [
+            {
+                "name": "Bulbapedia",
+                "href": "https://github.com/mort98h4/bulbapedia"
+            }
+        ],
+        "technologies": [
+            {
+                "name": "Next.js"
+            },
+            {
+                "name": "Sanity"
+            },
+            {
+                "name": "Tailwind CSS"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Anarkist Bar CMS",
+        "body": "My bachelor project, in which we set out to create an easy and efficient CMS for the Anarkist Bar in Tivoli.",
+        "urls": [
+            {
+                "title": "CMS",
+                "href": "http://anarkist.eu.pythonanywhere.com/sign-in"
+            },
+            {
+                "title": "Monitor menu 1",
+                "href": "http://anarkist.eu.pythonanywhere.com/menu/1/screen/1"
+            },
+            {
+                "title": "Monitor menu 2",
+                "href": "http://anarkist.eu.pythonanywhere.com/menu/1/screen/2"
+            },
+            {
+                "title": "Menu",
+                "href": "https://anarkist.vercel.app/"
+            }
+        ],
+        "repositories": [
+            {
+                "name": "Anarkist CMS",
+                "href": "https://github.com/mort98h4/anarkist_cms"
+            },
+            {
+                "name": "Anarkist Public",
+                "href": "https://github.com/mort98h4/anarkist_public"
+            }
+        ],
+        "technologies": [
+            {
+                "name": "Python"
+            }, 
+            {
+                "name": "Bottle.py"
+            }, 
+            {
+                "name": "Astro.build"
+            }, 
+            {
+                "name": "Tailwind CSS"
+            }, 
+            {
+                "name": "JavaScript"
+            }, 
+            {
+                "name": "MySQL"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Bank",
+        "body": "My second semester exam project, where we were tasked to create a bank application.",
+        "urls": [],
+        "repositories": [
+            {
+                "name": "bank_exam",
+                "href": "https://gitlab.com/math92k4/bank_exam"
+            }
+        ],
+        "technologies": [
+            {
+                "name": "Python"
+            }, 
+            {
+                "name": "Django"
+            }, 
+            {
+                "name": "Docker"
+            }, 
+            {
+                "name": "HTMX"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Anarkist Bar",
+        "body": "My second semester elective exam project, where we were tasked to create a full stack web application.",
+        "urls": [
+            {
+                "title": "Anarkist",
+                "href": "https://mortengross.dk/anarkist/"
+            }
+        ],
+        "repositories": [
+            {
+                "name": "php_exam_project",
+                "href": "https://github.com/mort98h4/php_exam_project"
+            }
+        ],
+        "technologies": [
+            {
+                "name": "PHP"
+            }, 
+            {
+                "name": "JavaScript"
+            },
+            {
+                "name": "Tailwind CSS"
+            },
+            {
+                "name": "MySQL"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Twatter",
+        "body": "My Web Dev first semester exam project, where we were tasked to create a copy of Twitter.",
+        "urls": [
+            {
+                "title": "Twatter",
+                "href": "https://mort98h4.eu.pythonanywhere.com/"
+            }
+        ],
+        "repositories": [
+            {
+                "name": "03_exam_project",
+                "href": "https://github.com/mort98h4/03_exam_project"
+            }
+        ],
+        "technologies": [
+            {
+                "name": "Python"
+            }, 
+            {
+                "name": "Bottle.py"
+            }, 
+            {
+                "name": "Tailwind CSS"
+            }, 
+            {
+                "name": "JavaScript"
+            }, 
+            {
+                "name": "MySQL"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Strikkestedet",
+        "body": "My Multimediadesign final exam project, where we were tasked to do a rebranding of an existing company.",
+        "urls": [
+            {
+                "title": "Strikkestedet",
+                "href": "https://strikkestedet-orpin.vercel.app/"
+            }
+        ],
+        "repositories": [
+            {
+                "name": "strikkestedet",
+                "href": "https://github.com/mort98h4/strikkestedet"
+            }
+        ],
+        "technologies": [
+            {
+                "name": "Next.js"
+            }, 
+            {
+                "name": "WordPress"
+            }, 
+            {
+                "name": "Tailwind CSS"
+            }, 
+            {
+                "name": "GraphQL"
+            }
+        ]
+    }
+]
