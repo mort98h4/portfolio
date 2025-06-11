@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { file, glob } from 'astro/loaders';
 
 const experiences = defineCollection({
-    loader: glob({ pattern: '**/[^_]*.json', base: './src/data/experiences' }),
+    loader: file('./src/data/experiences.json'),
     schema: z.object({
         id: z.number(),
         institution: z.string(),
