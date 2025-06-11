@@ -14,7 +14,7 @@ const experiences = defineCollection({
 });
 
 const educations = defineCollection({
-    loader: glob({ pattern: '**/[^_]*.json', base: './src/data/educations' }),
+    loader: file('./src/data/educations.json'),
     schema: z.object({
         id: z.number(),
         institution: z.string(),
