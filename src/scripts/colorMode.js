@@ -1,5 +1,3 @@
-console.log('Hello from colorMode.js');
-
 window.addEventListener('load', getColorMode);
 document.querySelector('#dark-mode-toggler').addEventListener('click', toggleDarkMode);
 
