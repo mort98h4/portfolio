@@ -1,0 +1,11 @@
+---
+interface Props {
+    id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<article id={id} data-animate data-animation="fade-in" class="mb-12">
+    <slot />
+</article>

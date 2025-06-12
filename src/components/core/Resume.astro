@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import ExperienceList from "../shared/ExperienceList.astro";
 import Header from "../shared/Header.astro";
 import Section from "../shared/Section.astro";
+import Article from "../shared/Article.astro";
 
 const experiences = await getCollection('experiences');
 const educations = await getCollection('educations');
@@ -18,23 +19,24 @@ skills.map(skill => {
 
 <Section id="resume">
     <Header text='Resume' />
-    <article class="mb-12">
+
+    <Article id="experience">
         <header class="mb-4">
             <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl">Experience</h3>
         </header>
         
         <ExperienceList id="work" data={experiences} />
-        
-    </article>
-    <article class="mb-12">
+    </Article>
+    
+    <Article id="education">
         <header class="mb-4">
             <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl">Education</h3>
         </header>
         
         <ExperienceList id="school" data={educations} />
-    </article>
+    </Article>
 
-    <article class="mb-12">
+    <Article id="skills">
         <header class="mb-4">
             <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl">Skills</h3>
         </header>
@@ -61,5 +63,5 @@ skills.map(skill => {
             }
             
         </div>
-    </article>
+    </Article>
 </Section>
