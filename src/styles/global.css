@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Satisfy&display=swap');
+@import url('animations.css');
 @import "tailwindcss";
 
 :root {
