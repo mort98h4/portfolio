@@ -134,16 +134,6 @@
 <script>
     window.addEventListener('load', getColorMode);
     window.addEventListener('DOMContentLoaded', initNavigation);
-    let nav;
-    let headerHeight;
-
-    const onIntersection = (entries) => {
-        for (const entry of entries) {
-            toggleActiveNavLink(entry);
-        }
-    };
-
-    const observer = new IntersectionObserver(onIntersection, {threshold: 0.5});
 
     function getColorMode() {
         if (!window.matchMedia) {
@@ -162,78 +152,7 @@
     }
 
     function initNavigation() {
-        nav = document.querySelector('nav');
-        headerHeight = document.querySelector('header').getBoundingClientRect().height;
-
-        window.addEventListener('scroll', windowScroll);
-
-        const navigationToggler = document.querySelector('#navigation-toggler') as HTMLElement;
-        navigationToggler.addEventListener('click', toggleMenu);
         document.querySelector('#dark-mode-toggler').addEventListener('click', toggleDarkMode);
-        
-        document.querySelectorAll('.nav-link').forEach(el => {
-            el.addEventListener('click', () => navigationToggler.click());
-        });
-
-        document.querySelectorAll('section').forEach(el => {
-            observer.observe(el);
-        });
-    }
-
-    function windowScroll() {
-        const scrollY = window.scrollY;
-
-        if (scrollY > headerHeight/2) {
-            nav.classList.add('show');
-        } else {
-            nav.classList.remove('show');
-        }
-    }
-
-    function toggleActiveNavLink(intersectionEntry) {
-        const navLinks = document.querySelectorAll('.nav-link');
-        const targetId = intersectionEntry.target.getAttribute('id');
-            
-        if (intersectionEntry.isIntersecting) {                
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === `#${targetId}`) {
-                    link.classList.add('active');
-                }
-            });
-        } else {
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === `#${targetId}`) {
-                    link.classList.remove('active');
-                }
-            });
-        }
-    }
-
-    function toggleMenu() {
-        const navContent = document.querySelector(this.dataset.target);
-        const navList = navContent.querySelector('.navigation-list');
-        
-        const childrenTotal = navList.childElementCount;
-        let navListChildrenHeight = 0;
-        navList.querySelectorAll('li').forEach((child) => {
-            const childHeight = child.getBoundingClientRect().height;
-            if (childHeight > navListChildrenHeight) {
-                navListChildrenHeight = childHeight;
-            } 
-        })
-
-        const navListHeight = (navListChildrenHeight * childrenTotal) + navList.getBoundingClientRect().height;
-
-        navContent.setAttribute('style', `--navigation-list-height: ${navListHeight}px;`);
-
-        const ariaExpanded = this.getAttribute('aria-expanded');
-        if (ariaExpanded === 'false') {
-            this.setAttribute('aria-expanded', 'true');
-        } else {
-            this.setAttribute('aria-expanded', 'false');
-        }
-        
-        navContent.classList.toggle('show');
     }
 
     function toggleDarkMode(colorMode) {

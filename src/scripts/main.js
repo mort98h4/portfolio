@@ -1,1 +1,2 @@
-import * as animations from "./animations.js";
+import * as navigation from './navigation.js';
+import * as animations from './animations.js';
