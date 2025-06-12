@@ -3,7 +3,7 @@
         "id": 1,
         "type": "Web Design",
         "text": "UI/UX design",
-        "icon": "fa-solid fa-palette"
+        "icon": "fa-solid fa-laptop-code"
     },
     {
         "id": 2,
@@ -90,7 +90,7 @@
     },
     {
         "id": 16,
-        "type": "Frontend",
+        "type": "Web Design",
         "text": "Bootstrap",
         "icon": "fa-brands fa-bootstrap"
     },
@@ -108,7 +108,7 @@
     },
     {
         "id": 19,
-        "type": "Frontend",
+        "type": "Web Design",
         "text": "Tailwind CSS",
         "icon": ""
     },
@@ -117,5 +117,17 @@
         "type": "Frontend",
         "text": "NextJS",
         "icon": ""
+    },
+    {
+        "id": 21,
+        "type": "Web Design",
+        "text": "Color theory",
+        "icon": "fa-solid fa-palette"
+    },
+    {
+        "id": 22,
+        "type": "Web Design",
+        "text": "Typography",
+        "icon": "fa-solid fa-font"
     }
 ]
