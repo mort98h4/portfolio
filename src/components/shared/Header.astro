@@ -7,52 +7,7 @@ const { text } = Astro.props;
 ---
 
 <header class="mb-12">
-    <h2 class="code text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+    <h2 data-animate data-animation="flicker" class="code text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
         &lt;{text} /&gt;
     </h2>
 </header>
-
-<style>
-    .flicker {
-        animation-name: flicker;
-        animation-duration: 3s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-    }
-
-    @keyframes flicker {
-    0%, 18% {
-        opacity: 0;
-    }
-
-	19%, 22%, 62%, 64%, 70%, 100% {
-		opacity: 1;
-        text-shadow: 0 0 20px var(--color-1);
-	}
-	20%, 21%, 63%, 65%, 69.9% {
-		opacity: 0.4;
-		text-shadow: none;
-	}
-}
-</style>
-
-<script>
-    'use strict';
-    window.addEventListener('DOMContentLoaded', initHeader);
-
-    const onIntersection = (entries) => {
-        for (const entry of entries) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('flicker');
-            }
-        }
-    };
-
-    const observer = new IntersectionObserver(onIntersection, {threshold: 0});
-
-    function initHeader() {
-        document.querySelectorAll('header > h2.code').forEach(el => {
-            observer.observe(el);
-        });
-    }
-</script>
