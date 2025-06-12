@@ -3,7 +3,6 @@
 const addAnimation = (entries) => {
     for (const entry of entries) {
         if (entry.isIntersecting) {
-            console.log(entry.target);
             entry.target.classList.add(entry.target.dataset.animation);
         }
     }
