@@ -131,7 +131,7 @@
     }
 </style>
 
-<script type="module">
+<script>
     window.addEventListener('load', getColorMode);
     window.addEventListener('DOMContentLoaded', initNavigation);
     let nav;
@@ -167,7 +167,7 @@
 
         window.addEventListener('scroll', windowScroll);
 
-        const navigationToggler = document.querySelector('#navigation-toggler');
+        const navigationToggler = document.querySelector('#navigation-toggler') as HTMLElement;
         navigationToggler.addEventListener('click', toggleMenu);
         document.querySelector('#dark-mode-toggler').addEventListener('click', toggleDarkMode);
         
@@ -210,10 +210,8 @@
     }
 
     function toggleMenu() {
-        const navToggler = event.target;
-        const navContent = document.querySelector(navToggler.dataset.target);
+        const navContent = document.querySelector(this.dataset.target);
         const navList = navContent.querySelector('.navigation-list');
-
         
         const childrenTotal = navList.childElementCount;
         let navListChildrenHeight = 0;
@@ -228,11 +226,11 @@
 
         navContent.setAttribute('style', `--navigation-list-height: ${navListHeight}px;`);
 
-        const ariaExpanded = navToggler.getAttribute('aria-expanded');
+        const ariaExpanded = this.getAttribute('aria-expanded');
         if (ariaExpanded === 'false') {
-            navToggler.setAttribute('aria-expanded', 'true');
+            this.setAttribute('aria-expanded', 'true');
         } else {
-            navToggler.setAttribute('aria-expanded', 'false');
+            this.setAttribute('aria-expanded', 'false');
         }
         
         navContent.classList.toggle('show');
