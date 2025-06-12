@@ -1,3 +1,8 @@
+[data-animate][data-animation="fade-in"],
+[data-animate][data-animation="flicker"] {
+    opacity: 0;
+}
+
 .fade-in {
     animation-name: fade-in;
     animation-duration: 1s;
