@@ -7,15 +7,15 @@ interface Props {
 const { id, data } = Astro.props;
 ---
 
-<div id={id} class="col-span-full grid grid-cols-12 items-center relative">
+<div id={id} class="carousel col-span-full grid grid-cols-12 items-center relative">
     <ul class="hidden sm:block sm:col-span-5 md:col-span-4 lg:col-span-3">
         {data.map(exp => (
             <li 
-                id={id + '-experience-' + exp.data.id}
+                id={id + '-list-btn-' + exp.data.id}
                 data-carousel={'#' + id}
-                data-target={'#' + id + '-experience-details-' + exp.data.id}
+                data-target={'#' + id + '-slide-' + exp.data.id}
                 class={
-                    'experience md:text-lg lg:text-xl font-medium px-4 py-2 border-l-2 '
+                    'carousel-list-btn md:text-lg lg:text-xl font-medium px-4 py-2 border-l-2 '
                     + (data[0].data.id === exp.data.id ? 'active' : '')
                 }
             >
@@ -27,12 +27,12 @@ const { id, data } = Astro.props;
         ))}
     </ul>
 
-    <div class="details-container col-span-full sm:col-span-7 md:col-span-8 lg:col-span-9 relative overflow-hidden">
+    <div class="carousel-slides-container col-span-full sm:col-span-7 md:col-span-8 lg:col-span-9 relative overflow-hidden">
         {data.map(exp => (
             <article 
-                id={id + '-experience-details-' + exp.data.id}
+                id={id + '-slide-' + exp.data.id}
                 aria-hidden={(data[0].data.id === exp.data.id ? 'false' : 'true')}
-                class="experience-details w-full relative"
+                class="slide w-full relative"
             >
                 <header class="mb-4 w-full flex flex-col md:mb-2 md:gap-2 md:flex-row ">
                     <div class="sm:text-lg md:text-xl md:grow lg:text-2xl">
@@ -77,7 +77,7 @@ const { id, data } = Astro.props;
         <button
             data-carousel={'#' + id}
             data-carousel-direction="next"
-            data-target={'#' + id + '-experience-details-2'}
+            data-target={'#' + id + '-slide-2'}
             data-carousel-active-index="1"
             data-carousel-length={data.length}
             class="carousel-btn inline-flex justify-center items-center w-8 h-8 rounded-full border cursor-pointer"
@@ -102,7 +102,7 @@ const { id, data } = Astro.props;
         border-color: var(--color-1);
     }
 
-    .details-container {
+    .carousel-slides-container {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
@@ -110,22 +110,22 @@ const { id, data } = Astro.props;
         -webkit-overflow-scrolling: touch;
     }
 
-    .details-container::-webkit-scrollbar {
+    .carousel-slides-container::-webkit-scrollbar {
         display: none;
     }
 
-    .experience-details {
+    .slide {
         scroll-snap-align: start;
         flex-shrink: 0;
         width: 100%;
         margin-right: 3rem;
     }
 
-    .experience-details h4 {
+    .slide h4 {
         color: var(--color-2);
     }
 
-    html.dark .experience-details h4 {
+    html.dark .slide h4 {
         color: var(--color-1);
     }
 
@@ -175,84 +175,3 @@ const { id, data } = Astro.props;
 		color: var(--color-1);
     }
 </style>
-
-<script>
-    'use strict';
-
-    window.addEventListener('DOMContentLoaded', initExperienceList);
-
-    function initExperienceList() {
-        document.querySelectorAll('.experience').forEach(item => {
-            item.addEventListener('click', experienceClick);
-        });
-
-        document.querySelectorAll('.carousel-btn').forEach(btn => {
-            btn.addEventListener('click', btnClick);
-        });
-    }
-
-    function experienceClick() {
-        const carousel = this.dataset.carousel;
-        document.querySelectorAll(`${carousel} li.experience`).forEach(item => {
-            item.classList.remove('active');
-        });
-        this.classList.add('active');
-
-        displayExperience(this.dataset.target, carousel);
-    }
-
-    function btnClick() {
-        const target = this.dataset.target;
-        const carousel = this.dataset.carousel;
-        const newTarget = `${carousel}-experience-details-`;
-        let prevTarget = newTarget;
-        let nextTarget = newTarget;
-
-        const direction = this.dataset.carouselDirection;
-        const prevBtn = document.querySelector(`${carousel} button[data-carousel-direction="prev"]`);
-        const nextBtn = document.querySelector(`${carousel} button[data-carousel-direction="next"]`);
-
-        const activeIndex = parseInt(this.dataset.carouselActiveIndex);
-        let nextIndex;
-        const maxIndex = parseInt(this.dataset.carouselLength);
-        const minIndex = 1;
-
-        if (direction === 'next') {
-            nextIndex = activeIndex + 1;
-            prevTarget += activeIndex;       
-            nextTarget += (nextIndex + 1);
-        }
-
-        if (direction === 'prev') {
-            nextIndex = activeIndex - 1;
-            prevTarget += (nextIndex - 1);
-            nextTarget += activeIndex;
-        }
-
-        prevBtn.setAttribute('data-target', prevTarget);
-        nextBtn.setAttribute('data-target', nextTarget);
-
-        setDisabledState(prevBtn, nextIndex, minIndex);
-        setDisabledState(nextBtn, nextIndex, maxIndex);
-
-        prevBtn.setAttribute('data-carousel-active-index', nextIndex);
-        nextBtn.setAttribute('data-carousel-active-index', nextIndex);
-
-        displayExperience(target, carousel);
-    }
-
-    function setDisabledState(target, index, compareIndex) {
-        if (index === compareIndex) {
-            target.setAttribute('disabled', true);
-        } else {
-            target.removeAttribute('disabled');
-        }
-    }
-
-    function displayExperience(targetElemId, carouselId) {
-        document.querySelectorAll(`${carouselId} .experience-details`).forEach(item => item.setAttribute('aria-hidden', 'true'));
-        const target = document.querySelector(targetElemId);
-        target.scrollIntoView({block: "nearest"});
-        target.setAttribute('aria-hidden', false);
-    }
-</script>
