@@ -1,5 +1,3 @@
-console.log('Hello from animations.js')
-
 'use strict';
 
 const addAnimation = (entries) => {
