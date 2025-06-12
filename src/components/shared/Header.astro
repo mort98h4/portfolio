@@ -14,7 +14,6 @@ const { text } = Astro.props;
 
 <style>
     .flicker {
-        animation: flicker 3s linear;
         animation-name: flicker;
         animation-duration: 3s;
         animation-timing-function: linear;
@@ -55,5 +54,5 @@ const { text } = Astro.props;
         document.querySelectorAll('header > h2.code').forEach(el => {
             observer.observe(el);
         });
-    }    
+    }
 </script>
