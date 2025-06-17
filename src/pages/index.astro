@@ -1,19 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import "../styles/global.css";
-import Section from '../components/shared/Section.astro';
-import Header from '../components/shared/Header.astro';
 import Resume from '../components/core/Resume.astro';
 import Projects from '../components/core/Projects.astro';
+import About from '../components/core/About.astro';
 
 ---
 
 <Layout title="Morten Schou Gross">
 	<main class="p-4 mx-auto max-w-6xl">
 
-		<Section id="about">
-			<Header text='About' />
-		</Section>
+		<About />
 
 		<Resume />
 
