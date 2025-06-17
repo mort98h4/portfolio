@@ -1,11 +1,15 @@
 ---
 interface Props {
     id: string;
+    classList?: string;
 }
 
-const { id } = Astro.props;
+const { id, classList = '' } = Astro.props;
+
+let classes = classList + ' mb-8 md:mb-12' 
+
 ---
 
-<article id={id} data-animate data-animation="fade-in" class="mb-8 md:mb-12">
+<article id={id} data-animate data-animation="fade-in" class={classes}>
     <slot />
 </article>
