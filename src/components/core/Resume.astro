@@ -22,7 +22,7 @@ skills.map(skill => {
 
     <Article id="experience">
         <header class="mb-4">
-            <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl">Experience</h3>
+            <h3 class="text-2xl sm:text-3xl md:text-4xl">Experience</h3>
         </header>
         
         <ExperienceList id="work" data={experiences} />
@@ -30,7 +30,7 @@ skills.map(skill => {
     
     <Article id="education">
         <header class="mb-4">
-            <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl">Education</h3>
+            <h3 class="text-2xl sm:text-3xl md:text-4xl">Education</h3>
         </header>
         
         <ExperienceList id="school" data={educations} />
@@ -38,14 +38,14 @@ skills.map(skill => {
 
     <Article id="skills">
         <header class="mb-4">
-            <h3 class="text-lg sm:text-xl md:text-2xl lg:text-3xl">Skills</h3>
+            <h3 class="text-2xl sm:text-3xl md:text-4xl">Skills</h3>
         </header>
 
         <div class="grid grid-cols-4 gap-4">
             {
                 skillTypes.map(skillType => (
                     <div class="col-span-2 mb-4 md:col-span-1 md:mb-0">
-                        <h4 class="mb-2 sm:text-lg md:text-xl lg:text-2xl">{skillType}</h4>
+                        <h4 class="mb-2 text-lg sm:text-xl md:text-2xl">{skillType}</h4>
                         <ul>
                             {skills.map(skill => (
                                 skill.data.type == skillType ? 

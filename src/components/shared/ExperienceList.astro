@@ -35,7 +35,7 @@ const { id, data } = Astro.props;
                 class="slide w-full relative"
             >
                 <header class="mb-4 w-full flex flex-col md:mb-2 md:gap-2 md:flex-row ">
-                    <div class="sm:text-lg md:text-xl md:grow lg:text-2xl">
+                    <div class="text-lg sm:text-xl md:text-2xl md:grow">
                         <h4 class="">
                             {
                                 exp.data.name ? exp.data.name 
@@ -51,7 +51,7 @@ const { id, data } = Astro.props;
                         </h5>
                     </div>
                     
-                    <span class="experience-period text-sm font-medium border rounded px-2 py-1">{exp.data.periodStart} - {exp.data.periodEnd ? exp.data.periodEnd : 'present'}</span>
+                    <span class="experience-period text-sm lg:text-base font-medium border rounded px-2 py-1">{exp.data.periodStart} - {exp.data.periodEnd ? exp.data.periodEnd : 'present'}</span>
                 </header>
                 <main>
                     <p class="">
