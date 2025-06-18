@@ -44,16 +44,19 @@ skills.map(skill => {
         <div class="grid grid-cols-4 gap-4">
             {
                 skillTypes.map(skillType => (
-                    <div class="col-span-2 mb-4 md:col-span-1 md:mb-0">
+                    <div class="col-span-2 sm:col-span-1 md:mb-0">
                         <h4 class="mb-2 text-lg sm:text-xl md:text-2xl">{skillType}</h4>
                         <ul>
                             {skills.map(skill => (
                                 skill.data.type == skillType ? 
-                                <li class="font-medium md:text-lg">
-                                    <span class="inline-flex items-center justify-center w-6 h-6 me-1">
+                                <li class="font-medium md:text-lg md:leading-5 flex items-center mb-1">
+                                    <span class="inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 me-1">
                                         {skill.data.icon ? <i class={skill.data.icon}></i> : <i class="fa-solid fa-code"></i>}
                                     </span>
-                                    {skill.data.text}
+                                    <span class="inline-block">
+                                        {skill.data.text}
+                                    </span>
+                                    
                                 </li>
                                 : ''
                             ))}
