@@ -9,19 +9,57 @@ import Section from "../shared/Section.astro";
 <Section id="about">
     <Header text='About' />
 
-    <!-- TODO: When actual content is inserted, the grid rows should be changed to fit the content -->
-
-    <Article id="test" classList="grid grid-cols-6 xs:grid-rows-4 gap-8 xs:gap-4">
-        <header class="col-span-full xs:order-1 xs:row-span-1 xs:col-span-3 sm:col-span-4 md:col-span-3">
+    <Article id="aboutContent" classList="grid grid-cols-12 sm:grid-rows-5 gap-8">
+        <header class="col-span-full sm:order-1 sm:row-span-1 sm:col-span-7 lg:col-span-8">
             <h3 class="text-2xl sm:text-3xl md:text-4xl">Hi, I'm Morten.</h3>
             <p class="uppercase font-medium sm:text-lg lg:text-xl">I'm a full stack web developer based in Copenhagen.</p>
         </header>
-        <div class="col-span-full xs:order-2 xs:row-span-full xs:row-start-1 xs:col-span-3 xs:col-start-4 sm:col-span-2 sm:col-start-5 flex items-start justify-center">
-            <img class="w-[75%] xs:w-full rounded-full" src="/public/darth_vader.jpg" alt="Darth Vader, Dark Lord of the Sith" />
+        <div class="col-span-full sm:order-2 sm:row-span-full sm:row-start-1 sm:col-span-5 sm:col-start-8 lg:col-span-4 lg:col-start-9 flex items-start justify-center">
+            <div class="image-container w-[75%] xs:w-[50%] sm:w-full rounded-full overflow-hidden p-8 outline-2 outline-(--color-1)">
+                <img class="rounded-full" src="/7109_no_bg.png" alt="Morten Gross, full stack web developer" />
+                <div class="gradient"></div>
+            </div>
         </div>
-        <div class="col-span-full xs:order-1 xs:row-span-3 xs:col-span-3 sm:col-span-4 md:col-span-3">
-            <p>My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?</p>
+        <div class="col-span-full sm:order-1 sm:row-span-4 sm:col-span-7 lg:col-span-8">
+            <p class="mb-4">
+                I'm a web developer with a strong focus on building user-centric, scalable, and maintainable web solutions. 
+                I have experience in both frontend and backend development, with hands-on involvement in designing and implementing responsive web interfaces, custom CMS platforms, and API integrations.
+                With a proven ability to deliver solutions across the full stack using technologies like JavaScript, .NET, Python, and SQL, along with modern tools such as Tailwind CSS, Angular, and Astro. 
+                I'm comfortable working in Agile environments (Scrum/Kanban) and collaborating with cross-functional teams to bring digital products from concept to deployment.
+            </p>
+            <p>
+                I grew up in Hvidovre and now live in Nørrebro with my wife and our dog, Preben.
+                Outside of web development, I enjoy spending my time on hobbies that mix creativity and nostalgia — building Lego Star Wars sets, and playing classic retro Pokémon games. 
+                In addition I enjoy watching football at the stadium with friends, and attending festivals in the summer.
+                I value both focused creativity and shared experiences, which also reflects in how I approach my work and daily life.
+            </p>
         </div>
     </Article>
 
 </Section>
+
+<style>
+    .image-container {
+        position: relative;
+    }
+
+    .image-container > img {
+        filter: grayscale(1);
+    }
+
+    .image-container > .gradient {
+        width: calc(100% - ((0.25rem * 8) * 2));
+        height: calc(100% - ((0.25rem * 8) * 2));
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: calc(infinity * 1px);
+        
+        transform-origin: center center;
+        z-index: 1;
+        background-image: -moz-linear-gradient( 90deg, rgba(var(--color-1-rgb), 1) 0%, rgba(var(--color-5-rgb), 1) 100%);
+        background-image: -webkit-linear-gradient( 90deg, rgba(var(--color-2-rgb), .5) 0%, rgba(var(--color-1-rgb), .5) 100%);
+        mix-blend-mode: overlay;
+    }
+</style>
