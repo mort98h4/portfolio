@@ -90,7 +90,7 @@
     },
     {
         "id": 16,
-        "type": "Web Design",
+        "type": "Frontend",
         "text": "Bootstrap",
         "icon": "fa-brands fa-bootstrap"
     },
@@ -108,7 +108,7 @@
     },
     {
         "id": 19,
-        "type": "Web Design",
+        "type": "Frontend",
         "text": "Tailwind CSS",
         "icon": ""
     },
@@ -158,6 +158,12 @@
         "id": 27,
         "type": "Backend",
         "text": "OpenAPI",
+        "icon": ""
+    },
+    {
+        "id": 28,
+        "type": "Backend",
+        "text": ".NET",
         "icon": ""
     }
 ]
