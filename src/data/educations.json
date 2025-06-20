@@ -7,7 +7,36 @@
         "level": "Top-up Bachelor's Degree",
         "periodStart": "January 2022",
         "periodEnd": "June 2023",
-        "description": "Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends."
+        "description": "A technical and project-driven program focused on developing advanced web applications with modern technologies and best practices. The education builds on multimediadesign foundations and emphasizes full-stack development, API design, database architecture, and scalable frontend solutions. I gained practical experience with technologies like JavaScript, Python, PHP, SQL/NoSQL databases, RESTful APIs, and DevOps workflows. The program also covered software architecture, testing, deployment, and agile collaboration in development teams.",
+        "skills": [
+            {
+                "name": "Python"
+            },
+            {
+                "name": "Tailwind CSS"
+            },
+            {
+                "name": "GIT"
+            },
+            {
+                "name": "MySQL"
+            },
+            {
+                "name": "MongoDB"
+            },
+            {
+                "name": "Agile Development"
+            },
+            {
+                "name": "CI/CD Pipelines"
+            },
+            {
+                "name": "PHP"
+            },
+            {
+                "name": "Unit Testing"
+            }
+        ] 
     },
     {
         "id": 2,
@@ -17,6 +46,41 @@
         "level": "Academy Profession Degree",
         "periodStart": "January 2020",
         "periodEnd": "January 2022",
-        "description": "Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you. But I can't give you this case, it don't belong to me. Besides, I've already been through too much shit this morning over this case to hand it over to your dumb ass."
+        "description": "A practice-oriented, interdisciplinary program focusing on digital design, user experience, and web development. Through hands-on projects and collaboration, I developed strong skills in UX/UI design, frontend development (HTML, CSS, JavaScript), digital strategy, content creation, and multimedia production. The program also included business understanding, project management, and a practical internship to bridge the gap between design, technology, and user needs.",
+        "skills": [
+            {
+                "name": "UX Design"
+            },
+            {
+                "name": "UI Design"
+            },
+            {
+                "name": "Typography"
+            },
+            {
+                "name": "Color Theory"
+            },
+            {
+                "name": "Wireframing"
+            },
+            {
+                "name": "Prototyping"
+            },
+            {
+                "name": "HTML5"
+            },
+            {
+                "name": "CSS3"
+            },
+            {
+                "name": "JavaScript"
+            },
+            {
+                "name": "React"
+            },
+            {
+                "name": "Scrum"
+            }
+        ] 
     }
 ]
