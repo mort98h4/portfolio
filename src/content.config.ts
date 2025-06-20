@@ -9,7 +9,15 @@ const experiences = defineCollection({
         position: z.string(),
         periodStart: z.string(),
         periodEnd: z.string().nullable(),
-        description: z.string()
+        description: z.string(),
+        skills: z.array(
+            z.object(
+                {
+                    name: z.string(),
+                    icon: z.string().optional()
+                }
+            )
+        )
     })
 });
 
@@ -23,7 +31,15 @@ const educations = defineCollection({
         level: z.string(),
         periodStart: z.string(),
         periodEnd: z.string().nullable(),
-        description: z.string()
+        description: z.string(),
+        skills: z.array(
+            z.object(
+                {
+                    name: z.string(),
+                    icon: z.string().optional()
+                }
+            )
+        )
     })
 });
 
