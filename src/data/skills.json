@@ -129,5 +129,35 @@
         "type": "Web Design",
         "text": "Typography",
         "icon": "fa-solid fa-font"
+    },
+    {
+        "id": 23,
+        "type": "Backend",
+        "text": "Django",
+        "icon": ""
+    },
+    {
+        "id": 24,
+        "type": "Backend",
+        "text": "MySQL",
+        "icon": "bi bi-filetype-sql"
+    },
+    {
+        "id": 25,
+        "type": "Backend",
+        "text": "PHP",
+        "icon": "fa-brands fa-php"
+    },
+    {
+        "id": 26,
+        "type": "Backend",
+        "text": "JSON",
+        "icon": "bi bi-filetype-json"
+    },
+    {
+        "id": 27,
+        "type": "Backend",
+        "text": "OpenAPI",
+        "icon": ""
     }
 ]
