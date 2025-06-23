@@ -2,43 +2,45 @@
 
 ---
 
-<nav class="w-full py-2 px-4 flex flex-col md:flex-row justify-between md:items-center fixed top-0 z-[9999] bg-[var(--color-5)}/30 backdrop-blur-md">
-    <div class="title flex items-center justify-between md:w-auto">
-        <a href="#hero" class="code text-lg">&lt;Morten Schou Gross /&gt;</a>
-        <button 
-            id="navigation-toggler"
-            role="button"
-            class="icon-btn md:hidden"
-            data-target="#navigation-content"
-            aria-controls="navigation-content"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <i class="fa-solid fa-bars text-[1.5rem] pointer-events-none absolute"></i>
-            <i class="fa-solid fa-x text-[1.5rem] pointer-events-none absolute"></i>
-        </button>
-    </div>
-    <div id="navigation-content" class="flex justify-end text-end">
-        <ul class="navigation-list md:flex md:flex-row md:gap-4 pt-3 md:pt-0">
+<nav class="w-full py-2 px-4 fixed top-0 z-[9999] bg-[var(--color-5)}/30 backdrop-blur-md">
+    <div class="mx-auto max-w-6xl flex flex-col md:flex-row justify-between md:items-center">
+        <div class="title flex items-center justify-between md:w-auto">
+            <a href="#hero" class="code text-lg">&lt;Morten Schou Gross /&gt;</a>
+            <button 
+                id="navigation-toggler"
+                role="button"
+                class="icon-btn md:hidden"
+                data-target="#navigation-content"
+                aria-controls="navigation-content"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <i class="fa-solid fa-bars text-[1.5rem] pointer-events-none absolute"></i>
+                <i class="fa-solid fa-x text-[1.5rem] pointer-events-none absolute"></i>
+            </button>
+        </div>
+        <div id="navigation-content" class="flex justify-end text-end">
+            <ul class="navigation-list md:flex md:flex-row md:gap-4 pt-3 md:pt-0">
 
-            <li class="w-full flex justify-end mb-2 md:mb-0 md:order-2">
-                <button id="dark-mode-toggler" title="Toggle dark mode" role="button" data-color-mode="light" class="icon-btn">
-                    <i class="fa-solid fa-moon text-[1.5rem] absolute pointer-events-none"></i>
-                    <i class="fa-solid fa-sun text-[1.5rem] absolute pointer-events-none"></i>
-                </button>
-            </li>
-            
-            <li class="order-1">
-                <a class="nav-link mb-2 inline-block md:mb-0" href="#about">About</a>
-            </li>
-            <li class="order-1">
-                <a class="nav-link mb-2 inline-block md:mb-0" href="#resume">Resume</a>
-            </li>
-            <li class="order-1">
-                <a class="nav-link mb-2 inline-block md:mb-0" href="#projects">Projects</a>
-            </li>
-            
-        </ul>
+                <li class="w-full flex justify-end mb-2 md:mb-0 md:order-2">
+                    <button id="dark-mode-toggler" title="Toggle dark mode" role="button" data-color-mode="light" class="icon-btn">
+                        <i class="fa-solid fa-moon text-[1.5rem] absolute pointer-events-none"></i>
+                        <i class="fa-solid fa-sun text-[1.5rem] absolute pointer-events-none"></i>
+                    </button>
+                </li>
+                
+                <li class="order-1">
+                    <a class="nav-link mb-2 inline-block md:mb-0" href="#about">About</a>
+                </li>
+                <li class="order-1">
+                    <a class="nav-link mb-2 inline-block md:mb-0" href="#resume">Resume</a>
+                </li>
+                <li class="order-1">
+                    <a class="nav-link mb-2 inline-block md:mb-0" href="#projects">Projects</a>
+                </li>
+                
+            </ul>
+        </div>
     </div>
 </nav>
 
