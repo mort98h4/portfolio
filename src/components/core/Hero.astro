@@ -4,7 +4,6 @@ import Portfolio from "../shared/Portfolio.astro";
 ---
 
 <header id="hero" class="relative flex flex-col justify-center items-center w-full h-screen pb-4">
-    <div class="background-gradient absolute h-full w-full z-[0]"></div>
     <h1 class="code text-[1.7rem] sm:text-3xl md:text-4xl pb-4">
         <span class="animate opacity-0">&lt;Morten Schou Gross /&gt;</span>
     </h1>
@@ -34,10 +33,6 @@ import Portfolio from "../shared/Portfolio.astro";
 		background-color: var(--color-5);
 	}
 
-    header > .background-gradient {
-        background: radial-gradient(circle, rgba(var(--color-1-rgb),.5) 0%, transparent 35%);
-    }
-
     .btn-container {
         transition: opacity .15s ease-in-out, transform .15s ease-in-out;
         opacity: 0;
@@ -47,5 +42,10 @@ import Portfolio from "../shared/Portfolio.astro";
     .btn-container.show {
         opacity: 1;
         transform: translateY(0);
+    }
+
+    .code {
+        -webkit-text-stroke: .04em var(--color-3);
+        text-shadow: unset;
     }
 </style>

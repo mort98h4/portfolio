@@ -14,13 +14,18 @@ function nextLetter() {
         let randomTimer = Math.floor(Math.random() * 2 + 1);
         setTimeout(nextLetter, randomTimer * 100);
     } else {
-        displayNeon();
+        document.querySelector('#portfolio-mask').classList.add('on');
+
+        document.querySelector('#mask-f').addEventListener('animationend', () => {
+            displayNeon();
+            displayButtons();
+        } );
     }
 }
 
 function displayNeon() {
-    document.querySelector('#portfolio-mask').classList.add('on');
-    document.querySelector('#mask-f').addEventListener('animationend', displayButtons);
+    document.querySelector('#hero .code').classList.add('flicker');
+    document.querySelector('#hero svg').classList.add('flicker');
 }
 
 function displayButtons() {
