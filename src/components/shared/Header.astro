@@ -11,3 +11,10 @@ const { text } = Astro.props;
         &lt;{text} /&gt;
     </h2>
 </header>
+
+<style>
+    [data-animation="flicker"].code {
+        -webkit-text-stroke: .04em var(--color-3);
+        text-shadow: unset;
+    }
+</style>
