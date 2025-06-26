@@ -77,3 +77,57 @@ a:not(.code) {
 a:hover {
     color: var(--color-1);
 }
+
+button.btn,
+a.btn {
+    position: relative;
+    border: 2px solid;
+    padding: .5rem 1rem;
+    text-align: center;
+    color: var(--color-2);
+    border-color: var(--color-2);
+    cursor: pointer;
+    transition: color .15s ease-in-out, border-color .15s ease-in-out;
+}
+
+.btn > * {
+    pointer-events: none;
+}
+
+button.btn:hover,
+a.btn:hover,
+button.btn:focus,
+a.btn:focus {
+    color: var(--color-1);
+    border-color: var(--color-1);
+}
+
+.btn > .btn-bg-gradient {
+    width: 100%;
+    height: 100%;
+    max-width: 0%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: max-width .15s ease-in-out;
+    background: linear-gradient(60deg,rgba(var(--color-1-rgb), .4) 0%, var(--white) 100%);
+}
+
+html.dark .btn > .btn-bg-gradient {
+    background: linear-gradient(60deg,rgba(var(--color-3-rgb), 1) 0%, rgba(var(--color-5-rgb), 1) 100%);
+}
+
+button.btn:hover > .btn-bg-gradient,
+button.btn:focus > .btn-bg-gradient,
+a.btn:hover > .btn-bg-gradient,
+a.btn:focus > .btn-bg-gradient {
+    max-width: 100%;
+}
+
+.btn > .btn-text {
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    font-weight: 700;
+}

@@ -6,49 +6,11 @@ interface Props {
 const { href } = Astro.props;
 ---
 <a 
-    class="relative border-[2px] px-4 py-2 xs:min-w-[7.5rem] text-center uppercase font-bold tracking-wide"
+    class="btn xs:min-w-[7.5rem]"
     href={href}
 >
-    <div class="background w-full h-full absolute top-0 left-0"></div>
-    <div class="gradient w-full max-w-0 h-full absolute top-0 left-0"></div>
-    <span class="inline-block relative pointer-events-none">
+    <div class="btn-bg-gradient"></div>
+    <span class="btn-text">
         <slot />
     </span>
 </a>
-
-<style>
-    a {
-        transition: all .15s ease-in-out;
-        color: var(--color-2);
-        border-color: var(--color-2);
-    }
-
-    a:focus,
-    a:hover {
-        color: var(--color-1);
-        border-color: var(--color-1);
-    }
-
-    .background {
-        transition: background-color .15s ease-in-out;
-        background-color: var(--white);
-    }
-
-    html.dark .background {
-        background-color: var(--color-5);
-    }
-
-    .gradient {
-        transition: max-width .15s ease-in-out;
-        background: linear-gradient(60deg,rgba(var(--color-1-rgb), .4) 0%, var(--white) 100%);
-    }
-
-    html.dark .gradient {
-        background: linear-gradient(60deg,rgba(var(--color-3-rgb), 1) 0%, rgba(var(--color-5-rgb), 1) 100%);
-    }
-
-    a:hover .gradient,
-    a:focus .gradient {
-        max-width: 100%;
-    }
-</style>
