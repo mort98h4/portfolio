@@ -1,0 +1,268 @@
+---
+import { fullnameMax, fullnameMin, phoneRegexStr, messageMin, messageMax } from "../../constants";
+import Article from "../shared/Article.astro";
+import ContactInfo from "../shared/ContactInfo.astro";
+import Header from "../shared/Header.astro";
+import Section from "../shared/Section.astro";
+
+
+---
+
+<Section id="contact">
+    <Header text='Contact' />
+    
+    <Article id="information" classList="grid grid-cols-12 gap-4">
+        <form class="col-span-full md:col-span-7 grid gap-10 mb-12 md:mb-0" method="post" novalidate>
+            
+            <div class="relative row-span-1">
+                <div class="hint bottom-full right-(--padding-x)">Required</div>
+                <input
+                    id="fullname"
+                    name="fullname"
+                    type="text"
+                    autocomplete="name"
+                    placeholder=" "
+                    required
+                    minlength={fullnameMin}
+                    maxlength={fullnameMax}
+                    aria-describedby="fullname-error"
+                />
+                <label for="fullname">
+                    <span>Full Name</span>
+                </label>
+                <div id="fullname-error" class="hint error top-full left-(--padding-x)"></div>
+            </div>
+
+            <div class="relative row-span-1">
+                <div class="hint bottom-full right-(--padding-x)">Required</div>
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    placeholder=" "
+                    required
+                    aria-describedby="email-error"
+                />
+                <label for="email">
+                    <span>Email</span>
+                </label>
+                <div id="email-error" class="hint error top-full left-(--padding-x)"></div>
+            </div>
+
+            <div class="relative row-span-1">
+                <div class="hint bottom-full right-(--padding-x)">Optional</div>
+                <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    autocomplete="phone"
+                    placeholder=" "
+                    pattern={phoneRegexStr}
+                    aria-describedby="phone-error"
+                />
+                <label for="phone">
+                    <span>Phone</span>
+                </label>
+                <div id="phone-error" class="hint error top-full left-(--padding-x)"></div>
+            </div>
+
+            <div class="relative row-span-1">
+                <div class="hint bottom-full right-(--padding-x)">Required</div>
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder=" "
+                    required
+                    minlength={messageMin}
+                    maxlength={messageMax}
+                    rows="5"
+                    aria-describedby="message-error"
+                ></textarea>
+                <label for="message">
+                    <span>Message</span>
+                </label>
+                <div id="message-error" class="hint error top-full left-(--padding-x)"></div>
+            </div>
+
+            <div class="flex w-full items-center">
+                <button class="btn">
+                    <div class="btn-bg-gradient"></div>
+                    <span class="btn-text">Send</span>
+                </button>
+                <div id="form-response" class="grow text-end">
+                    <div id="form-error" class="hint error gap-2 items-center justify-end flex hidden"></div>
+                    <div id="form-success" class="hint success gap-2 items-center justify-end flex hidden"></div>
+                </div>
+            </div>
+            
+        </form>
+
+        <div class="col-span-full xs:col-span-8 xs:col-start-3 sm:col-span-6 sm:col-start-4 md:col-span-5 lg:col-span-4 lg:col-start-9 md:mb-12 md:flex md:justify-center md:items-center md:justify-end">
+            <ContactInfo />
+        </div>
+
+    </Article>
+</Section>
+
+<style>
+    :root {
+        --padding-x: .5rem;
+        --padding-y: .6rem;
+        --padding-t: .875rem;
+        --padding-b: .325rem;
+        --icon-size: 1.5rem;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: var(--padding-y) var(--padding-x);
+        background-color: var(--white);
+        background: linear-gradient(135deg,var(--white) 30%, rgba(var(--color-1-rgb), .2) 100%);
+        border: 1px solid var(--color-3);
+        transform: translateZ(0); /* stabiliserer transitionen */
+        transition: border-color .15s ease-in-out;
+    }
+
+    html.dark input, html.dark textarea {
+        background-color: var(--color-4);
+        background: linear-gradient(135deg,var(--color-5) 30%, var(--color-4) 100%);
+    }
+
+    input:not(:placeholder-shown),
+    input:focus, 
+    input:focus-within,
+    textarea:not(:placeholder-shown),
+    textarea:focus, 
+    textarea:focus-within {
+        padding-top: var(--padding-t);
+        padding-bottom: var(--padding-b);
+    }
+
+    input:is(:-webkit-autofill, :autofill),
+    input:is(:-webkit-autofill, :autofill):hover, 
+    input:is(:-webkit-autofill, :autofill):focus, 
+    input:is(:-webkit-autofill, :autofill):active,
+    textarea:is(:-webkit-autofill, :autofill),
+    textarea:is(:-webkit-autofill, :autofill):hover, 
+    textarea:is(:-webkit-autofill, :autofill):focus, 
+    textarea:is(:-webkit-autofill, :autofill):active {
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: var(--color-5);
+        transition: background-color 0s ease-in-out 5000s;
+        box-shadow: inset 0 0 20px 20px rgba(var(--color-1-rgb), .2);
+        caret-color: var(--color-5);
+    }
+
+    html.dark input:is(:-webkit-autofill, :autofill),
+    html.dark input:is(:-webkit-autofill, :autofill):hover, 
+    html.dark input:is(:-webkit-autofill, :autofill):focus, 
+    html.dark input:is(:-webkit-autofill, :autofill):active,
+    html.dark textarea:is(:-webkit-autofill, :autofill),
+    html.dark textarea:is(:-webkit-autofill, :autofill):hover, 
+    html.dark textarea:is(:-webkit-autofill, :autofill):focus, 
+    html.dark textarea:is(:-webkit-autofill, :autofill):active {
+        -webkit-text-fill-color: var(--color-1);
+        box-shadow: inset 0 0 20px 20px var(--color-4);
+        caret-color: var(--color-1);
+    }
+
+    input:focus, input:focus-within,
+    textarea:focus, textarea:focus-within {
+        outline: none;
+        border-color: var(--color-2);
+    }
+
+    input:user-invalid,
+    textarea:user-invalid {
+        padding-right: calc((var(--padding-x) * 2) + var(--icon-size));
+    }
+
+    input:user-invalid:not(:focus):not(:focus-within),
+    textarea:user-invalid:not(:focus):not(:focus-within) {
+        border-color: var(--color-1);
+    }
+
+    label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        display: inline-block;
+        backface-visibility: hidden; /* stabiliserer transitionen */
+    }
+
+    label > span {
+        display: inline;
+        position: absolute;
+        top: calc(var(--padding-y) + 1px);
+        left: calc(var(--padding-x) + 1px);
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: .025em;
+        color: var(--color-2);
+        transition: font-size .15s ease-in-out, transform .15s ease-in-out;
+    }
+
+    input:focus ~ label > span,
+    input:not(:placeholder-shown) ~ label > span,
+    textarea:focus ~ label > span,
+    textarea:not(:placeholder-shown) ~ label > span {
+        font-size: .675rem;
+        transform: translateY(-0.5rem);
+    }
+
+    input:user-invalid ~ label::after,
+    textarea:user-invalid ~ label::after {
+        content: url('/invalid_icon_light.svg');
+        display: inline-block;
+        position: absolute;
+        top: var(--padding-y);
+        right: var(--padding-x);
+        width: var(--icon-size);
+        height: var(--icon-size);
+    }
+
+    .hint {
+        position: absolute;
+        text-transform: uppercase;
+        letter-spacing: .025em;
+        font-weight: 700;
+        font-size: .75rem;
+        color: var(--color-2);
+    }
+
+    .hint.error, .hint.success {
+        color: var(--color-1);
+    }
+
+    #form-response .hint {
+        position: relative;
+        font-size: 1rem;
+    }
+
+    #form-response .hint.error::after,
+    #form-response .hint.success::after {
+        display: inline-block;
+        width: var(--icon-size);
+        height: var(--icon-size);
+    }
+
+    #form-response .hint.error::after {
+        content: url('/invalid_icon_light.svg');
+    }
+
+    #form-response .hint.success::after {
+        content: url('/valid_icon_light.svg');
+    }
+
+    input:user-valid ~ .hint.error:not(.input-invalid),
+    input:placeholder-shown:not(:user-invalid) ~ .hint.error:not(.input-invalid),
+    textarea:user-valid ~ .hint.error:not(.input-invalid),
+    textarea:placeholder-shown:not(:user-invalid) ~ .hint.error:not(.input-invalid) {
+        display: none;
+    }
+</style>
