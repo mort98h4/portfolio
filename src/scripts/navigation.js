@@ -15,7 +15,7 @@ function windowScroll() {
 const navigationToggler = document.querySelector('#navigation-toggler');
 navigationToggler.addEventListener('click', toggleMenu);
 
-document.querySelectorAll('.nav-link').forEach(el => {
+document.querySelectorAll('#navigation-content .nav-link').forEach(el => {
     el.addEventListener('click', () => navigationToggler.click());
 });
 
@@ -48,7 +48,7 @@ function toggleMenu() {
 
 const toggleActiveNavLink = (entries) => {
     for (const entry of entries) {
-        const navLinks = document.querySelectorAll('.nav-link');
+        const navLinks = document.querySelectorAll('#navigation-content .nav-link');
         const targetId = entry.target.getAttribute('id');
             
         if (entry.isIntersecting) {                
