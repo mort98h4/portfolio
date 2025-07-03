@@ -74,7 +74,16 @@ a:not(.code) {
     font-weight: 600;
 }
 
-a:hover {
+a.nav-link {
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: .025em;
+    color: var(--color-2);
+    transition: color .15s ease-in-out;
+}
+
+a:hover, a.nav-link:hover, a.nav-link:focus, a.nav-link.active {
     color: var(--color-1);
 }
 
