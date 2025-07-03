@@ -1,25 +1,53 @@
 ---
 
 ---
-<footer class="flex items-center justify-center py-8">
-    <address class="flex flex-col items-center not-italic font-light text-center">
-        <a class="transition-colors hover:text-[var(--color-1)] mb-1 w-fit" href="https://www.linkedin.com/in/morten-schou-gross/" target="_blank">
-            <span class="inline-flex items-center">
-                <i class="fa-brands fa-linkedin-in text-2xl mr-2"></i>
-                Morten Schou Gross
-            </span>
-        </a>
-        <a class="transition-colors hover:text-[var(--color-1)] mb-1  w-fit" href="https://github.com/mort98h4" target="_blank">
-            <span class="inline-flex items-center">
-                <i class="fa-brands fa-github text-2xl mr-2"></i>
-                mort98h4
-            </span>
-        </a>
-        <a class="transition-colors hover:text-[var(--color-1)] w-fit" href="mailto:mortengross_93@hotmail.com" target="_blank">
-            <span class="inline-flex items-center">
-                <i class="fa-solid fa-envelope text-xl mr-2"></i>
-                mortengross_93@hotmail.com
-            </span>
-        </a>
-    </address>
+<footer class="px-4 py-8 mx-auto max-w-6xl">
+    <nav class="flex gap-8 flex-col md:flex-row items-center justify-between mb-8">
+        <ul class="flex flex-wrap gap-4">
+            <li>
+                <a class="nav-link" href="#about">
+                    About
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#resume">
+                    Resume
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#projects">
+                    Projects
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="#contact">
+                    Contact
+                </a>
+            </li>
+        </ul>
+
+        <ul class="flex gap-4">
+            <li>
+                <a href="https://www.linkedin.com/in/morten-schou-gross/" target="_blank" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in text-2xl"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/mort98h4" target="_blank" title="GitHub">
+                    <i class="fa-brands fa-github text-2xl"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    
+
+    <p class="font-medium text-(--color-2) text-center">&copy;<span id="year">2025</span></p>
 </footer>
+
+<script>
+    const d = new Date();
+    const year = d.getFullYear();
+
+    document.querySelector('#year').textContent = year;
+</script>
