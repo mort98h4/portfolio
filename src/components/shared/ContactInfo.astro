@@ -1,0 +1,75 @@
+---
+const information = [
+    {
+        href: 'https://www.linkedin.com/in/morten-schou-gross/',
+        target: '_blank',
+        text: 'Morten Schou Gross',
+        icon: 'fa-brands fa-linkedin-in'
+    },
+    {
+        href: 'mailto:mortengross_93@hotmail.com',
+        text: 'mortengross_93@hotmail.com',
+        target: '_self',
+        icon: 'fa-solid fa-envelope'
+    },
+    {
+        href: 'tel:+4560216246',
+        text: '+45 60 21 62 46',
+        target: '_self',
+        icon: 'fa-solid fa-phone-flip'
+    },
+    {
+        href: 'https://github.com/mort98h4',
+        text: 'mort98h4',
+        target: '_blank',
+        icon: 'fa-brands fa-github'
+    },
+    {
+        href: undefined,
+        text: '2200 København N',
+        icon: 'fa-solid fa-location-pin'
+    },
+]
+---
+
+<address class="not-italic text-center border border-(--color-3) rounded px-4 py-8 md:px-8 md:py-16">
+    <ul class="text-lg">
+
+        {information.map(info => (
+            info.href ? 
+                <li class="mb-1">
+                    <a href={info.href} target={info.target} class="inline-flex items-center gap-2 break-all text-sm md:text-base">
+                        <span class="inline-flex items-center justify-center w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]">
+                            <i class={info.icon + ' text-xl md:text-2xl'}></i>
+                        </span>
+                        {info.text}
+                    </a>
+                </li>
+            :   <li class="mb-1 inline-flex items-center gap-2 text-(--color-2) font-medium text-sm md:text-base">
+                    <span class="inline-flex items-center justify-center w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]">
+                        <i class={info.icon + ' text-xl md:text-2xl'}></i>
+                    </span>
+                    {info.text}
+                </li>
+        ))}
+    </ul>
+</address>
+
+<style>
+    address {
+        transition: background-color .15s ease-in-out;
+        background-color: rgba(var(--color-1-rgb), .1);
+    }
+
+    html.dark address {
+        background-color: var(--color-4);
+    }
+
+    li i {
+        color: var(--color-2);
+    }
+
+    html.dark li i {
+        color: var(--color-1);
+    }
+</style>
