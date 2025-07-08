@@ -28,11 +28,8 @@ export function getFrontendErrorMessage(inputName, validityState) {
     }
 }
 
-export function getBackendErrorMessage(error) {
+export function getBackendErrorMessage(errorType, inputName) {
     try {
-        const errorType = getErrorType(error);
-        const inputName = error.path[0];
-
         switch(errorType) {
             case 'value_missing':
                 return getValueMissingMessage(inputName);

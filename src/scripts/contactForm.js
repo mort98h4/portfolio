@@ -1,4 +1,4 @@
-import { actions, isInputError } from 'astro:actions';
+import { emailApiUrl } from './main.js';
 import * as validation from '../helpers/validation.js'; 
 
 
@@ -13,7 +13,6 @@ inputs.forEach(el => el.addEventListener('change', (event) => {
 
 contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    console.warn('Default prevented');
 
     const formErrorHint = getErrorHint('form');
     resetFormHint(formErrorHint);
@@ -28,26 +27,24 @@ contactForm.addEventListener('submit', async (event) => {
         return;
     }
 
-    const { data, error } = await actions.sendMessage(formData);
+    const response = await fetch(emailApiUrl, {
+        method: 'POST',
+        body: formData,
+    });
+    const result = await response.json();
 
-    if (isInputError(error)) {
-        console.log('data:', data);
-        console.log('error:', error);
-
-        let errorStr = String(error).substring(String(error).indexOf('['));
-        const errorList = JSON.parse(errorStr);
-
-        errorList.forEach(error => {
-            const hintElem = getErrorHint(error.path[0]);
-            hintElem.textContent = validation.getBackendErrorMessage(error);
+    if (result.inputError) {
+        result.fields.forEach(field => {
+            const hintElem = getErrorHint(field);
+            hintElem.textContent = validation.getBackendErrorMessage(result.inputError.type, field);
             hintElem.classList.add('input-invalid');
         });
         return;
-    } else if (error) {
+    } else if (result.error) {
         formErrorHint.textContent = validation.getFormErrorMessage();
         formErrorHint.classList.remove('hidden');
         return;
-    };
+    }
 
     const formSuccessHint = document.querySelector('#form-success');
     formSuccessHint.textContent = validation.getFormSuccessMessage();
