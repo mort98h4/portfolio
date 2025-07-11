@@ -29,6 +29,9 @@ contactForm.addEventListener('submit', async (event) => {
 
     const response = await fetch(emailApiUrl, {
         method: 'POST',
+        headers: {
+            'x-api-key': import.meta.env.PUBLIC_EMAIL_API_KEY
+        },
         body: formData,
     });
     const result = await response.json();
