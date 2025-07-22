@@ -10,7 +10,7 @@ const { project } = Astro.props;
 const p = project.data;
 ---
 
-<li id={'project-' + p.id} class="card col-span-8 col-start-3 sm:col-start-auto sm:col-span-6 md:col-span-4 lg:col-span-3 shadow-md hover:shadow-lg">
+<li id={'project-' + p.id} class="card col-span-10 col-start-2 xs:col-span-8 xs:col-start-3 sm:col-start-auto sm:col-span-6 md:col-span-4 lg:col-span-3 shadow-md hover:shadow-lg">
 	<div class="shine"></div>
 	<div class="background">
 		<div class="tiles">
@@ -104,18 +104,6 @@ const p = project.data;
 		color: var(--color-2);
 	}
 
-	.card:hover .icon {
-		background-color: rgba(var(--color-1-rgb), .3);
-		border-color: rgba(var(--color-3-rgb), 1);
-		color: rgba(var(--color-4-rgb), 1);
-	}
-
-	html.dark .card:hover .icon {
-		background-color: var(--color-3);
-		border-color: var(--color-2);
-		color: var(--color-1);
-	}
-
 	.card li.inline-block:not(:last-of-type)::after {
 		content: "⦁";
 		padding: 0 .25rem;
@@ -143,10 +131,6 @@ const p = project.data;
 
 	html.dark .card {
 		--tw-shadow-color: rgba(var(--color-1-rgb), .2);
-	}
-
-	.card:hover {
-		border-color: var(--color-2);
 	}
 
 	.shine {
@@ -343,25 +327,83 @@ const p = project.data;
 		top: var(--card-y-coord-perc-4);
 	}
 
-	.card:hover .shine {
-		opacity: .1;
+	@media screen and (max-width: 1023px)  {
+		.card.hover .icon {
+			background-color: rgba(var(--color-1-rgb), .3);
+			border-color: rgba(var(--color-3-rgb), 1);
+			color: rgba(var(--color-4-rgb), 1);
+		}
+
+		html.dark .card.hover .icon {
+			background-color: var(--color-3);
+			border-color: var(--color-2);
+			color: var(--color-1);
+		}
+
+		.card.hover {
+			border-color: var(--color-2);
+		}
+
+		.card.hover .shine {
+			opacity: .1;
+		}
+
+		.card.hover .tile {
+			opacity: 1;
+			transition-delay: .25s;
+			-webkit-animation-name: tile;
+			animation-name: tile;
+		}
+
+		.card.hover .vertical.line {
+			transform: scaleY(1);
+			opacity: 1;
+		}
+
+		.card.hover .horizontal.line {
+			transform: scaleX(1);
+			opacity: 1;
+		}
 	}
 
-	.card:hover .tile {
-		opacity: 1;
-		transition-delay: .25s;
-		-webkit-animation-name: tile;
-		animation-name: tile;
-	}
+	@media screen and (min-width: 1024px) {
 
-	.card:hover .vertical.line {
-		transform: scaleY(1);
-		opacity: 1;
-	}
+		.card:hover .icon {
+			background-color: rgba(var(--color-1-rgb), .3);
+			border-color: rgba(var(--color-3-rgb), 1);
+			color: rgba(var(--color-4-rgb), 1);
+		}
 
-	.card:hover .horizontal.line {
-		transform: scaleX(1);
-		opacity: 1;
+		html.dark .card:hover .icon {
+			background-color: var(--color-3);
+			border-color: var(--color-2);
+			color: var(--color-1);
+		}
+		
+		.card:hover {
+			border-color: var(--color-2);
+		}
+
+		.card:hover .shine {
+			opacity: .1;
+		}
+
+		.card:hover .tile {
+			opacity: 1;
+			transition-delay: .25s;
+			-webkit-animation-name: tile;
+			animation-name: tile;
+		}
+
+		.card:hover .vertical.line {
+			transform: scaleY(1);
+			opacity: 1;
+		}
+
+		.card:hover .horizontal.line {
+			transform: scaleX(1);
+			opacity: 1;
+		}
 	}
 
 </style>

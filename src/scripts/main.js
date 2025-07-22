@@ -6,4 +6,5 @@ import * as hero from './hero.js';
 import * as navigation from './navigation.js';
 import * as animations from './animations.js';
 import * as carousel from './carousel.js';
+import * as card from './card.js';
 import * as contactForm from './contactForm.js';
