@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { file } from 'astro/loaders';
 
 const experiences = defineCollection({
-    loader: file('./src/data/experiences.json'),
+    loader: file('./public/data/experiences.json'),
     schema: z.object({
         id: z.number(),
         institution: z.string(),
@@ -22,7 +22,7 @@ const experiences = defineCollection({
 });
 
 const educations = defineCollection({
-    loader: file('./src/data/educations.json'),
+    loader: file('./public/data/educations.json'),
     schema: z.object({
         id: z.number(),
         institution: z.string(),
@@ -44,7 +44,7 @@ const educations = defineCollection({
 });
 
 const skills = defineCollection({
-    loader: file("src/data/skills.json"),
+    loader: file("public/data/skills.json"),
     schema: z.object({
         id: z.number(),
         type: z.string(),
@@ -54,7 +54,7 @@ const skills = defineCollection({
 });
 
 const projects = defineCollection({
-  loader: file('./src/data/projects.json'),
+  loader: file('./public/data/projects.json'),
   schema: z.object({
     id: z.number(),
     title: z.string(),
