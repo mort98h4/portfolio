@@ -25,6 +25,17 @@
             {
                 "name": "Tailwind CSS"
             }
+        ],
+        "imagePath": "/projects/bulbapedia/",
+        "images": [
+            {
+                "fileName": "1.png",
+                "alt": "List of Pokémon"
+            },
+            {
+                "fileName": "2.png",
+                "alt": "Charizard page"
+            }
         ]
     },
     {
@@ -78,6 +89,45 @@
             {
                 "name": "MySQL"
             }
+        ],
+        "imagePath": "/projects/anarkist_cms/",
+        "images": [
+            {
+                "fileName": "1.png",
+                "alt": "Home page of the Anarkist Bar CMS"
+            },
+            {
+                "fileName": "2.png",
+                "alt": "Beers page of the Anarkist Bar CMS"
+            },
+            {
+                "fileName": "3.png",
+                "alt": "Create beer page of the Anarkist Bar CMS"
+            },
+            {
+                "fileName": "4.png",
+                "alt": "Taps page of the Anarkist Bar CMS"
+            },
+            {
+                "fileName": "5.png",
+                "alt": "Update tap page of the Anarkist Bar CMS"
+            },
+            {
+                "fileName": "6.png",
+                "alt": "Monitor 1 of the Anarkist Bar CMS"
+            },
+            {
+                "fileName": "7.png",
+                "alt": "Monitor 2 of the Anarkist Bar CMS"
+            },
+            {
+                "fileName": "8.png",
+                "alt": "Home page of the public menu of the Anarkist Bar CMS"
+            },
+            {
+                "fileName": "9.png",
+                "alt": "Beer list of the public menu of the Anarkist Bar CMS"
+            }
         ]
     },
     {
@@ -104,7 +154,9 @@
             {
                 "name": "HTMX"
             }
-        ]
+        ],
+        "imagePath": "",
+        "images": []
     },
     {
         "id": 4,
@@ -134,6 +186,37 @@
             },
             {
                 "name": "MySQL"
+            }
+        ],
+        "imagePath": "/projects/anarkist_php/",
+        "images": [
+            {
+                "fileName": "1.png",
+                "alt": "Home page of Anarkist PHP CMS"
+            },
+            {
+                "fileName": "2.png",
+                "alt": "Sign up page of Anarkist PHP CMS"
+            },
+            {
+                "fileName": "3.png",
+                "alt": "Login modal of Anarkist PHP CMS"
+            },
+            {
+                "fileName": "4.png",
+                "alt": "Tapwall page of Anarkist PHP CMS"
+            },
+            {
+                "fileName": "5.png",
+                "alt": "Beer page of Anarkist PHP CMS"
+            },
+            {
+                "fileName": "6.png",
+                "alt": "Admin page of Anarkist PHP CMS"
+            },
+            {
+                "fileName": "7.png",
+                "alt": "Profile page of Anarkist PHP CMS"
             }
         ]
     },
@@ -169,6 +252,13 @@
             {
                 "name": "MySQL"
             }
+        ],
+        "imagePath": "/projects/twatter/",
+        "images": [
+            {
+                "fileName": "",
+                "alt": ""
+            }
         ]
     },
     {
@@ -199,6 +289,29 @@
             }, 
             {
                 "name": "GraphQL"
+            }
+        ],
+        "imagePath": "/projects/strikkestedet/",
+        "images": [
+            {
+                "fileName": "1.png",
+                "alt": "Home page of Strikkestedet webshop"
+            },
+            {
+                "fileName": "2.png",
+                "alt": "Products page of Strikkestedet webshop"
+            },
+            {
+                "fileName": "3.png",
+                "alt": "Get started page of Strikkestedet webshop"
+            },
+            {
+                "fileName": "4.png",
+                "alt": "About page of Strikkestedet webshop"
+            },
+            {
+                "fileName": "5.png",
+                "alt": "Contact page of Strikkestedet webshop"
             }
         ]
     }

@@ -79,7 +79,13 @@ const projects = defineCollection({
             }
         )
     ),
-    image: z.string().optional(),
+    imagePath: z.string().optional(),
+    images: z.array(
+        z.object({
+            fileName: z.string(),
+            alt: z.string()
+        })
+    ),
   })
 });
 
