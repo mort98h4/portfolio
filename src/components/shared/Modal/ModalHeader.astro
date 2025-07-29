@@ -1,0 +1,27 @@
+---
+interface Props {
+	title: string | undefined;
+    dismissTarget: string;
+}
+
+const { title, dismissTarget } = Astro.props;
+---
+
+<div class="modal-header relative min-h-4">
+    <h4>{title}</h4>
+    <button class="dismiss-btn absolute top-0 right-0" data-dismiss="active modal" data-dismiss-target={dismissTarget} aria-label="Close">
+        <i class="fa-solid fa-xmark pointer-events-none text-[1.5rem]"></i>
+    </button>
+</div>
+
+<style>
+    .dismiss-btn {
+		cursor: pointer;
+		color: var(--color-2);
+		transition: color .15s ease-in-out;
+	}
+
+	.dismiss-btn:focus, .dismiss-btn:hover {
+		color: var(--color-1);
+	}
+</style>

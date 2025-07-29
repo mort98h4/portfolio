@@ -1,0 +1,120 @@
+---
+
+---
+<div class="images-container h-full flex flex-col md:flex-row gap-4">
+    <!-- Primary image -->
+    <div class="image-col flex justify-center items-center md:flex-2 md:max-w-[66.66%] relative">
+        <img id="active-image" data-target="#fullscreen-modal" src="" alt="" />
+        <div class="image-placeholder"></div>
+    </div>
+    <!-- Image list -->
+    <div class="image-list-container flex-1 md:flex md:flex-wrap md:content-center">
+        <div class="images-index-container text-(--color-1) font-light text-4xl md:text-6xl lg:text-8xl">
+            <span id="images-index"></span>/<span id="images-total" class="text-(--color-3) font-normal"></span>
+        </div>
+        <div id="image-list" class="flex content-start gap-4 md:flex-wrap">
+
+        </div>
+    </div>
+</div>
+
+<template id="list-img-temp">
+    <div class="image-container relative">
+        <div class="bg-(--color-1) h-full w-full absolute pointer-events-none"></div>
+        <img src="" alt="" data-image-index="" />
+    </div>
+</template>
+
+<style>
+    .image-list-container {
+        overflow-y: auto;
+        position: relative;
+    }
+
+    .images-index-container {
+        background-color: var(--white);
+        padding-bottom: 1rem;
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
+
+    html.dark .images-index-container {
+        background-color: var(--color-5);
+    }
+
+    #image-list img {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        object-position: top center;
+        pointer-events: none;
+    }
+
+    .image-placeholder {
+        width: 100%;
+        height: auto;
+        background-color: rgba(var(--color-1-rgb), .3);
+        aspect-ratio: 16 / 9;
+    }
+
+    html.dark .image-placeholder {
+        background-color: var(--color-4);
+    }
+
+    #active-image:not([src=""]) ~ .image-placeholder {
+        display: none;
+    }
+
+    .image-container {
+        scroll-snap-align: center;
+        min-width: calc(40% - .5rem);
+        max-width: calc(50% - .5rem);
+        transition: opacity .15s ease-in-out;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .image-container:not(.active) > img {
+        opacity: .8;
+    }
+
+    .image-container > * {
+        transform: scale(.95);
+        transition: transform .15s ease-in-out, opacity .15s ease-in-out;
+    }
+
+    .image-container:hover > *,
+    .image-container.active > * {
+        transform: scale(1);
+    }
+
+    #active-image {
+        object-fit: contain;
+        height: auto;
+        width: auto;
+        max-height: calc(100vh - 7rem);
+        max-width: 100%;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 767px) {
+        #active-image {
+            max-height: calc(100vh - 20rem);
+        }
+
+        .image-list-container {
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+
+        .image-list-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .image-container {
+            scroll-snap-align: center;
+        }
+    }
+</style>

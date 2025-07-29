@@ -5,6 +5,11 @@ import Resume from '../components/core/Resume.astro';
 import Projects from '../components/core/Projects.astro';
 import About from '../components/core/About.astro';
 import Contact from '../components/core/Contact.astro';
+import Modal from '../components/shared/Modal/Modal.astro';
+import ModalHeader from '../components/shared/Modal/ModalHeader.astro';
+import ModalBody from '../components/shared/Modal/ModalBody.astro';
+import ModalImagesContainer from '../components/shared/Modal/ModalImagesContainer.astro';
+import ModalFullscreenImage from '../components/shared/Modal/ModalFullscreenImage.astro';
 
 ---
 
@@ -20,4 +25,19 @@ import Contact from '../components/core/Contact.astro';
 		<Contact />
 		
 	</main>
+
+	<Modal id="image-modal" fullscreen={false}>
+		<ModalHeader title='' dismissTarget="#image-modal"></ModalHeader>
+		<ModalBody>
+			<ModalImagesContainer/>
+		</ModalBody>
+	</Modal>
+
+	<Modal id="fullscreen-modal" fullscreen={true}>
+		<ModalHeader title='' dismissTarget="#fullscreen-modal"></ModalHeader>
+		<ModalBody>
+			<ModalFullscreenImage/>
+		</ModalBody>
+	</Modal>
 </Layout>
+
