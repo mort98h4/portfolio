@@ -1,6 +1,15 @@
 const isProd = import.meta.env.PROD;
 export const emailApiUrl = isProd ? import.meta.env.PUBLIC_EMAIL_API_URL_PROD : import.meta.env.PUBLIC_EMAIL_API_URL_DEV;
 
+document.addEventListener('DOMContentLoaded', () => {
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (isSafari) {
+        document.body.classList.add('safari');
+    } else {
+        console.log('is not safari')
+    }
+});
+
 import * as colorMode from './colorMode.js';
 import * as hero from './hero.js';
 import * as navigation from './navigation.js';
