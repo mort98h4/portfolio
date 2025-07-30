@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     if (isSafari) {
         document.body.classList.add('safari');
-    } else {
-        console.log('is not safari')
     }
 });
 
