@@ -11,18 +11,38 @@ import ModalBody from '../components/shared/Modal/ModalBody.astro';
 import ModalImagesContainer from '../components/shared/Modal/ModalImagesContainer.astro';
 import ModalFullscreenImage from '../components/shared/Modal/ModalFullscreenImage.astro';
 
+export const supportedLangs = ['da', 'en'];
+export const mainLang = 'en';
+
+export function getStaticPaths() {
+	const paths = [];
+
+	supportedLangs.forEach((lang) => {
+		const path = lang !== mainLang ? lang : '/';
+
+		paths.push({
+			params: { path },
+			props: { lang }
+		});
+	});
+
+	return paths;
+}
+
+const { lang } = Astro.props;
+
 ---
 
-<Layout title="Morten Schou Gross">
+<Layout title="Morten Schou Gross" lang={lang}>
 	<main class="p-4 mx-auto max-w-6xl">
 
-		<About />
+		<About lang={lang} />
 
-		<Resume />
+		<Resume lang={lang} />
 
-		<Projects />
+		<Projects lang={lang} />
 
-		<Contact />
+		<Contact lang={lang} />
 		
 	</main>
 
