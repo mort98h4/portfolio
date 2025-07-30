@@ -88,7 +88,7 @@ html.dark .flicker {
 
     19%, 22%, 62%, 64%, 70%, 100% {
         -webkit-text-stroke: .04em var(--color-1);
-        text-shadow: 0 0 10px var(--color-1);
+        text-shadow: 0 0 10px var(--code-shadow);
     }
     20%, 21%, 63%, 65%, 69.9% {
         -webkit-text-stroke: .04em var(--color-3);
@@ -104,7 +104,7 @@ html.dark .flicker {
 
     19%, 22%, 62%, 64%, 70%, 100% {
         -webkit-text-stroke: .04em var(--color-1);
-        text-shadow: 0 0 20px var(--color-1);
+        text-shadow: 0 0 20px var(--code-shadow);
     }
     20%, 21%, 63%, 65%, 69.9% {
         -webkit-text-stroke: .04em var(--color-3);

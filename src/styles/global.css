@@ -18,7 +18,8 @@
     --color-4-rgb: 43, 0, 24;
     --color-5: rgba(19,0,10, 1);
     --color-5-rgb: 19, 0, 10;
-    --white: rgba(245, 245, 245, 1)
+    --white: rgba(245, 245, 245, 1);
+    --code-shadow: var(--color-1);
 }
 
 html {
@@ -32,6 +33,10 @@ html {
 html.dark {
     background-color: var(--color-5);
     color: var(--color-1);
+}
+
+body.safari {
+    --code-shadow: rgba(var(--color-1-rgb), .5);
 }
 
 h1:not(.code),
@@ -64,7 +69,7 @@ html.dark h6:not(.code) {
     font-family: 'Courier Prime', monospace;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: .04em var(--color-1);
-    text-shadow: 0 0 20px var(--color-1);
+    text-shadow: 0 0 20px var(--code-shadow);
 }
 
 a:not(.code) {
