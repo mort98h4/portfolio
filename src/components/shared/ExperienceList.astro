@@ -10,7 +10,7 @@ const { id, data } = Astro.props;
 ---
 
 <div id={id} class="carousel col-span-full grid grid-cols-12 items-center relative">
-    <ul class="hidden sm:block sm:col-span-5 md:col-span-4 lg:col-span-3">
+    <ul class="hidden sm:block sm:col-span-5 md:col-span-4 lg:col-span-3 print:hidden">
         {data.map(exp => (
             <li 
                 id={id + '-list-btn-' + exp.data.id}
@@ -29,22 +29,22 @@ const { id, data } = Astro.props;
         ))}
     </ul>
 
-    <div class="carousel-slides-container col-span-full sm:col-span-7 md:col-span-8 lg:col-span-9 relative overflow-hidden">
+    <div class="carousel-slides-container col-span-full sm:col-span-7 md:col-span-8 lg:col-span-9 relative overflow-hidden print:col-span-full">
         {data.map(exp => (
             <article 
                 id={id + '-slide-' + exp.data.id}
                 aria-hidden={(data[0].data.id === exp.data.id ? 'false' : 'true')}
-                class="slide w-full relative"
+                class="slide w-full relative print:mb-4"
             >
-                <header class="mb-4 w-full flex flex-col md:mb-2 md:gap-2 md:flex-row ">
-                    <div class="text-lg sm:text-xl md:text-2xl md:grow">
+                <header class="mb-4 w-full flex flex-col md:mb-2 md:gap-2 md:flex-row print:mb-0 print:flex-row print:justify-between">
+                    <div class="text-lg sm:text-xl md:text-2xl md:grow print:text-base">
                         <h4 class="">
                             {
                                 exp.data.name ? exp.data.name 
                                 : exp.data.institution
                             }
                         </h4>
-                        <h5 class="mb-2">
+                        <h5 class="mb-2 print:mb-0">
                             {
                                 id === 'school' ? 
                                 `${exp.data.level}, ${exp.data.institutionShort}`
@@ -53,15 +53,15 @@ const { id, data } = Astro.props;
                         </h5>
                     </div>
                     
-                    <span class="experience-period text-sm lg:text-base font-medium border rounded px-2 py-1">{exp.data.periodStart} - {exp.data.periodEnd ? exp.data.periodEnd : 'present'}</span>
+                    <span class="experience-period text-sm lg:text-base font-medium border rounded px-2 py-1 print:text-sm">{exp.data.periodStart} - {exp.data.periodEnd ? exp.data.periodEnd : 'present'}</span>
                 </header>
                 <main>
-                    <p class="">
+                    <p class="print:text-sm print:mb-2">
                         {exp.data.description}
                     </p>
                     {
                         exp.data.skills.length > 0 ? 
-                            <ul class="flex flex-wrap gap-2 w-full mt-6">
+                            <ul class="flex flex-wrap gap-2 w-full mt-6 print:gap-1 print:mt-0">
                                 {exp.data.skills.map(tech => (
                                     <Tag text={tech.name} />
                                 ))}
@@ -185,5 +185,11 @@ const { id, data } = Astro.props;
         background-color: var(--color-3);
 		border-color: var(--color-2);
 		color: var(--color-1);
+    }
+
+    @media print {
+        .carousel-slides-container {
+            display: block;
+        }
     }
 </style>

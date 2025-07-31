@@ -19,6 +19,12 @@ const information = [
         icon: 'fa-solid fa-phone-flip'
     },
     {
+        href: 'https://mortengross.dk',
+        text: 'mortengross.dk',
+        target: '_blank',
+        icon: 'fa-solid fa-globe'
+    },
+    {
         href: 'https://github.com/mort98h4',
         text: 'mort98h4',
         target: '_blank',
@@ -38,16 +44,23 @@ const information = [
         {information.map(info => (
             info.href ? 
                 <li class="mb-1">
-                    <a href={info.href} target={info.target} class="inline-flex items-center gap-2 break-all text-sm md:text-base">
-                        <span class="inline-flex items-center justify-center w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]">
-                            <i class={info.icon + ' text-xl md:text-2xl'}></i>
+                    <a 
+                        href={info.href} 
+                        target={info.target} 
+                        class={
+                            "items-center gap-2 print:gap-1 break-all text-sm md:text-base print:text-sm " +
+                            (info.icon === 'fa-solid fa-globe' ? ' print:inline-flex hidden' : 'inline-flex')
+                        }
+                    >
+                        <span class="inline-flex items-center justify-center w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem] print:w-[1.25rem] print:h-[w-1.25rem]">
+                            <i class={info.icon + ' text-xl md:text-2xl print:text-base'}></i>
                         </span>
                         {info.text}
                     </a>
                 </li>
-            :   <li class="mb-1 inline-flex items-center gap-2 text-(--color-2) font-medium text-sm md:text-base">
-                    <span class="inline-flex items-center justify-center w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]">
-                        <i class={info.icon + ' text-xl md:text-2xl'}></i>
+            :   <li class="mb-1 inline-flex items-center gap-2 print:gap-1 text-(--color-2) font-medium text-sm md:text-base print:text-sm">
+                    <span class="inline-flex items-center justify-center w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem] print:w-[1.25rem] print:h-[w-1.25rem]">
+                        <i class={info.icon + ' text-xl md:text-2xl print:text-base'}></i>
                     </span>
                     {info.text}
                 </li>

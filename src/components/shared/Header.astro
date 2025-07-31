@@ -6,8 +6,8 @@ interface Props {
 const { text } = Astro.props;
 ---
 
-<header class="mb-4 sm:mb-8 md:mb-12">
-    <h2 data-animate data-animation="flicker" class="code text-4xl xs:text-5xl sm:text-6xl md:text-7xl">
+<header class="mb-4 sm:mb-8 md:mb-12 print:mb-2">
+    <h2 data-animate data-animation="flicker" class="code text-4xl xs:text-5xl sm:text-6xl md:text-7xl print:text-3xl">
         &lt;{text} /&gt;
     </h2>
 </header>
@@ -16,5 +16,12 @@ const { text } = Astro.props;
     [data-animation="flicker"].code {
         -webkit-text-stroke: .04em var(--color-3);
         text-shadow: unset;
+    }
+
+    @media print {
+        [data-animation="flicker"].code {
+            -webkit-text-stroke: .04em var(--color-1);
+            text-shadow: 0 0 20px var(--code-shadow);
+        }
     }
 </style>

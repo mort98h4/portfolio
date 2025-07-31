@@ -22,22 +22,22 @@ const subheader2 = `Feel free to reach out through the following channels.`
 <Section id="profile">
     <Header text='Profile' />
 
-    <Article id="aboutContent" classList="grid grid-cols-12 gap-4 sm:gap-8">
-        <div class="col-span-full sm:col-span-7 lg:col-span-8">
+    <Article id="aboutContent" classList="grid grid-cols-12 gap-4 sm:gap-8 print:gap-4">
+        <div class="col-span-full sm:col-span-7 lg:col-span-8 print:col-span-8">
             <header class="mb-2">
-                <h3 class="text-3xl md:text-4xl">{header1}</h3>
-                <p class="uppercase font-medium text-lg lg:text-xl">
+                <h3 class="text-3xl md:text-4xl print:text-xl">{header1}</h3>
+                <p class="uppercase font-medium text-lg lg:text-xl print:text-base">
                     {subheader1}
                 </p>
             </header>
             <div class="hidden sm:block">
-                <p class="mb-4">{paragraph1}</p>
-                <h4 class="text-xl md:text-2xl">{header2}</h4>
-                <p>{paragraph2}</p>
+                <p class="mb-4 print:text-sm print:mb-0">{paragraph1}</p>
+                <h4 class="text-xl md:text-2xl print:hidden">{header2}</h4>
+                <p class="print:hidden">{paragraph2}</p>
             </div>
         </div>
 
-        <div class="col-span-full sm:col-span-5 lg:col-span-4 flex flex-col justify-start items-center">
+        <div class="col-span-full sm:col-span-5 lg:col-span-4 flex flex-col justify-start items-center print:hidden">
             <div class="image-container w-[75%] xs:w-[50%] sm:w-full rounded-full overflow-hidden p-8 outline-2 outline-(--color-1)">
                 <img class="rounded-full" src="/7109_no_bg.png" alt="Morten Gross, full stack web developer" />
                 <div class="gradient"></div>
@@ -48,18 +48,18 @@ const subheader2 = `Feel free to reach out through the following channels.`
             <p>{paragraph1}</p>
         </div>
 
-        <div class="col-span-full sm:hidden">
-            <h4 class="text-lg">{header2}</h4>
-            <p>{paragraph2}</p>
+        <div class="col-span-full sm:hidden print:block print:order-3">
+            <h4 class="text-lg print:text-base">{header2}</h4>
+            <p class="print:text-sm">{paragraph2}</p>
         </div>
 
-        <div class="col-span-full grid grid-cols-12 gap-4">
-            <div class="col-span-full sm:col-span-7 sm:flex sm:order-2 lg:col-span-6 lg:col-start-6 flex-col justify-center text-center">
+        <div class="col-span-full grid grid-cols-12 gap-4 print:col-span-4 print:order-2">
+            <div class="col-span-full sm:col-span-7 sm:flex sm:order-2 lg:col-span-6 lg:col-start-6 flex-col justify-center text-center print:hidden">
                 <h4 class="text-lg md:mb-2 sm:text-xl md:text-2xl">{header3}</h4>
                 <p class="uppercase font-medium sm:text-lg lg:text-xl">{subheader2}</p>
                 <p>... or use the following contact <a href="#contact">form</a>.</p>
             </div>
-            <div class="col-span-full xs:col-span-8 xs:col-start-3 sm:col-start-auto sm:col-span-5 sm:order-1 lg:col-span-4 lg:col-start-2">
+            <div class="col-span-full xs:col-span-8 xs:col-start-3 sm:col-start-auto sm:col-span-5 sm:order-1 lg:col-span-4 lg:col-start-2 print:col-span-full">
                 <ContactInfo />
             </div>
         </div>
