@@ -9,7 +9,7 @@ projects = projects.sort((a, b) => a.data.id - b.data.id);
 
 ---
 
-<Section id="projects">
+<Section id="projects" classList="print:hidden">
     <Header text='Projects' />
     <ul data-animate data-animation="fade-in" class="grid grid-cols-12 gap-4 mb-8 md:mb-12">
         {projects.map(project => (

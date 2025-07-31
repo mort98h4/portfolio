@@ -1,11 +1,13 @@
 ---
 interface Props {
     id: string;
+    classList?: string;
 }
 
-const { id } = Astro.props;
+const { id, classList = '' } = Astro.props;
+const classes = classList + ' pt-12 print:pt-0 print:pb-4' 
 ---
 
-<section id={id} class="pt-12">
+<section id={id} class={classes}>
     <slot />
 </section>
