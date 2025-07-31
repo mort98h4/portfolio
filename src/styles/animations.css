@@ -1,113 +1,116 @@
-[data-animate][data-animation="fade-in"] {
-    opacity: 0;
-}
-
-.fade-in {
-    animation-name: fade-in;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-}
-
-@keyframes fade-in {
-    0% {
+@media screen {
+        [data-animate][data-animation="fade-in"] {
         opacity: 0;
-        transform: translateY(6.25rem);
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
+
+    .fade-in {
+        animation-name: fade-in;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+            transform: translateY(6.25rem);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    svg.flicker {
+        animation-name: svg-flicker;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    html.dark svg.flicker {
+        animation-name: dark-svg-flicker;
+    }
+
+    @keyframes svg-flicker {
+        0%, 18% {
+            fill: var(--color-3);
+            -webkit-filter: none;
+            filter: none;
+        }
+
+        19%, 22%, 62%, 64%, 70%, 100% {
+            fill: var(--color-1);
+            -webkit-filter: drop-shadow( 0 0 10px var(--color-1));
+            filter: drop-shadow(0 0 5px var(--color-1));
+        }
+        20%, 21%, 63%, 65%, 69.9% {
+            fill: var(--color-3);
+            -webkit-filter: none;
+            filter: none;
+        }
+    }
+
+    @keyframes dark-svg-flicker {
+        0%, 18% {
+            fill: var(--color-3);
+            -webkit-filter: none;
+            filter: none;
+        }
+
+        19%, 22%, 62%, 64%, 70%, 100% {
+            fill: var(--color-1);
+            -webkit-filter: drop-shadow( 0 0 10px var(--color-1));
+            filter: drop-shadow(0 0 10px var(--color-1));
+        }
+        20%, 21%, 63%, 65%, 69.9% {
+            fill: var(--color-3);
+            -webkit-filter: none;
+            filter: none;
+        }
+    }
+
+    .flicker {
+        animation-name: flicker;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    html.dark .flicker {
+        animation-name: dark-flicker;
+    }
+
+    @keyframes flicker {
+        0%, 18% {
+            -webkit-text-stroke: .04em var(--color-3);
+            text-shadow: none;
+        }
+
+        19%, 22%, 62%, 64%, 70%, 100% {
+            -webkit-text-stroke: .04em var(--color-1);
+            text-shadow: 0 0 10px var(--code-shadow);
+        }
+        20%, 21%, 63%, 65%, 69.9% {
+            -webkit-text-stroke: .04em var(--color-3);
+            text-shadow: none;
+        }
+    }
+
+    @keyframes dark-flicker {
+        0%, 18% {
+            -webkit-text-stroke: .04em var(--color-3);
+            text-shadow: none;
+        }
+
+        19%, 22%, 62%, 64%, 70%, 100% {
+            -webkit-text-stroke: .04em var(--color-1);
+            text-shadow: 0 0 20px var(--code-shadow);
+        }
+        20%, 21%, 63%, 65%, 69.9% {
+            -webkit-text-stroke: .04em var(--color-3);
+            text-shadow: none;
+        }
     }
 }
 
-svg.flicker {
-    animation-name: svg-flicker;
-    animation-duration: 3s;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-}
-
-html.dark svg.flicker {
-    animation-name: dark-svg-flicker;
-}
-
-@keyframes svg-flicker {
-    0%, 18% {
-        fill: var(--color-3);
-        -webkit-filter: none;
-        filter: none;
-    }
-
-    19%, 22%, 62%, 64%, 70%, 100% {
-        fill: var(--color-1);
-        -webkit-filter: drop-shadow( 0 0 10px var(--color-1));
-        filter: drop-shadow(0 0 5px var(--color-1));
-    }
-    20%, 21%, 63%, 65%, 69.9% {
-        fill: var(--color-3);
-        -webkit-filter: none;
-        filter: none;
-    }
-}
-
-@keyframes dark-svg-flicker {
-    0%, 18% {
-        fill: var(--color-3);
-        -webkit-filter: none;
-        filter: none;
-    }
-
-    19%, 22%, 62%, 64%, 70%, 100% {
-        fill: var(--color-1);
-        -webkit-filter: drop-shadow( 0 0 10px var(--color-1));
-        filter: drop-shadow(0 0 10px var(--color-1));
-    }
-    20%, 21%, 63%, 65%, 69.9% {
-        fill: var(--color-3);
-        -webkit-filter: none;
-        filter: none;
-    }
-}
-
-.flicker {
-    animation-name: flicker;
-    animation-duration: 3s;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-}
-
-html.dark .flicker {
-    animation-name: dark-flicker;
-}
-
-@keyframes flicker {
-    0%, 18% {
-        -webkit-text-stroke: .04em var(--color-3);
-        text-shadow: none;
-    }
-
-    19%, 22%, 62%, 64%, 70%, 100% {
-        -webkit-text-stroke: .04em var(--color-1);
-        text-shadow: 0 0 10px var(--code-shadow);
-    }
-    20%, 21%, 63%, 65%, 69.9% {
-        -webkit-text-stroke: .04em var(--color-3);
-        text-shadow: none;
-    }
-}
-
-@keyframes dark-flicker {
-    0%, 18% {
-        -webkit-text-stroke: .04em var(--color-3);
-        text-shadow: none;
-    }
-
-    19%, 22%, 62%, 64%, 70%, 100% {
-        -webkit-text-stroke: .04em var(--color-1);
-        text-shadow: 0 0 20px var(--code-shadow);
-    }
-    20%, 21%, 63%, 65%, 69.9% {
-        -webkit-text-stroke: .04em var(--color-3);
-        text-shadow: none;
-    }
-}
