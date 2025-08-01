@@ -15,4 +15,5 @@ import * as animations from './animations.js';
 import * as carousel from './carousel.js';
 import * as card from './card.js';
 import * as modal from './modal.js';
+import * as dropdown from './dropdown.js';
 import * as contactForm from './contactForm.js';
