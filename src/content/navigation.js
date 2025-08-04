@@ -1,57 +1,71 @@
 export const navigation = {
     da: {
+        homeLink: {
+            href: '#hero',
+            text: '<Morten Schou Gross />'
+        },
         links: [
             {
                 href: '#profile',
-                title: 'Profil'
+                text: 'Profil'
             },
             {
                 href: '#experience',
-                title: 'Erfaring'
+                text: 'Erfaring'
             },
             {
                 href: '#projects',
-                title: 'Projekter'
+                text: 'Projekter'
             },
             {
                 href: '#contact',
-                title: 'Kontakt'
+                text: 'Kontakt'
             }
         ],
         togglers: {
+            darkMode: {
+                title: 'Slå mørk tilstand til/fra'
+            },
             language: {
                 title: 'Skift sprog'
             },
-            darkMode: {
-                title: 'Slå mørk tilstand til/fra'
+            navigation: {
+                title: 'Vis/skjul navigation'
             }
         }
     },
     en: {
+        homeLink: {
+            href: '#hero',
+            text: '&lt;Morten Schou Gross /&gt;'
+        },
         links: [
             {
                 href: '#profile',
-                title: 'Profile'
+                text: 'Profile'
             },
             {
                 href: '#experience',
-                title: 'Experience'
+                text: 'Experience'
             },
             {
                 href: '#projects',
-                title: 'Projects'
+                text: 'Projects'
             },
             {
                 href: '#contact',
-                title: 'Contact'
+                text: 'Contact'
             }
         ],
         togglers: {
-            language: {
-                title: 'Change language'
-            },
             darkMode: {
                 title: 'Toggle dark mode'
+            },
+            language: {
+                title: 'Change language',
+            },
+            navigation: {
+                title: 'Toggle navigation'
             }
         }
     }

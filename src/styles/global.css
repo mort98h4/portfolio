@@ -145,3 +145,19 @@ a.btn:focus > .btn-bg-gradient {
     letter-spacing: 0.025em;
     font-weight: 700;
 }
+
+.icon-btn {
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color .15s ease-in-out;
+    color: var(--color-2);
+    cursor: pointer;
+}
+
+.icon-btn:focus, .icon-btn:hover {
+    color: var(--color-1);
+}

@@ -1,0 +1,33 @@
+---
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<button id="dark-mode-toggler" title={title} role="button" data-color-mode="light" class="icon-btn">
+    <i class="fa-solid fa-moon text-[1.5rem] absolute pointer-events-none"></i>
+    <i class="fa-solid fa-sun text-[1.5rem] absolute pointer-events-none"></i>
+</button>
+
+<style>
+    #dark-mode-toggler > i {
+        opacity: 0;
+        transition: opacity .15s ease-in-out, transform .15s ease-in-out;
+        transform: rotate(0deg);
+    }
+
+    html.dark #dark-mode-toggler > .fa-sun,
+    html:not(.dark) #dark-mode-toggler > .fa-moon {
+        opacity: 1;
+    }
+
+    html.dark #dark-mode-toggler > .fa-sun {
+        transform: rotate(-360deg);
+    }
+
+    html:not(.dark) #dark-mode-toggler > .fa-moon {
+        transform: rotate(360deg);
+    }
+</style>

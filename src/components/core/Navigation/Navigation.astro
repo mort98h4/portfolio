@@ -1,21 +1,22 @@
 ---
-import { mainLang, supportedLangs } from '../../../pages/[...path].astro';
 import { navigation } from '../../../content/navigation';
+import DarkModeToggler from './DarkModeToggler.astro';
+import LocalizationDropdown from './LocalizationDropdown.astro';
 
 interface Props {
     lang: string;
 }
 
-const { lang } = Astro.props
+const { lang } = Astro.props;
+const togglers = navigation[lang].togglers;
 
 ---
 
 <nav class="w-full py-2 px-4 fixed top-0 z-[9999] bg-[var(--color-5)}/30 backdrop-blur-md print:hidden">
     <div class="mx-auto max-w-6xl flex flex-col md:flex-row justify-between md:items-center">
-        <div class="title flex items-center justify-between md:w-auto">
-            <a href="#hero" class="code text-lg">&lt;Morten Schou Gross /&gt;</a>
-            
-            
+        <div class="flex items-center justify-between md:w-auto">
+            <a href={navigation[lang].homeLink.href} class="code text-lg">{navigation[lang].homeLink.text}</a>
+             
             <button 
                 id="navigation-toggler"
                 role="button"
@@ -23,46 +24,26 @@ const { lang } = Astro.props
                 data-target="#navigation-content"
                 aria-controls="navigation-content"
                 aria-expanded="false"
-                aria-label="Toggle navigation"
+                aria-label={togglers.navigation.title}
             >
                 <i class="fa-solid fa-bars text-[1.5rem] pointer-events-none absolute"></i>
                 <i class="fa-solid fa-x text-[1.5rem] pointer-events-none absolute"></i>
             </button>
         </div>
 
-        
-
         <div id="navigation-content" class="flex justify-end text-end">
             <ul class="navigation-list md:flex md:flex-row md:gap-4 pt-3 md:pt-0">
 
                 <li class="w-full relative flex justify-end mb-2 md:mb-0 md:order-2">
-                    <button id="language-toggler" title={navigation[lang].togglers.language.title}  role="button" class="icon-btn dropdown-toggle" aria-expanded="false">
-                        <i class="fa-solid fa-flag text-[1.5rem] pointer-events-none"></i>
-                    </button>
-                    <ul class="dropdown-menu rounded">
-                        {supportedLangs.map((supLan) => (
-                            <li class="dropdown-item">
-                                <a 
-                                    class={supLan === lang ? 'active' : ''}
-                                    href={supLan !== mainLang ? `/${supLan}` : '/'}
-                                >
-                                    {supLan.toUpperCase()}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
+                    <LocalizationDropdown lang={lang} title={togglers.language.title} />
                 </li>
-
                 <li class="w-full flex justify-end mb-2 md:mb-0 md:order-2">
-                    <button id="dark-mode-toggler" title={navigation[lang].togglers.darkMode.title} role="button" data-color-mode="light" class="icon-btn">
-                        <i class="fa-solid fa-moon text-[1.5rem] absolute pointer-events-none"></i>
-                        <i class="fa-solid fa-sun text-[1.5rem] absolute pointer-events-none"></i>
-                    </button>
+                    <DarkModeToggler title={togglers.darkMode.title} />
                 </li>
                 {
                     navigation[lang].links.map((link) => (
                         <li class="order-1">
-                            <a class="nav-link mb-2 inline-block md:mb-0" href={link.href}>{link.title}</a>
+                            <a class="nav-link mb-2 inline-block md:mb-0" href={link.href}>{link.text}</a>
                         </li>
                     ))
                 }
@@ -85,47 +66,22 @@ const { lang } = Astro.props
         -webkit-text-stroke: .06em var(--color-1);
     }
 
-    .icon-btn {
-        position: relative;
-        width: 1.5rem;
-        height: 1.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: color .15s ease-in-out;
-        color: var(--color-2);
-        cursor: pointer;
-    }
-
-    .icon-btn.dropdown-toggle {
-        width: fit-content;
-    }
-
-    .icon-btn:focus, .icon-btn:hover {
-        color: var(--color-1);
-    }
-
-    #navigation-toggler > i,
-    #dark-mode-toggler > i {
+    #navigation-toggler > i {
         opacity: 0;
         transition: opacity .15s ease-in-out, transform .15s ease-in-out;
         transform: rotate(0deg);
     }
 
     #navigation-toggler[aria-expanded="true"] > .fa-x,
-    #navigation-toggler[aria-expanded="false"] > .fa-bars,
-    html.dark #dark-mode-toggler > .fa-sun,
-    html:not(.dark) #dark-mode-toggler > .fa-moon {
+    #navigation-toggler[aria-expanded="false"] > .fa-bars {
         opacity: 1;
     }
 
-    #navigation-toggler[aria-expanded="false"] > .fa-bars,
-    html.dark #dark-mode-toggler > .fa-sun {
+    #navigation-toggler[aria-expanded="false"] > .fa-bars {
         transform: rotate(-360deg);
     }
 
-    #navigation-toggler[aria-expanded="true"] > .fa-x,
-    html:not(.dark) #dark-mode-toggler > .fa-moon {
+    #navigation-toggler[aria-expanded="true"] > .fa-x {
         transform: rotate(360deg);
     }
 
@@ -139,81 +95,6 @@ const { lang } = Astro.props
         max-height: var(--navigation-list-height);
     }
 
-    .dropdown-toggle::after,
-    .dropdown-toggle::before {
-        vertical-align: .255em;
-        content: "";
-        border-top: .3em solid;
-        border-right: .3em solid transparent;
-        border-bottom: 0;
-        border-left: .3em solid transparent;
-        transition: transform .15s ease-in-out;
-        transform: rotate(0deg);
-    }
-
-    .dropdown-toggle::before {
-        display: inline-block;
-        margin-right: .255em;
-    }
-
-    .dropdown-toggle::after {
-        display: none;
-        margin-left: .255em;
-    }
-
-    .dropdown-toggle[aria-expanded="true"]::before,
-    .dropdown-toggle[aria-expanded="true"]::after {
-        transform: rotate(180deg);
-    } 
-
-    .dropdown-menu {
-        position: absolute;
-        top: calc(100% + .5rem);
-        background-color: var(--white);
-        border: 1px solid var(--color-3);
-        padding: .5rem 0;
-        min-width: 100%;
-        display: none;
-        z-index: 1;
-    }
-
-    html.dark .dropdown-menu {
-        background-color: var(--color-5);
-    }
-
-    .dropdown-menu.show {
-        display: block;
-    }
-
-    .dropdown-item a {
-        display: inline-block;
-        text-align: center;
-        padding: .25rem .5rem;
-        transition: color .15s ease-in-out, background-color .15s ease-in-out;
-        font-weight: 500;
-        width: 100%;
-    }
-
-    .dropdown-item a.active {
-        font-weight: 700;
-        background-color: rgba(var(--color-1-rgb), .3);
-        color: var(--color-1);
-    }
-
-    .html.dark .dropdown-item a.active {
-        background-color: var(--color-3);
-        color: var(--color-1);
-    }
-
-    .dropdown-item:hover a, .dropdown-item:focus a {
-        background: rgba(var(--color-1-rgb), .3);
-        color: var(--color-1);
-    }
-
-    html.dark .dropdown-item:hover a, html.dark .dropdown-item:focus a {
-        background: var(--color-3);
-    }
-
     @media screen and (min-width: 768px) {
         #navigation-toggler {
             display: none;
@@ -222,14 +103,6 @@ const { lang } = Astro.props
         #navigation-content {
             max-height: unset;
             overflow: visible;
-        }
-
-        .dropdown-toggle::before {
-            display: none;
-        }
-
-        .dropdown-toggle::after {
-            display: inline-block;
         }
     }
 </style>
