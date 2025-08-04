@@ -10,9 +10,7 @@ import ModalHeader from '../components/shared/Modal/ModalHeader.astro';
 import ModalBody from '../components/shared/Modal/ModalBody.astro';
 import ModalImagesContainer from '../components/shared/Modal/ModalImagesContainer.astro';
 import ModalFullscreenImage from '../components/shared/Modal/ModalFullscreenImage.astro';
-
-export const supportedLangs = ['da', 'en'];
-export const mainLang = 'en';
+import { mainLang, supportedLangs } from '../constants';
 
 export function getStaticPaths() {
 	const paths = [];
