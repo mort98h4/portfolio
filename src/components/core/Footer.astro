@@ -1,29 +1,25 @@
 ---
+import { navigation } from '../../content/navigation';
 
+interface Props {
+	lang: string;
+}
+
+const { lang } = Astro.props;
 ---
 <footer class="px-4 py-8 mx-auto max-w-6xl print:hidden">
     <nav class="flex gap-8 flex-col md:flex-row items-center justify-between mb-8">
         <ul class="flex flex-wrap gap-4">
-            <li>
-                <a class="nav-link" href="#about">
-                    About
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#resume">
-                    Resume
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#projects">
-                    Projects
-                </a>
-            </li>
-            <li>
-                <a class="nav-link" href="#contact">
-                    Contact
-                </a>
-            </li>
+            {
+                navigation[lang].links.map((link) => (
+                    link && 
+                    <li>
+                        <a class="nav-link" href={link.href}>
+                            {link.text}
+                        </a>
+                    </li>
+                ))
+            }
         </ul>
 
         <ul class="flex gap-4">
@@ -39,8 +35,6 @@
             </li>
         </ul>
     </nav>
-
-    
 
     <p class="font-medium text-(--color-2) text-center">&copy;<span id="year">2025</span></p>
 </footer>
