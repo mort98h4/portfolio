@@ -2,7 +2,7 @@ export const navigation = {
     da: {
         homeLink: {
             href: '#hero',
-            text: '<Morten Schou Gross />'
+            text: 'Morten Schou Gross'
         },
         links: [
             {
@@ -37,7 +37,7 @@ export const navigation = {
     en: {
         homeLink: {
             href: '#hero',
-            text: '&lt;Morten Schou Gross /&gt;'
+            text: 'Morten Schou Gross'
         },
         links: [
             {
