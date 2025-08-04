@@ -1,54 +1,12 @@
 ---
-import { mainLang, supportedLangs } from '../../pages/[...path].astro';
+import { mainLang, supportedLangs } from '../../../pages/[...path].astro';
+import { navigation } from '../../../content/navigation';
 
 interface Props {
     lang: string;
 }
 
 const { lang } = Astro.props
-
-const navLinks = {
-    da: {
-        links: [
-            {
-                href: '#profile',
-                title: 'Profil'
-            },
-            {
-                href: '#experience',
-                title: 'Erfaring'
-            },
-            {
-                href: '#projects',
-                title: 'Projekter'
-            },
-            {
-                href: '#contact',
-                title: 'Kontakt'
-            }
-        ]
-    },
-    en: {
-        links: [
-            {
-                href: '#profile',
-                title: 'Profile'
-            },
-            {
-                href: '#experience',
-                title: 'Experience'
-            },
-            {
-                href: '#projects',
-                title: 'Projects'
-            },
-            {
-                href: '#contact',
-                title: 'Contact'
-            }
-        ]
-    }
-}
 
 ---
 
@@ -78,7 +36,7 @@ const navLinks = {
             <ul class="navigation-list md:flex md:flex-row md:gap-4 pt-3 md:pt-0">
 
                 <li class="w-full relative flex justify-end mb-2 md:mb-0 md:order-2">
-                    <button id="language-toggler" title="Change language" role="button" class="icon-btn dropdown-toggle" aria-expanded="false">
+                    <button id="language-toggler" title={navigation[lang].togglers.language.title}  role="button" class="icon-btn dropdown-toggle" aria-expanded="false">
                         <i class="fa-solid fa-flag text-[1.5rem] pointer-events-none"></i>
                     </button>
                     <ul class="dropdown-menu rounded">
@@ -96,13 +54,13 @@ const navLinks = {
                 </li>
 
                 <li class="w-full flex justify-end mb-2 md:mb-0 md:order-2">
-                    <button id="dark-mode-toggler" title="Toggle dark mode" role="button" data-color-mode="light" class="icon-btn">
+                    <button id="dark-mode-toggler" title={navigation[lang].togglers.darkMode.title} role="button" data-color-mode="light" class="icon-btn">
                         <i class="fa-solid fa-moon text-[1.5rem] absolute pointer-events-none"></i>
                         <i class="fa-solid fa-sun text-[1.5rem] absolute pointer-events-none"></i>
                     </button>
                 </li>
                 {
-                    navLinks[lang].links.map((link) => (
+                    navigation[lang].links.map((link) => (
                         <li class="order-1">
                             <a class="nav-link mb-2 inline-block md:mb-0" href={link.href}>{link.title}</a>
                         </li>
