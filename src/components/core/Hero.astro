@@ -1,6 +1,14 @@
 ---
+import { navigation } from "../../content/navigation";
 import LinkBtn from "../shared/LinkBtn.astro";
 import Portfolio from "../shared/Portfolio.astro";
+
+interface Props {
+	lang: string;
+}
+
+const { lang } = Astro.props;
+
 ---
 
 <header id="hero" class="relative flex flex-col justify-center items-center w-full h-screen pb-4 print:h-[fit-content] print:pb-0">
@@ -14,15 +22,12 @@ import Portfolio from "../shared/Portfolio.astro";
         <Portfolio />
     </div>
     <nav class="btn-container w-full relative flex justify-center flex-wrap gap-4 sm:gap-8 p-4 print:hidden">
-        <LinkBtn href="#about">
-            About
-        </LinkBtn>
-        <LinkBtn href="#resume">
-            Resume
-        </LinkBtn>
-        <LinkBtn href="#projects">
-            Projects
-        </LinkBtn>
+        {
+            navigation[lang].links.map((link) => (
+                link && link.href != '#contact' && 
+                <LinkBtn href={link.href}>{link.text}</LinkBtn>
+            ))
+        }
     </nav>
 </header>
 
@@ -56,7 +61,6 @@ import Portfolio from "../shared/Portfolio.astro";
         .code {
             -webkit-text-stroke: .04em var(--color-1);
             text-shadow: 0 0 20px var(--code-shadow);
-            /* transform: translateX(-2.5rem); */
         }
 
         .code .satisfy {
