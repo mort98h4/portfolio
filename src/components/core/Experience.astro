@@ -4,38 +4,46 @@ import ExperienceList from "../shared/ExperienceList.astro";
 import Header from "../shared/Header.astro";
 import Section from "../shared/Section.astro";
 import Article from "../shared/Article.astro";
+import { experience } from "../../content/experience";
 
-const experiences = await getCollection('experiences');
-const educations = await getCollection('educations');
+interface Props {
+	lang: string;
+}
 
-let skills = await getCollection('skills');
+const { lang } = Astro.props;
+
+const experiences = await getCollection('experiences').then(e => e.map(exp => ({ id: exp.data.id, ...exp.data[lang] }) ));
+const educations = await getCollection('educations').then(e => e.map(edu => ({ id: edu.data.id, ...edu.data[lang] }) ));
+
+let skills = await getCollection('skills').then(s => s.map(ski => ({ id: ski.data.id, icon: ski.data.icon, ...ski.data[lang]}) ));
 
 const skillTypes = []; 
 skills.map(skill => {
-    if (skillTypes.indexOf(skill.data.type) === -1) {
-        skillTypes.push(skill.data.type);
+    if (skillTypes.indexOf(skill.type) === -1) {
+        skillTypes.push(skill.type);
     }
 });
-skills = skills.sort((a, b) => {
-  const nameA = a.data.text.toUpperCase();
-  const nameB = b.data.text.toUpperCase();
-  if (nameA < nameB) {
-    return -1;
-  }
-  if (nameA > nameB) {
-    return 1;
-  }
 
-  return 0;
+skills = skills.sort((a, b) => {
+    const nameA = a.text.toUpperCase();
+    const nameB = b.text.toUpperCase();
+    if (nameA < nameB) {
+        return -1;
+    }
+    if (nameA > nameB) {
+        return 1;
+    }
+
+    return 0;
 });
 ---
 
 <Section id="experience">
-    <Header text='Experience' />
+    <Header text={experience[lang].sectionHeader} />
 
     <Article id="professional" >
         <header class="mb-4 print:mb-2">
-            <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">Professional Experience</h3>
+            <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">{experience[lang].professional.header}</h3>
         </header>
         
         <ExperienceList id="work" data={experiences} />
@@ -43,7 +51,7 @@ skills = skills.sort((a, b) => {
     
     <Article id="education">
         <header class="mb-4 print:mb-2">
-            <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">Education</h3>
+            <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">{experience[lang].education.header}</h3>
         </header>
         
         <ExperienceList id="school" data={educations} />
@@ -51,7 +59,7 @@ skills = skills.sort((a, b) => {
 
     <Article id="skills">
         <header class="mb-4 print:mb-2">
-            <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">Skills</h3>
+            <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">{experience[lang].skills.header}</h3>
         </header>
 
         <div class="grid grid-cols-4 gap-4">
@@ -61,13 +69,13 @@ skills = skills.sort((a, b) => {
                         <h4 class="mb-2 text-lg sm:text-xl md:text-2xl print:text-base">{skillType}</h4>
                         <ul>
                             {skills.map(skill => (
-                                skill.data.type == skillType ? 
+                                skill.type == skillType ? 
                                 <li class="font-medium md:text-lg md:leading-5 flex items-center mb-1 print:text-sm">
                                     <span class="inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 me-1 print:w-[1ren] print:h-[1rem]">
-                                        {skill.data.icon ? <i class={skill.data.icon}></i> : <i class="fa-solid fa-code"></i>}
+                                        {skill.icon ? <i class={skill.icon}></i> : <i class="fa-solid fa-code"></i>}
                                     </span>
                                     <span class="inline-block">
-                                        {skill.data.text}
+                                        {skill.text}
                                     </span>
                                     
                                 </li>

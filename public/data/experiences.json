@@ -1,132 +1,94 @@
 [
     {
         "id": 1,
-        "institution": "Statistics Denmark",
-        "position": "IT Developer",
-        "periodStart": "March 2024",
-        "periodEnd": null,
-        "description": "As an IT developer at Statistics Denmark, I contribute to the development of the core framework for price index statistics, with a frontend built in TypeScript and Angular. I am also involved in backend development, working with Python, SQL, and OpenAPI. In parallel, I have developed smaller console applications in .NET to support other statistical departments. My role spans both frontend and backend tasks, with a focus on reliability, maintainability, and cross-functional collaboration.",
-        "skills": [
-            {
-                "name": "Angular"
-            },
-            {
-                "name": "TypeScript"
-            },
-            {
-                "name": "Bootstrap"
-            },
-            {
-                "name": "Python"
-            },
-            {
-                "name": "SQL"
-            },
-            {
-                "name": "C#"
-            },
-            {
-                "name": ".NET"
-            },
-            {
-                "name": "DevOps"
-            },
-            {
-                "name": "CI/CD Pipelines"
-            },
-            {
-                "name": "OpenAPI"
-            }
-        ] 
+        "da": {
+            "institution": "Danmarks Statistik",
+            "position": "IT Udvikler",
+            "periodStart": "Marts 2024",
+            "periodEnd": null,
+            "description": "Som IT-udvikler hos Danmarks Statistik bidrager jeg til udviklingen af rammesystemet for prisindeksstatistik, hvor frontenden er bygget i TypeScript og Angular. Jeg er også involveret i backendudviklingen, som omfatter Python, SQL og OpenAPI. Sideløbende har jeg udviklet mindre konsolapplikationer i .NET til andre statistikafdelinger. Min rolle spænder bredt over både frontend- og backendopgaver med fokus på driftssikkerhed, vedligeholdelse og tværfagligt samarbejde.",
+            "skills": [
+                "Angular", "TypeScript", "Bootstrap", "Python", "SQL", "C#", ".NET", "DevOps", "CI/CD Pipelines", "OpenAPI"
+            ]
+        },
+        "en": {
+            "institution": "Statistics Denmark",
+            "position": "IT Developer",
+            "periodStart": "March 2024",
+            "periodEnd": null,
+            "description": "As an IT developer at Statistics Denmark, I contribute to the development of the core framework for price index statistics, with a frontend built in TypeScript and Angular. I am also involved in backend development, working with Python, SQL, and OpenAPI. In parallel, I have developed smaller console applications in .NET to support other statistical departments. My role spans both frontend and backend tasks, with a focus on reliability, maintainability, and cross-functional collaboration.",
+            "skills": [
+                "Angular", "TypeScript", "Bootstrap", "Python", "SQL", "C#", ".NET", "DevOps", "CI/CD Pipelines", "OpenAPI"
+            ]
+        }
     },
     {
         "id": 2,
-        "institution": "Tivoli Food",
-        "position": "Part-time Floor Manager",
-        "periodStart": "August 2017",
-        "periodEnd": null,
-        "description": "Since 2017, I have held various roles within Tivoli’s F&B department and currently serve as Floor Manager. In this position, I am responsible for overseeing the operations of the bars on the Open Air Stage (Plænen) during Fredagsrock events. My duties include ensuring smooth daily operations, supporting and guiding bar supervisors, onboarding and training new staff, maintaining a positive and efficient work environment, and coordinating directly with the security department to ensure safe and successful events. I also focus on staff wellbeing and team motivation to create a strong and service-minded workplace culture.",
-        "skills": [
-            {
-                "name": "Leadership"
-            },
-            {
-                "name": "Communication"
-            },
-            {
-                "name": "Problem-solving"
-            },
-            {
-                "name": "Planning"
-            }
-        ]
+        "da": {
+            "institution": "Tivoli Food",
+            "position": "Deltids driftsleder",
+            "periodStart": "August 2017",
+            "periodEnd": null,
+            "description": "Siden 2017 har jeg haft forskellige roller i Tivoli Food og arbejder i dag som driftsleder. I denne rolle har jeg ansvaret for driften af barerne på Plænen under bl.a. Fredagsrock. Mine opgaver omfatter at sikre en gnidningsfri daglig drift, støtte og vejlede de baransvarlige, oplære og onboarde nye medarbejdere, samt opretholde et positivt og effektivt arbejdsmiljø. Jeg koordinerer desuden tæt med sikkerhedsafdelingen for at sikre trygge og vellykkede arrangementer. Derudover har jeg fokus på medarbejdertrivsel og teamets motivation for at skabe en stærk og serviceorienteret arbejdskultur.",
+            "skills": [
+                "Lederskab", "Kommunikation", "Problemløsning", "Planlægning"
+            ]
+        },
+        "en": {
+            "institution": "Tivoli Food",
+            "position": "Part-time Floor Manager",
+            "periodStart": "August 2017",
+            "periodEnd": null,
+            "description": "Since 2017, I have held various roles within Tivoli’s F&B department and currently serve as Floor Manager. In this position, I am responsible for overseeing the operations of the bars on the Open Air Stage (Plænen) during Fredagsrock events. My duties include ensuring smooth daily operations, supporting and guiding bar supervisors, onboarding and training new staff, maintaining a positive and efficient work environment, and coordinating directly with the security department to ensure safe and successful events. I also focus on staff wellbeing and team motivation to create a strong and service-minded workplace culture.",
+            "skills": [
+                "Leadership", "Communication", "Problem-solving", "Planning"
+            ]
+        }
     },
     {
         "id": 3,
-        "institution": "Tivoli A/S",
-        "position": "Software Developer Intern",
-        "periodStart": "January 2023",
-        "periodEnd": "April 2023",
-        "description": "During my software development internship at Tivoli, I was responsible for building an API that automatically retrieved data from the external payment provider Vibrant.io, used for ride ticket sales, and integrated it into Tivoli’s internal reporting system. The solution was developed using Azure Functions and .NET, and deployed using CI/CD pipelines through Azure DevOps.",
-        "skills": [
-            {
-                "name": "C#"
-            },
-            {
-                "name": ".NET"
-            },
-            {
-                "name": "JSON"
-            },
-            {
-                "name": "Azure"
-            },
-            {
-                "name": "DevOps"
-            },
-            {
-                "name": "CI/CD Pipelines"
-            },
-            {
-                "name": "OpenAPI"
-            }
-        ]
+        "da": {
+            "institution": "Tivoli A/S",
+            "position": "Software udvikler praktikant",
+            "periodStart": "Januar 2023",
+            "periodEnd": "April 2023",
+            "description": "Under min softwareudviklerpraktik i Tivoli var jeg ansvarlig for at udvikle et API, der automatisk hentede data fra den eksterne betalingsudbyder Vibrant.io, som bruges til billetsalg ved forlystelser, og integrerede disse data i Tivolis interne rapporteringssystem. Løsningen blev udviklet med Azure Functions og .NET og blev udrullet via CI/CD-pipelines i Azure DevOps.",
+            "skills": [
+                "C#", ".NET", "JSON", "Azure", "DevOps", "CI/CD Pipelines", "REST API", "OpenAPI"
+            ]
+        },
+        "en": {
+            "institution": "Tivoli A/S",
+            "position": "Software Developer Intern",
+            "periodStart": "January 2023",
+            "periodEnd": "April 2023",
+            "description": "During my software development internship at Tivoli, I was responsible for building an API that automatically retrieved data from the external payment provider Vibrant.io, used for ride ticket sales, and integrated it into Tivoli’s internal reporting system. The solution was developed using Azure Functions and .NET, and deployed using CI/CD pipelines through Azure DevOps.",
+            "skills": [
+                "C#", ".NET", "JSON", "Azure", "DevOps", "CI/CD Pipelines", "REST API", "OpenAPI"
+            ]
+        }
     },
     {
         "id": 4,
-        "institution": "Vuffeli A/S",
-        "position": "Frontend Developer Studentassistent/intern",
-        "periodStart": "January 2021",
-        "periodEnd": "May 2022",
-        "description": "During my time at Vuffeli as both a frontend intern and student assistant, I contributed to the development, maintenance, and optimization of the company’s digital platforms. I helped build a new sales funnel designed to guide dog owners toward the right food for their pets and took part in the continuous improvement of existing web applications. This included customizing and maintaining the company’s Shopify webshop using Liquid templating, editing and optimizing the PHP source code behind the WordPress blog, working on the underlying code of the Zendesk Help Center to improve layout and performance, and implementing improvements and new features in Vuffeli’s internal user portal.",
-        "skills": [
-            {
-                "name": "HTML5"
-            },
-            {
-                "name": "CSS3"
-            },
-            {
-                "name": "Liquid"
-            },
-            {
-                "name": "Sass"
-            },
-            {
-                "name": "C#"
-            },
-            {
-                "name": ".NET"
-            },
-            {
-                "name": "Blazor"
-            },
-            {
-                "name": "Bootstrap"
-            },
-            {
-                "name": "PHP"
-            }
-        ] 
+        "da": {
+            "institution": "Vuffeli A/S",
+            "position": "Frontend udvikler studentermedhjælper & praktikant",
+            "periodStart": "Januar 2021",
+            "periodEnd": "Maj 2022",
+            "description": "Under min tid hos Vuffeli, både som frontend-praktikant og studentermedhjælper, bidrog jeg til udvikling, vedligeholdelse og optimering af virksomhedens digitale platforme. Jeg var med til at udvikle en ny salgsfunnel, der guidede hundeejere til det rette foder, og deltog løbende i forbedringen af eksisterende webapplikationer. Dette omfattede tilpasning og vedligeholdelse af virksomhedens Shopify-webshop med Liquid-templating, redigering og optimering af PHP-kildekoden bag WordPress-bloggen, tekniske forbedringer af Zendesk Help Center for bedre layout og performance samt implementering af nye funktioner i Vuffelis interne brugerportal.",
+            "skills": [
+                "HTML5", "CSS3", "Liquid", "Sass", "C#", ".NET", "Blazor", "Bootstrap", "PHP"
+            ]
+        },
+        "en": {
+            "institution": "Vuffeli A/S",
+            "position": "Frontend Developer Studentassistent & intern",
+            "periodStart": "January 2021",
+            "periodEnd": "May 2022",
+            "description": "During my time at Vuffeli as both a frontend intern and student assistant, I contributed to the development, maintenance, and optimization of the company’s digital platforms. I helped build a new sales funnel designed to guide dog owners toward the right food for their pets and took part in the continuous improvement of existing web applications. This included customizing and maintaining the company’s Shopify webshop using Liquid templating, editing and optimizing the PHP source code behind the WordPress blog, working on the underlying code of the Zendesk Help Center to improve layout and performance, and implementing improvements and new features in Vuffeli’s internal user portal.",
+            "skills": [
+                "HTML5", "CSS3", "Liquid", "Sass", "C#", ".NET", "Blazor", "Bootstrap", "PHP"
+            ]
+        }
     }
 ]

@@ -13,17 +13,17 @@ const { id, data } = Astro.props;
     <ul class="hidden sm:block sm:col-span-5 md:col-span-4 lg:col-span-3 print:hidden">
         {data.map(exp => (
             <li 
-                id={id + '-list-btn-' + exp.data.id}
+                id={id + '-list-btn-' + exp.id}
                 data-carousel={'#' + id}
-                data-target={'#' + id + '-slide-' + exp.data.id}
+                data-target={'#' + id + '-slide-' + exp.id}
                 class={
                     'carousel-list-btn md:text-lg lg:text-xl font-medium px-4 py-2 border-l-2 '
-                    + (data[0].data.id === exp.data.id ? 'active' : '')
+                    + (data[0].id === exp.id ? 'active' : '')
                 }
             >
                 {
-                    exp.data.name ? exp.data.name
-                    : exp.data.institution
+                    exp.name ? exp.name
+                    : exp.institution
                 }
             </li>
         ))}
@@ -32,38 +32,38 @@ const { id, data } = Astro.props;
     <div class="carousel-slides-container col-span-full sm:col-span-7 md:col-span-8 lg:col-span-9 relative overflow-hidden print:col-span-full">
         {data.map(exp => (
             <article 
-                id={id + '-slide-' + exp.data.id}
-                aria-hidden={(data[0].data.id === exp.data.id ? 'false' : 'true')}
+                id={id + '-slide-' + exp.id}
+                aria-hidden={(data[0].id === exp.id ? 'false' : 'true')}
                 class="slide w-full relative print:mb-4"
             >
                 <header class="mb-4 w-full flex flex-col md:mb-2 md:gap-2 md:flex-row print:mb-0 print:flex-row print:justify-between">
                     <div class="text-lg sm:text-xl md:text-2xl md:grow print:text-base">
                         <h4 class="">
                             {
-                                exp.data.name ? exp.data.name 
-                                : exp.data.institution
+                                exp.name ? exp.name 
+                                : exp.institution
                             }
                         </h4>
                         <h5 class="mb-2 print:mb-0">
                             {
                                 id === 'school' ? 
-                                `${exp.data.level}, ${exp.data.institutionShort}`
-                                : exp.data.position
+                                `${exp.level}, ${exp.institutionShort}`
+                                : exp.position
                             }
                         </h5>
                     </div>
                     
-                    <span class="experience-period text-sm lg:text-base font-medium border rounded px-2 py-1 print:text-sm">{exp.data.periodStart} - {exp.data.periodEnd ? exp.data.periodEnd : 'present'}</span>
+                    <span class="experience-period text-sm lg:text-base font-medium border rounded px-2 py-1 print:text-sm">{exp.periodStart} - {exp.periodEnd ? exp.periodEnd : 'present'}</span>
                 </header>
                 <main>
                     <p class="print:text-sm print:mb-2">
-                        {exp.data.description}
+                        {exp.description}
                     </p>
                     {
-                        exp.data.skills.length > 0 ? 
+                        exp.skills.length > 0 ? 
                             <ul class="flex flex-wrap gap-2 w-full mt-6 print:gap-1 print:mt-0">
-                                {exp.data.skills.map(tech => (
-                                    <Tag text={tech.name} />
+                                {exp.skills.map(skill => (
+                                    <Tag text={skill} />
                                 ))}
                             </ul>
                         : ""

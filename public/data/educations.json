@@ -1,86 +1,56 @@
 [
     {
         "id": 1,
-        "institution": "Copenhagen School of Technology and Design",
-        "institutionShort": "KEA",
-        "name": "Web Development",
-        "level": "Top-up Bachelor's Degree",
-        "periodStart": "January 2022",
-        "periodEnd": "June 2023",
-        "description": "A technical and project-driven program focused on developing advanced web applications with modern technologies and best practices. The education builds on multimediadesign foundations and emphasizes full-stack development, API design, database architecture, and scalable frontend solutions. I gained practical experience with technologies like JavaScript, Python, PHP, SQL/NoSQL databases, RESTful APIs, and DevOps workflows. The program also covered software architecture, testing, deployment, and agile collaboration in development teams.",
-        "skills": [
-            {
-                "name": "Python"
-            },
-            {
-                "name": "Tailwind CSS"
-            },
-            {
-                "name": "GIT"
-            },
-            {
-                "name": "MySQL"
-            },
-            {
-                "name": "MongoDB"
-            },
-            {
-                "name": "Agile Development"
-            },
-            {
-                "name": "CI/CD Pipelines"
-            },
-            {
-                "name": "PHP"
-            },
-            {
-                "name": "Unit Testing"
-            }
-        ] 
+        "da": {
+            "institution": "Københavns Erhvervsakademi",
+            "institutionShort": "KEA",
+            "name": "Webudvikling",
+            "level": "Top-up Bachelor",
+            "periodStart": "Januar 2022",
+            "periodEnd": "Juni 2023",
+            "description": "En teknisk og projektorienteret uddannelse med fokus på udvikling af avancerede webapplikationer ved hjælp af moderne teknologier og best practices. Uddannelsen bygger videre på fundamentet fra multimediedesign og lægger vægt på full-stack udvikling, API-design, databasearkitektur og skalerbare frontend-løsninger. Jeg opnåede praktisk erfaring med teknologier som JavaScript, Python, PHP, SQL/NoSQL-databaser, RESTful APIs og DevOps-arbejdsgange. Programmet dækkede også softwarearkitektur, test, deployment og agilt samarbejde i udviklingsteams.",
+            "skills": [
+                "Python", "Tailwind CSS", "GIT", "MySQL", "MongoDB", "Agil udvikling", "CI/CD Pipelines", "PHP", "Unit Test"
+            ]
+        },
+        "en": {
+            "institution": "Copenhagen School of Technology and Design",
+            "institutionShort": "KEA",
+            "name": "Web Development",
+            "level": "Top-up Bachelor's Degree",
+            "periodStart": "January 2022",
+            "periodEnd": "June 2023",
+            "description": "A technical and project-driven program focused on developing advanced web applications with modern technologies and best practices. The education builds on multimediadesign foundations and emphasizes full-stack development, API design, database architecture, and scalable frontend solutions. I gained practical experience with technologies like JavaScript, Python, PHP, SQL/NoSQL databases, RESTful APIs, and DevOps workflows. The program also covered software architecture, testing, deployment, and agile collaboration in development teams.",
+            "skills": [
+                "Python", "Tailwind CSS", "GIT", "MySQL", "MongoDB", "Agile Development", "CI/CD Pipelines", "PHP", "Unit Testing"
+            ]
+        }
     },
     {
         "id": 2,
-        "institution": "Copenhagen School of Technology and Design",
-        "institutionShort": "KEA",
-        "name": "Multimediadesign",
-        "level": "Academy Profession Degree",
-        "periodStart": "January 2020",
-        "periodEnd": "January 2022",
-        "description": "A practice-oriented, interdisciplinary program focusing on digital design, user experience, and web development. Through hands-on projects and collaboration, I developed strong skills in UX/UI design, frontend development (HTML, CSS, JavaScript), digital strategy, content creation, and multimedia production. The program also included business understanding, project management, and a practical internship to bridge the gap between design, technology, and user needs.",
-        "skills": [
-            {
-                "name": "UX Design"
-            },
-            {
-                "name": "UI Design"
-            },
-            {
-                "name": "Typography"
-            },
-            {
-                "name": "Color Theory"
-            },
-            {
-                "name": "Wireframing"
-            },
-            {
-                "name": "Prototyping"
-            },
-            {
-                "name": "HTML5"
-            },
-            {
-                "name": "CSS3"
-            },
-            {
-                "name": "JavaScript"
-            },
-            {
-                "name": "React"
-            },
-            {
-                "name": "Scrum"
-            }
-        ] 
+        "da": {
+            "institution": "Københavns Erhvervsakademi",
+            "institutionShort": "KEA",
+            "name": "Multimediedesign",
+            "level": "Erhvervsakademiuddannelse",
+            "periodStart": "Januar 2020",
+            "periodEnd": "Januar 2022",
+            "description": "En praksisorienteret og tværfaglig uddannelse med fokus på digitalt design, brugeroplevelse og webudvikling. Gennem praktiske projekter og samarbejde udviklede jeg stærke kompetencer inden for UX/UI-design, frontendudvikling (HTML, CSS, JavaScript), digital strategi, indholdsproduktion og multimedieproduktion. Uddannelsen omfattede også forretningsforståelse, projektledelse og et praktikforløb, der byggede bro mellem design, teknologi og brugerbehov.",
+            "skills": [
+                "UX Design", "UI Design", "Typografi", "Farveteori", "Wireframing", "Prototyping", "HTML5", "CSS3", "JavaScript", "ReactJS", "Scrum"
+            ]
+        },
+        "en": {
+            "institution": "Copenhagen School of Technology and Design",
+            "institutionShort": "KEA",
+            "name": "Multimediadesign",
+            "level": "Academy Profession Degree",
+            "periodStart": "January 2020",
+            "periodEnd": "January 2022",
+            "description": "A practice-oriented, interdisciplinary program focusing on digital design, user experience, and web development. Through hands-on projects and collaboration, I developed strong skills in UX/UI design, frontend development (HTML, CSS, JavaScript), digital strategy, content creation, and multimedia production. The program also included business understanding, project management, and a practical internship to bridge the gap between design, technology, and user needs.",
+            "skills": [
+                "UX Design", "UI Design", "Typography", "Color Theory", "Wireframing", "Prototyping", "HTML5", "CSS3", "JavaScript", "ReactJS", "Scrum"
+            ]
+        }
     }
 ]

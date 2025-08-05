@@ -1,169 +1,338 @@
 [
     {
         "id": 1,
-        "type": "Web Design",
-        "text": "UI/UX design",
-        "icon": "fa-solid fa-laptop-code"
+        "icon": "fa-solid fa-laptop-code",
+        "da": {
+            "type": "Web Design",
+            "text": "UI/UX design"
+        },
+        "en": {
+            "type": "Web Design",
+            "text": "UI/UX design"
+        }
     },
     {
         "id": 2,
-        "type": "Web Design",
-        "text": "Responsive design",
-        "icon": "fa-solid fa-window-restore"
+        "icon": "fa-solid fa-window-restore",
+        "da": {
+            "type": "Web Design",
+            "text": "Responsivt design"
+        },
+        "en": {
+            "type": "Web Design",
+            "text": "Responsive design"
+        }
     },
     {
         "id": 3,
-        "type": "Web Design",
-        "text": "Wireframing",
-        "icon": "fa-solid fa-table-cells-large"
+        "icon": "fa-solid fa-table-cells-large",
+        "da": {
+            "type": "Web Design",
+            "text": "Wireframing"
+        },
+        "en": {
+            "type": "Web Design",
+            "text": "Wireframing"
+        }
     },
     {
         "id": 4,
-        "type": "Frontend",
-        "text": "Astro"
+        "icon": "",
+        "da": {
+            "type": "Frontend",
+            "text": "Astro"
+        },
+        "en": {
+            "type": "Frontend",
+            "text": "Astro"
+        }
     },
     {
         "id": 5,
-        "type": "Backend",
-        "text": "Python",
-        "icon": "fa-brands fa-python"
+        "icon": "fa-brands fa-python",
+        "da": {
+            "type": "Backend",
+            "text": "Python"
+        },
+        "en": {
+            "type": "Backend",
+            "text": "Python"
+        }
     },
     {
         "id": 6,
-        "type": "Soft Skills",
-        "text": "Loyalty",
-        "icon": "fa-solid fa-hand-holding-hand"
+        "icon": "fa-solid fa-hand-holding-hand",
+        "da": {
+            "type": "Bløde Kompetencer",
+            "text": "Loyalitet"
+        },
+        "en": {
+            "type": "Soft Skills",
+            "text": "Loyalty"
+        }
     },
     {
         "id": 7,
-        "type": "Soft Skills",
-        "text": "Attention to detail",
-        "icon": "fa-solid fa-eye"
+        "icon": "fa-solid fa-eye",
+        "da": {
+            "type": "Bløde Kompetencer",
+            "text": "Detaljeorienteret"
+        },
+        "en": {
+            "type": "Soft Skills",
+            "text": "Attention to detail"
+        }
     },
     {
         "id": 8,
-        "type": "Soft Skills",
-        "text": "Communication",
-        "icon": "fa-solid fa-comments"
+        "icon": "fa-solid fa-comments",
+        "da": {
+            "type": "Bløde Kompetencer",
+            "text": "Kommunikation"
+        },
+        "en": {
+            "type": "Soft Skills",
+            "text": "Communication"
+        }
     },
     {
         "id": 9,
-        "type": "Soft Skills",
-        "text": "Problem-solving",
-        "icon": "fa-solid fa-lightbulb"
+        "icon": "fa-solid fa-lightbulb",
+        "da": {
+            "type": "Bløde Kompetencer",
+            "text": "Problemløsning"
+        },
+        "en": {
+            "type": "Soft Skills",
+            "text": "Problem-solving"
+        }
     },
     {
         "id": 10,
-        "type": "Soft Skills",
-        "text": "Leadership",
-        "icon": "fa-solid fa-person-walking-arrow-right"
+        "icon": "fa-solid fa-person-walking-arrow-right",
+        "da": {
+            "type": "Bløde Kompetencer",
+            "text": "Lederskab"
+        },
+        "en": {
+            "type": "Soft Skills",
+            "text": "Leadership"
+        }
     },
     {
         "id": 11,
-        "type": "Frontend",
-        "text": "Angular",
-        "icon": "fa-brands fa-angular"
+        "icon": "fa-brands fa-angular",
+        "da": {
+            "type": "Frontend",
+            "text": "Angular"
+        },
+        "en": {
+            "type": "Frontend",
+            "text": "Angular"
+        }
     },
     {
         "id": 12,
-        "type": "Web Design",
-        "text": "Adobe XD",
-        "icon": ""
+        "icon": "",
+        "da": {
+            "type": "Web Design",
+            "text": "Adobe XD"
+        },
+        "en": {
+            "type": "Web Design",
+            "text": "Adobe XD"
+        }
     },
     {
         "id": 13,
-        "type": "Frontend",
-        "text": "HTML5",
-        "icon": "fa-brands fa-html5"
+        "icon": "fa-brands fa-html5",
+        "da": {
+            "type": "Frontend",
+            "text": "HTML5"
+        },
+        "en": {
+            "type": "Frontend",
+            "text": "HTML5"
+        }
     },
     {
         "id": 14,
-        "type": "Frontend",
-        "text": "CSS3",
-        "icon": "fa-brands fa-css3-alt"
+        "icon": "fa-brands fa-css3-alt",
+        "da": {
+            "type": "Frontend",
+            "text": "CSS3"
+        },
+        "en": {
+            "type": "Frontend",
+            "text": "CSS3"
+        }
     },
     {
         "id": 15,
-        "type": "Frontend",
-        "text": "JavaScript",
-        "icon": "fa-brands fa-js"
+        "icon": "fa-brands fa-js",
+        "da": {
+            "type": "Frontend",
+            "text": "JavaScript"
+        },
+        "en": {
+            "type": "Frontend",
+            "text": "JavaScript"
+        }
     },
     {
         "id": 16,
-        "type": "Frontend",
-        "text": "Bootstrap",
-        "icon": "fa-brands fa-bootstrap"
+        "icon": "fa-brands fa-bootstrap",
+        "da": {
+            "type": "Frontend",
+            "text": "Bootstrap"
+        },
+        "en": {
+            "type": "Frontend",
+            "text": "Bootstrap"
+        }
     },
     {
         "id": 17,
-        "type": "Frontend",
-        "text": "Sass",
-        "icon": "fa-brands fa-sass"
+        "icon": "fa-brands fa-sass",
+        "da": {
+            "type": "Frontend",
+            "text": "Sass"
+        },
+        "en": {
+            "type": "Frontend",
+            "text": "Sass"
+        }
     },
     {
         "id": 18,
-        "type": "Frontend",
-        "text": "Liquid",
-        "icon": "fa-brands fa-shopify"
+        "icon": "fa-brands fa-shopify",
+        "da": {
+            "type": "Frontend",
+            "text": "Liquid"
+        },
+        "en": {
+            "type": "Frontend",
+            "text": "Liquid"
+        }
     },
     {
         "id": 19,
-        "type": "Frontend",
-        "text": "Tailwind CSS",
-        "icon": ""
+        "icon": "",
+        "da": {
+            "type": "Frontend",
+            "text": "Tailwind CSS"
+        },
+        "en": {
+            "type": "Frontend",
+            "text": "Tailwind CSS"
+        }
     },
     {
         "id": 20,
-        "type": "Frontend",
-        "text": "NextJS",
-        "icon": ""
+        "icon": "",
+        "da": {
+            "type": "Frontend",
+            "text": "NextJS"
+        },
+        "en": {
+            "type": "Frontend",
+            "text": "NextJS"
+        }
     },
     {
         "id": 21,
-        "type": "Web Design",
-        "text": "Color theory",
-        "icon": "fa-solid fa-palette"
+        "icon": "fa-solid fa-palette",
+        "da": {
+            "type": "Web Design",
+            "text": "Farveteori"
+        },
+        "en": {
+            "type": "Web Design",
+            "text": "Color theory"
+        }
     },
     {
         "id": 22,
-        "type": "Web Design",
-        "text": "Typography",
-        "icon": "fa-solid fa-font"
+        "icon": "fa-solid fa-font",
+        "da": {
+            "type": "Web Design",
+            "text": "Typografi"
+        },
+        "en": {
+            "type": "Web Design",
+            "text": "Typography"
+        }
     },
     {
         "id": 23,
-        "type": "Backend",
-        "text": "Django",
-        "icon": ""
+        "icon": "",
+        "da": {
+            "type": "Backend",
+            "text": "Django"
+        },
+        "en": {
+            "type": "Backend",
+            "text": "Django"
+        }
     },
     {
         "id": 24,
-        "type": "Backend",
-        "text": "MySQL",
-        "icon": "bi bi-filetype-sql"
+        "icon": "bi bi-filetype-sql",
+        "da": {
+            "type": "Backend",
+            "text": "MySQL"
+        },
+        "en": {
+            "type": "Backend",
+            "text": "MySQL"
+        }
     },
     {
         "id": 25,
-        "type": "Backend",
-        "text": "PHP",
-        "icon": "fa-brands fa-php"
+        "icon": "fa-brands fa-php",
+        "da": {
+            "type": "Backend",
+            "text": "PHP"
+        },
+        "en": {
+            "type": "Backend",
+            "text": "PHP"
+        }
     },
     {
         "id": 26,
-        "type": "Backend",
-        "text": "JSON",
-        "icon": "bi bi-filetype-json"
+        "icon": "bi bi-filetype-json",
+        "da": {
+            "type": "Backend",
+            "text": "JSON"
+        },
+        "en": {
+            "type": "Backend",
+            "text": "JSON"
+        }
     },
     {
         "id": 27,
-        "type": "Backend",
-        "text": "OpenAPI",
-        "icon": ""
+        "icon": "",
+        "da": {
+            "type": "Backend",
+            "text": "OpenAPI"
+        },
+        "en": {
+            "type": "Backend",
+            "text": "OpenAPI"
+        }
     },
     {
         "id": 28,
-        "type": "Backend",
-        "text": ".NET",
-        "icon": ""
+        "icon": "",
+        "da": {
+            "type": "Backend",
+            "text": ".NET"
+        },
+        "en": {
+            "type": "Backend",
+            "text": ".NET"
+        }
     }
 ]

@@ -1,23 +1,41 @@
 import { defineCollection, z } from 'astro:content';
 import { file } from 'astro/loaders';
 
+const experience = z.object({
+    institution: z.string(),
+    position: z.string(),
+    periodStart: z.string(),
+    periodEnd: z.string().nullable(),
+    description: z.string(),
+    skills: z.array(
+        z.string()
+    )
+})
+
+const education = z.object({
+    institution: z.string(),
+    institutionShort: z.string().optional(),
+    name: z.string(),
+    level: z.string(),
+    periodStart: z.string(),
+    periodEnd: z.string().nullable(),
+    description: z.string(),
+    skills: z.array(
+        z.string()
+    )
+})
+
+const skill = z.object({
+    type: z.string(),
+    text: z.string()
+})
+
 const experiences = defineCollection({
     loader: file('./public/data/experiences.json'),
     schema: z.object({
         id: z.number(),
-        institution: z.string(),
-        position: z.string(),
-        periodStart: z.string(),
-        periodEnd: z.string().nullable(),
-        description: z.string(),
-        skills: z.array(
-            z.object(
-                {
-                    name: z.string(),
-                    icon: z.string().optional()
-                }
-            )
-        )
+        da: experience,
+        en: experience
     })
 });
 
@@ -25,21 +43,8 @@ const educations = defineCollection({
     loader: file('./public/data/educations.json'),
     schema: z.object({
         id: z.number(),
-        institution: z.string(),
-        institutionShort: z.string().optional(),
-        name: z.string(),
-        level: z.string(),
-        periodStart: z.string(),
-        periodEnd: z.string().nullable(),
-        description: z.string(),
-        skills: z.array(
-            z.object(
-                {
-                    name: z.string(),
-                    icon: z.string().optional()
-                }
-            )
-        )
+        da: education,
+        en: education
     })
 });
 
@@ -47,9 +52,9 @@ const skills = defineCollection({
     loader: file("public/data/skills.json"),
     schema: z.object({
         id: z.number(),
-        type: z.string(),
-        text: z.string(),
-        icon: z.string().optional()
+        icon: z.string().optional(),
+        da: skill,
+        en: skill
     })
 });
 
