@@ -1,39 +1,32 @@
 ---
+import { profile } from "../../content/profile";
 import Article from "../shared/Article.astro";
 import ContactInfo from "../shared/ContactInfo.astro";
 import Header from "../shared/Header.astro";
 import Section from "../shared/Section.astro";
 
-const header1 = `Hi, I'm Morten.`;
-const subheader1 = `I'm a full stack web developer based in Copenhagen.`;
-const paragraph1 = `I'm a web developer with a strong focus on building user-centric, scalable, and maintainable web solutions. 
-                I have experience in both frontend and backend development, with hands-on involvement in designing and implementing responsive web interfaces, custom CMS platforms, and API integrations.
-                With a proven ability to deliver solutions across the full stack using technologies like JavaScript, .NET, Python, and SQL, along with modern tools such as Tailwind CSS, Angular, and Astro. 
-                I'm comfortable working in Agile environments (Scrum/Kanban) and collaborating with cross-functional teams to bring digital products from concept to deployment.`;
-const header2 = `Personal life`;
-const paragraph2 = `I grew up in Hvidovre and now live in Nørrebro with my wife and our dog, Preben.
-                Outside of web development, I enjoy spending my time on hobbies that mix creativity and nostalgia — building Lego Star Wars sets, and playing classic retro Pokémon games. 
-                In addition I enjoy watching football at the stadium with friends, and attending festivals in the summer.
-                I value both focused creativity and shared experiences, which also reflects in how I approach my work and daily life.`;
-const header3 = `Lets get in touch!`;
-const subheader2 = `Feel free to reach out through the following channels.`
+interface Props {
+	lang: string;
+}
+
+const { lang } = Astro.props;
 ---
 
 <Section id="profile">
-    <Header text='Profile' />
+    <Header text={profile[lang].sectionHeader} />
 
     <Article id="aboutContent" classList="grid grid-cols-12 gap-4 sm:gap-8 print:gap-4">
         <div class="col-span-full sm:col-span-7 lg:col-span-8 print:col-span-8">
             <header class="mb-2">
-                <h3 class="text-3xl md:text-4xl print:text-xl">{header1}</h3>
+                <h3 class="text-3xl md:text-4xl print:text-xl">{profile[lang].introduction.header}</h3>
                 <p class="uppercase font-medium text-lg lg:text-xl print:text-base">
-                    {subheader1}
+                    {profile[lang].introduction.subheader}
                 </p>
             </header>
             <div class="hidden sm:block">
-                <p class="mb-4 print:text-sm print:mb-0">{paragraph1}</p>
-                <h4 class="text-xl md:text-2xl print:hidden">{header2}</h4>
-                <p class="print:hidden">{paragraph2}</p>
+                <p class="mb-4 print:text-sm print:mb-0">{profile[lang].introduction.paragraph}</p>
+                <h4 class="text-xl md:text-2xl print:hidden">{profile[lang].personal.header}</h4>
+                <p class="print:hidden">{profile[lang].personal.paragraph}</p>
             </div>
         </div>
 
@@ -45,19 +38,19 @@ const subheader2 = `Feel free to reach out through the following channels.`
         </div>
 
         <div class="col-span-full sm:hidden">
-            <p>{paragraph1}</p>
+            <p>{profile[lang].introduction.paragraph}</p>
         </div>
 
         <div class="col-span-full sm:hidden print:block print:order-3">
-            <h4 class="text-lg print:text-base">{header2}</h4>
-            <p class="print:text-sm">{paragraph2}</p>
+            <h4 class="text-lg print:text-base">{profile[lang].personal.header}</h4>
+            <p class="print:text-sm">{profile[lang].personal.paragraph}</p>
         </div>
 
         <div class="col-span-full grid grid-cols-12 gap-4 print:col-span-4 print:order-2">
             <div class="col-span-full sm:col-span-7 sm:flex sm:order-2 lg:col-span-6 lg:col-start-6 flex-col justify-center text-center print:hidden">
-                <h4 class="text-lg md:mb-2 sm:text-xl md:text-2xl">{header3}</h4>
-                <p class="uppercase font-medium sm:text-lg lg:text-xl">{subheader2}</p>
-                <p>... or use the following contact <a href="#contact">form</a>.</p>
+                <h4 class="text-lg md:mb-2 sm:text-xl md:text-2xl">{profile[lang].contact.header}</h4>
+                <p class="uppercase font-medium sm:text-lg lg:text-xl">{profile[lang].contact.subheader}</p>
+                <p>{profile[lang].contact.paragraph} <a href={profile[lang].contact.link.href}>{profile[lang].contact.link.text}</a>.</p>
             </div>
             <div class="col-span-full xs:col-span-8 xs:col-start-3 sm:col-start-auto sm:col-span-5 sm:order-1 lg:col-span-4 lg:col-start-2 print:col-span-full">
                 <ContactInfo />
