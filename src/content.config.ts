@@ -31,7 +31,7 @@ const skill = z.object({
 })
 
 const experiences = defineCollection({
-    loader: file('./public/data/experiences.json'),
+    loader: file('./src/content/data/experiences.json'),
     schema: z.object({
         id: z.number(),
         da: experience,
@@ -40,7 +40,7 @@ const experiences = defineCollection({
 });
 
 const educations = defineCollection({
-    loader: file('./public/data/educations.json'),
+    loader: file('./src/content/data/educations.json'),
     schema: z.object({
         id: z.number(),
         da: education,
@@ -49,7 +49,7 @@ const educations = defineCollection({
 });
 
 const skills = defineCollection({
-    loader: file("public/data/skills.json"),
+    loader: file("./src/content/data/skills.json"),
     schema: z.object({
         id: z.number(),
         icon: z.string().optional(),
