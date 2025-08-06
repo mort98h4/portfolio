@@ -63,7 +63,7 @@ function populateImageModal(project) {
     const imageList = imageModal.querySelector('#image-list');
 
     activeImage.src = project.imagePath + project.images[0].fileName;
-    activeImage.alt = project.images[0].alt;
+    activeImage.alt = project.images[0].alt[activeImage.dataset.lang];
     activeImage.dataset.imageList = JSON.stringify(project.images);
     activeImage.dataset.activeImage = project.images[0].fileName;
     activeImage.dataset.imagePath = project.imagePath;
@@ -72,10 +72,11 @@ function populateImageModal(project) {
     for (let i = 0; i < imgsLength; i++) {
         const clone = listImgTemp.content.cloneNode(true);
         const image = project.images[i];
+        const img = clone.querySelector('img');
 
-        clone.querySelector('img').src = project.imagePath + image.fileName;
-        clone.querySelector('img').alt = image.alt;
-        clone.querySelector('img').dataset.imageIndex = i+1;
+        img.src = project.imagePath + image.fileName;
+        img.alt = image.alt[img.dataset.lang];
+        img.dataset.imageIndex = i+1;
         clone.querySelector('.image-container').addEventListener('click', listImageClicked);
         if (i === 0) clone.querySelector('.image-container').classList.add('active');
         imageList.appendChild(clone);
@@ -92,10 +93,11 @@ function activeImageClicked(event) {
     const activeImage = event.target.dataset.activeImage;
     const images = JSON.parse(event.target.dataset.imageList);
 
-    images.forEach(img => {
+    images.forEach(image => {
         const clone = imgTemp.content.cloneNode(true);
-        clone.querySelector('img').src = imagePath + img.fileName;
-        clone.querySelector('img').alt = img.alt;
+        const img = clone.querySelector('img');
+        img.src = imagePath + image.fileName;
+        img.alt = image.alt[img.dataset.lang];
         dest.appendChild(clone);
     });
 

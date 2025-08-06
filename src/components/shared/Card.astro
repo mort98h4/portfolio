@@ -4,9 +4,10 @@ import Tag from './Tag.astro';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
+	lang: string;
 }
 
-const { project } = Astro.props;
+const { project, lang } = Astro.props;
 const p = project.data;
 ---
 
@@ -44,8 +45,8 @@ const p = project.data;
 			</button>
 		: ''}
 		
-		<h3 class="text-base mb-4">{p.title}</h3>
-		<p class="pb-4">{p.body}</p>
+		<h3 class="text-base mb-4">{p.name}</h3>
+		<p class="pb-4">{p.description[lang]}</p>
 		{p.urls.length > 0 ?
 			<div class="pb-2">
 				<h4>
@@ -57,7 +58,7 @@ const p = project.data;
 				<ul class="">
 					{p.urls.map(url => (
 						<li class="inline-block">
-							<a href={url.href} target="_blank">{url.title}</a>
+							<a href={url.href} target="_blank">{url.text}</a>
 						</li>
 					))}
 				</ul>
@@ -87,7 +88,7 @@ const p = project.data;
 			</h4>
 			<ul class="flex flex-wrap gap-1 w-full">
 				{p.technologies.map(tech => (
-					<Tag text={tech.name} />
+					<Tag text={tech} />
 				))}
 			</ul>
 		</div>

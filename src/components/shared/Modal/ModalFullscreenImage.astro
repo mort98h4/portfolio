@@ -1,5 +1,9 @@
 ---
+interface Props {
+	lang: string;
+}
 
+const { lang } = Astro.props;
 ---
 
 <div class="fullscreen-container relative h-full">
@@ -14,7 +18,7 @@
 
 <template id="fullscreen-img-temp">
     <div class="fullscreen-img">
-        <img class="" src="" alt="" />
+        <img class="" src="" alt="" data-lang={lang} />
     </div>
 </template>
 

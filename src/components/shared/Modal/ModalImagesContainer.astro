@@ -1,10 +1,14 @@
 ---
+interface Props {
+	lang: string;
+}
 
+const { lang } = Astro.props;
 ---
 <div class="images-container h-full flex flex-col md:flex-row gap-4">
     <!-- Primary image -->
     <div class="image-col flex justify-center items-center md:flex-2 md:max-w-[66.66%] relative">
-        <img id="active-image" data-target="#fullscreen-modal" src="" alt="" />
+        <img id="active-image" data-target="#fullscreen-modal" data-lang={lang} src="" alt="" />
         <div class="image-placeholder"></div>
     </div>
     <!-- Image list -->
@@ -21,7 +25,7 @@
 <template id="list-img-temp">
     <div class="image-container relative">
         <div class="bg-(--color-1) h-full w-full absolute pointer-events-none"></div>
-        <img src="" alt="" data-image-index="" />
+        <img src="" alt="" data-image-index="" data-lang={lang} />
     </div>
 </template>
 

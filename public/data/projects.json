@@ -1,11 +1,14 @@
 [
     {
         "id": 1,
-        "title": "Bulbapedia",
-        "body": "Small project to get reacquainted with Next.js, and try out Sanity.",
+        "name": "Bulbapedia",
+        "description": {
+            "da": "Mindre projekt for at genopfriske kendskabet til Next.js og afprøve Sanity.",
+            "en": "Small project to get reacquainted with Next.js, and try out Sanity."
+        },
         "urls": [
             {
-                "title": "Bulbapedia",
+                "text": "Bulbapedia",
                 "href": "https://bulbapedia.vercel.app/"
             }
         ],
@@ -16,47 +19,50 @@
             }
         ],
         "technologies": [
-            {
-                "name": "Next.js"
-            },
-            {
-                "name": "Sanity"
-            },
-            {
-                "name": "Tailwind CSS"
-            }
+            "Next.js",
+            "Sanity.io",
+            "Tailwind CSS"
         ],
         "imagePath": "/projects/bulbapedia/",
         "images": [
             {
                 "fileName": "1.png",
-                "alt": "List of Pokémon"
+                "alt": {
+                    "da": "Liste over Pokémoner",
+                    "en": "List of Pokémon"
+                }
             },
             {
                 "fileName": "2.png",
-                "alt": "Charizard page"
+                "alt": {
+                    "da": "Charizard side",
+                    "en": "Charizard page"
+                }
             }
         ]
     },
     {
         "id": 2,
-        "title": "Anarkist Bar CMS",
-        "body": "My bachelor project, in which we set out to create an easy and efficient CMS for the Anarkist Bar in Tivoli.",
+        "name": "Anarkist Bar CMS",
+        "description": {
+            "da": "Mit bachelorprojekt, hvor vi havde til formål at skabe et brugervenligt og effektivt CMS til Anarkist Bar i Tivoli.",
+            "en": "My bachelor project, in which we set out to create an easy and efficient CMS for the Anarkist Bar in Tivoli."
+        },
         "urls": [
             {
-                "title": "CMS",
+                "text": "CMS",
                 "href": "http://anarkist.eu.pythonanywhere.com/sign-in"
             },
             {
-                "title": "Monitor menu 1",
+                "text": "Monitor menu 1",
                 "href": "http://anarkist.eu.pythonanywhere.com/menu/1/screen/1"
             },
             {
-                "title": "Monitor menu 2",
+                "text": "Monitor menu 2",
                 "href": "http://anarkist.eu.pythonanywhere.com/menu/1/screen/2"
             },
             {
-                "title": "Menu",
+                "text": "Menu",
                 "href": "https://anarkist.vercel.app/"
             }
         ],
@@ -71,69 +77,87 @@
             }
         ],
         "technologies": [
-            {
-                "name": "Python"
-            }, 
-            {
-                "name": "Bottle.py"
-            }, 
-            {
-                "name": "Astro.build"
-            }, 
-            {
-                "name": "Tailwind CSS"
-            }, 
-            {
-                "name": "JavaScript"
-            }, 
-            {
-                "name": "MySQL"
-            }
+            "Python",
+            "Bottle.py",
+            "Astro.build",
+            "Tailwind CSS",
+            "JavaScript",
+            "MySQL"
         ],
         "imagePath": "/projects/anarkist_cms/",
         "images": [
             {
                 "fileName": "1.png",
-                "alt": "Home page of the Anarkist Bar CMS"
+                "alt": {
+                    "da": "Forside af Anarkist Bar CMS",
+                    "en": "Home page of the Anarkist Bar CMS"
+                }
             },
             {
                 "fileName": "2.png",
-                "alt": "Beers page of the Anarkist Bar CMS"
+                "alt": {
+                    "da": "Ølside af Anarkist Bar CMS",
+                    "en": "Beers page of the Anarkist Bar CMS"
+                }
             },
             {
                 "fileName": "3.png",
-                "alt": "Create beer page of the Anarkist Bar CMS"
+                "alt": {
+                    "da": "Opret ølside af Anarkist Bar CMS",
+                    "en": "Create beer page of the Anarkist Bar CMS"
+                }
             },
             {
                 "fileName": "4.png",
-                "alt": "Taps page of the Anarkist Bar CMS"
+                "alt": {
+                    "da": "Haner-side af Anarkist Bar CMS",
+                    "en": "Taps page of the Anarkist Bar CMS"
+                }
             },
             {
                 "fileName": "5.png",
-                "alt": "Update tap page of the Anarkist Bar CMS"
+                "alt": {
+                    "da": "Opdater haner-side af Anarkist Bar CMS",
+                    "en": "Update tap page of the Anarkist Bar CMS"
+                }
             },
             {
                 "fileName": "6.png",
-                "alt": "Monitor 1 of the Anarkist Bar CMS"
+                "alt": {
+                    "da": "Monitor 1 af Anarkist Bar CMS",
+                    "en": "Monitor 1 of the Anarkist Bar CMS"
+                }
             },
             {
                 "fileName": "7.png",
-                "alt": "Monitor 2 of the Anarkist Bar CMS"
+                "alt": {
+                    "da": "Monitor 2 af Anarkist Bar CMS",
+                    "en": "Monitor 2 of the Anarkist Bar CMS"
+                }
             },
             {
                 "fileName": "8.png",
-                "alt": "Home page of the public menu of the Anarkist Bar CMS"
+                "alt": {
+                    "da": "Forside af det offentlige menukort til Anarkist Bar CMS",
+                    "en": "Home page of the public menu of the Anarkist Bar CMS"
+                }
             },
             {
                 "fileName": "9.png",
-                "alt": "Beer list of the public menu of the Anarkist Bar CMS"
+                "alt": {
+                    "da": "Ølliste til det offentlige menukort i Anarkist Bar CMS",
+                    "en": "Beer list of the public menu of the Anarkist Bar CMS"
+                }
             }
         ]
     },
     {
         "id": 3,
-        "title": "Bank",
-        "body": "My second semester exam project, where we were tasked to create a bank application.",
+        "name": "Bank",
+        "description": {
+            "da": "Mit eksamensprojekt på andet semester, hvor vi havde til opgave at udvikle en bankapplikation.",
+            "en": "My second semester exam project, where we were tasked to create a bank application."
+        },
         "urls": [],
         "repositories": [
             {
@@ -142,29 +166,24 @@
             }
         ],
         "technologies": [
-            {
-                "name": "Python"
-            }, 
-            {
-                "name": "Django"
-            }, 
-            {
-                "name": "Docker"
-            }, 
-            {
-                "name": "HTMX"
-            }
+            "Python",
+            "Django",
+            "Docker",
+            "HTMX"
         ],
         "imagePath": "",
         "images": []
     },
     {
         "id": 4,
-        "title": "Anarkist Bar",
-        "body": "My second semester elective exam project, where we were tasked to create a full stack web application.",
+        "name": "Anarkist Bar",
+        "description": {
+            "da": "Mit eksamensprojekt fra andet semesters valgfag, hvor vi havde til opgave at udvikle en full stack webapplikation.",
+            "en": "My second semester elective exam project, where we were tasked to create a full stack web application."
+        },
         "urls": [
             {
-                "title": "Anarkist",
+                "text": "Anarkist",
                 "href": "https://mortengross.dk/anarkist/"
             }
         ],
@@ -175,58 +194,74 @@
             }
         ],
         "technologies": [
-            {
-                "name": "PHP"
-            }, 
-            {
-                "name": "JavaScript"
-            },
-            {
-                "name": "Tailwind CSS"
-            },
-            {
-                "name": "MySQL"
-            }
+            "PHP",
+            "JavaScript",
+            "Tailwind CSS",
+            "MySQL"
         ],
         "imagePath": "/projects/anarkist_php/",
         "images": [
             {
                 "fileName": "1.png",
-                "alt": "Home page of Anarkist PHP CMS"
+                "alt": {
+                    "da": "Forside af Anarkist PHP CMS",
+                    "en": "Home page of Anarkist PHP CMS"
+                }
             },
             {
                 "fileName": "2.png",
-                "alt": "Sign up page of Anarkist PHP CMS"
+                "alt": {
+                    "da": "Tilmeldingsside af Anarkist PHP CMS",
+                    "en": "Sign up page of Anarkist PHP CMS"
+                }
             },
             {
                 "fileName": "3.png",
-                "alt": "Login modal of Anarkist PHP CMS"
+                "alt": {
+                    "da": "Loginmodal af Anarkist PHP CMS",
+                    "en": "Login modal of Anarkist PHP CMS"
+                }
             },
             {
                 "fileName": "4.png",
-                "alt": "Tapwall page of Anarkist PHP CMS"
+                "alt": {
+                    "da": "Tapwall-side af Anarkist PHP CMS",
+                    "en": "Tapwall page of Anarkist PHP CMS"
+                }
             },
             {
                 "fileName": "5.png",
-                "alt": "Beer page of Anarkist PHP CMS"
+                "alt": {
+                    "da": "Ølside af Anarkist PHP CMS",
+                    "en": "Beer page of Anarkist PHP CMS"
+                }
             },
             {
                 "fileName": "6.png",
-                "alt": "Admin page of Anarkist PHP CMS"
+                "alt": {
+                    "da": "Adminside af Anarkist PHP CMS",
+                    "en": "Admin page of Anarkist PHP CMS"
+                }
             },
             {
                 "fileName": "7.png",
-                "alt": "Profile page of Anarkist PHP CMS"
+                "alt": {
+                    "da": "Profilsiden af Anarkist PHP CMS",
+                    "en": "Profile page of Anarkist PHP CMS"
+                }
             }
         ]
     },
     {
         "id": 5,
-        "title": "Twatter",
-        "body": "My Web Dev first semester exam project, where we were tasked to create a copy of Twitter.",
+        "name": "Twatter",
+        "description": {
+            "da": "Mit eksamensprojekt fra første semester på webudvikling, hvor vi havde til opgave at lave en kopi af Twitter.",
+            "en": "My Web Dev first semester exam project, where we were tasked to create a copy of Twitter."
+        },
         "urls": [
             {
-                "title": "Twatter",
+                "text": "Twatter",
                 "href": "https://mort98h4.eu.pythonanywhere.com/"
             }
         ],
@@ -237,69 +272,89 @@
             }
         ],
         "technologies": [
-            {
-                "name": "Python"
-            }, 
-            {
-                "name": "Bottle.py"
-            }, 
-            {
-                "name": "Tailwind CSS"
-            }, 
-            {
-                "name": "JavaScript"
-            }, 
-            {
-                "name": "MySQL"
-            }
+            "Python",
+            "Bottle.py",
+            "Tailwind CSS",
+            "JavaScript",
+            "MySQL"
         ],
         "imagePath": "/projects/twatter/",
         "images": [
             {
                 "fileName": "1.png",
-                "alt": ""
+                "alt": {
+                    "da": "Forside af Twatter",
+                    "en": "Frontpage of Twatter"
+                }
             },
             {
                 "fileName": "2.png",
-                "alt": ""
+                "alt": {
+                    "da": "Opret bruger modal",
+                    "en": "Create account modal"
+                }
             },
             {
                 "fileName": "3.png",
-                "alt": ""
+                "alt": {
+                    "da": "Log ind side på Twatter",
+                    "en": "Sign in page of Twatter"
+                }
             },
             {
                 "fileName": "4.png",
-                "alt": ""
+                "alt": {
+                    "da": "Home side på Twatter",
+                    "en": "Home page of Twatter"
+                }
             },
             {
                 "fileName": "5.png",
-                "alt": ""
+                "alt": {
+                    "da": "Profil side på Twatter",
+                    "en": "Profile page of Twatter"
+                }
             },
             {
                 "fileName": "6.png",
-                "alt": ""
+                "alt": {
+                    "da": "Opdater profil modal",
+                    "en": "Update profile modal"
+                }
             },
             {
                 "fileName": "7.png",
-                "alt": ""
+                "alt": {
+                    "da": "Liste af følgere",
+                    "en": "Followers list"
+                }
             },
             {
                 "fileName": "8.png",
-                "alt": ""
+                "alt": {
+                    "da": "Tom følgerliste",
+                    "en": "Empty followings list"
+                }
             },
             {
                 "fileName": "9.png",
-                "alt": ""
+                "alt": {
+                    "da": "Vis likes fra bruger liste",
+                    "en": "Display likes of account list"
+                }
             }
         ]
     },
     {
         "id": 6,
-        "title": "Strikkestedet",
-        "body": "My Multimediadesign final exam project, where we were tasked to do a rebranding of an existing company.",
+        "name": "Strikkestedet",
+        "description": {
+            "da": "Mit afsluttende eksamensprojekt på Multimediedesign, hvor vi havde til opgave at lave en rebranding af en eksisterende virksomhed.",
+            "en": "My Multimediadesign final exam project, where we were tasked to do a rebranding of an existing company."
+        },
         "urls": [
             {
-                "title": "Strikkestedet",
+                "text": "Strikkestedet",
                 "href": "https://strikkestedet-orpin.vercel.app/"
             }
         ],
@@ -310,40 +365,47 @@
             }
         ],
         "technologies": [
-            {
-                "name": "Next.js"
-            }, 
-            {
-                "name": "WordPress"
-            }, 
-            {
-                "name": "Tailwind CSS"
-            }, 
-            {
-                "name": "GraphQL"
-            }
+            "Next.js",
+            "WordPress",
+            "Tailwind CSS",
+            "GraphQL"
         ],
         "imagePath": "/projects/strikkestedet/",
         "images": [
             {
                 "fileName": "1.png",
-                "alt": "Home page of Strikkestedet webshop"
+                "alt": {
+                    "da": "Forside af Strikkestedet webshop",
+                    "en": "Home page of Strikkestedet webshop"
+                }
             },
             {
                 "fileName": "2.png",
-                "alt": "Products page of Strikkestedet webshop"
+                "alt": {
+                    "da": "Produktside af Strikkestedet webshop",
+                    "en": "Products page of Strikkestedet webshop"
+                }
             },
             {
                 "fileName": "3.png",
-                "alt": "Get started page of Strikkestedet webshop"
+                "alt": {
+                    "da": "Kom i gang-side af Strikkestedet webshop",
+                    "en": "Get started page of Strikkestedet webshop"
+                }
             },
             {
                 "fileName": "4.png",
-                "alt": "About page of Strikkestedet webshop"
+                "alt": {
+                    "da": "Om os-side af Strikkestedet webshop",
+                    "en": "About page of Strikkestedet webshop"
+                }
             },
             {
                 "fileName": "5.png",
-                "alt": "Contact page of Strikkestedet webshop"
+                "alt": {
+                    "da": "Kontakt-side af Strikkestedet webshop",
+                    "en": "Contact page of Strikkestedet webshop"
+                }
             }
         ]
     }

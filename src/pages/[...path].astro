@@ -47,14 +47,14 @@ const { lang } = Astro.props;
 	<Modal id="image-modal" fullscreen={false}>
 		<ModalHeader title='' dismissTarget="#image-modal"></ModalHeader>
 		<ModalBody>
-			<ModalImagesContainer/>
+			<ModalImagesContainer lang={lang}/>
 		</ModalBody>
 	</Modal>
 
 	<Modal id="fullscreen-modal" fullscreen={true}>
 		<ModalHeader title='' dismissTarget="#fullscreen-modal"></ModalHeader>
 		<ModalBody>
-			<ModalFullscreenImage/>
+			<ModalFullscreenImage lang={lang}'/>
 		</ModalBody>
 	</Modal>
 </Layout>

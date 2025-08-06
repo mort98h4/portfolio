@@ -62,11 +62,14 @@ const projects = defineCollection({
   loader: file('./public/data/projects.json'),
   schema: z.object({
     id: z.number(),
-    title: z.string(),
-    body: z.string(),
+    name: z.string(),
+    description: z.object({
+        da: z.string(),
+        en: z.string()
+    }),
     urls: z.array(
         z.object({
-            title: z.string(),
+            text: z.string(),
             href: z.string().url()
         })
     ),
@@ -77,18 +80,16 @@ const projects = defineCollection({
         })
     ),
     technologies: z.array(
-        z.object(
-            {
-                name: z.string(),
-                icon: z.string().optional()
-            }
-        )
+        z.string()
     ),
     imagePath: z.string().optional(),
     images: z.array(
         z.object({
             fileName: z.string(),
-            alt: z.string()
+            alt: z.object({
+                da: z.string(),
+                en: z.string()
+            })
         })
     ),
   })
