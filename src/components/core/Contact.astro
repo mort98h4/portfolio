@@ -1,21 +1,31 @@
 ---
 import { fullnameMax, fullnameMin, phoneRegexStr, messageMin, messageMax } from "../../constants";
+import { contact } from "../../content/contact";
 import Article from "../shared/Article.astro";
 import ContactInfo from "../shared/ContactInfo.astro";
 import Header from "../shared/Header.astro";
 import Section from "../shared/Section.astro";
 
+interface Props {
+	lang: string;
+}
 
+const { lang } = Astro.props;
+
+const form = contact[lang].form;
+const fieldOptional = form.optional;
+const fieldRequired = form.required;
+const fields = form.fields;
 ---
 
 <Section id="contact" classList="print:hidden">
-    <Header text='Contact' />
+    <Header text={contact[lang].sectionHeader} />
     
     <Article id="information" classList="grid grid-cols-12 gap-4">
         <form class="col-span-full md:col-span-7 grid gap-10 mb-12 md:mb-0" method="post" novalidate>
-            
+            <input type="hidden" name="lang" value={lang} />
             <div class="relative row-span-1">
-                <div class="hint bottom-full right-(--padding-x)">Required</div>
+                <div class="hint bottom-full right-(--padding-x)">{fieldRequired}</div>
                 <input
                     id="fullname"
                     name="fullname"
@@ -28,13 +38,13 @@ import Section from "../shared/Section.astro";
                     aria-describedby="fullname-error"
                 />
                 <label for="fullname">
-                    <span>Full Name</span>
+                    <span>{fields.fullname.label}</span>
                 </label>
                 <div id="fullname-error" class="hint error top-full left-(--padding-x)"></div>
             </div>
 
             <div class="relative row-span-1">
-                <div class="hint bottom-full right-(--padding-x)">Required</div>
+                <div class="hint bottom-full right-(--padding-x)">{fieldRequired}</div>
                 <input
                     id="email"
                     name="email"
@@ -45,13 +55,13 @@ import Section from "../shared/Section.astro";
                     aria-describedby="email-error"
                 />
                 <label for="email">
-                    <span>Email</span>
+                    <span>{fields.email.label}</span>
                 </label>
                 <div id="email-error" class="hint error top-full left-(--padding-x)"></div>
             </div>
 
             <div class="relative row-span-1">
-                <div class="hint bottom-full right-(--padding-x)">Optional</div>
+                <div class="hint bottom-full right-(--padding-x)">{fieldOptional}</div>
                 <input
                     id="phone"
                     name="phone"
@@ -62,13 +72,13 @@ import Section from "../shared/Section.astro";
                     aria-describedby="phone-error"
                 />
                 <label for="phone">
-                    <span>Phone</span>
+                    <span>{fields.phone.label}</span>
                 </label>
                 <div id="phone-error" class="hint error top-full left-(--padding-x)"></div>
             </div>
 
             <div class="relative row-span-1">
-                <div class="hint bottom-full right-(--padding-x)">Required</div>
+                <div class="hint bottom-full right-(--padding-x)">{fieldRequired}</div>
                 <textarea
                     id="message"
                     name="message"
@@ -80,7 +90,7 @@ import Section from "../shared/Section.astro";
                     aria-describedby="message-error"
                 ></textarea>
                 <label for="message">
-                    <span>Message</span>
+                    <span>{fields.message.label}</span>
                 </label>
                 <div id="message-error" class="hint error top-full left-(--padding-x)"></div>
             </div>
@@ -88,7 +98,7 @@ import Section from "../shared/Section.astro";
             <div class="flex w-full items-center">
                 <button class="btn">
                     <div class="btn-bg-gradient"></div>
-                    <span class="btn-text">Send</span>
+                    <span class="btn-text">{form.buttonText}</span>
                 </button>
                 <div id="form-response" class="grow text-end">
                     <div id="form-error" class="hint error gap-2 items-center justify-end flex hidden"></div>

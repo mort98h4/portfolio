@@ -4,11 +4,12 @@ import * as validation from '../helpers/validation.js';
 
 const contactForm = document.querySelector('form');
 const inputs = contactForm.querySelectorAll('[name]');
+const lang = contactForm.lang.value;
 
 inputs.forEach(el => el.addEventListener('change', (event) => {
     const target = event.target;
     const hintElem = getErrorHint(target.name);
-    hintElem.textContent = validation.getFrontendErrorMessage(target.name, target.validity)
+    hintElem.textContent = validation.getFrontendErrorMessage(target.name, target.validity, lang);
 }));
 
 contactForm.addEventListener('submit', async (event) => {
@@ -18,11 +19,12 @@ contactForm.addEventListener('submit', async (event) => {
     resetFormHint(formErrorHint);
 
     const formData = new FormData(contactForm);
+    formData.delete('lang');
 
     if (!contactForm.checkValidity()) {
         formData.keys().forEach(key => {
             const hintElem = getErrorHint(key);
-            hintElem.textContent = validation.getFrontendErrorMessage(key, contactForm[key].validity);
+            hintElem.textContent = validation.getFrontendErrorMessage(key, contactForm[key].validity, lang);
         });
         return;
     }
@@ -39,18 +41,18 @@ contactForm.addEventListener('submit', async (event) => {
     if (result.inputError) {
         result.fields.forEach(field => {
             const hintElem = getErrorHint(field);
-            hintElem.textContent = validation.getBackendErrorMessage(result.inputError.type, field);
+            hintElem.textContent = validation.getBackendErrorMessage(result.inputError.type, field, lang);
             hintElem.classList.add('input-invalid');
         });
         return;
     } else if (result.error) {
-        formErrorHint.textContent = validation.getFormErrorMessage();
+        formErrorHint.textContent = validation.getFormErrorMessage(lang);
         formErrorHint.classList.remove('hidden');
         return;
     }
 
     const formSuccessHint = document.querySelector('#form-success');
-    formSuccessHint.textContent = validation.getFormSuccessMessage();
+    formSuccessHint.textContent = validation.getFormSuccessMessage(lang);
     formSuccessHint.classList.remove('hidden');
     
     inputs.forEach((input) => input.value = '')

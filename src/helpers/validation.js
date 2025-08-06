@@ -1,6 +1,7 @@
-import { fullnameMax, fullnameMin, messageMax, messageMin } from '../constants';
+import { fullnameMax, fullnameMin, mainLang, messageMax, messageMin } from '../constants';
+import { contact } from "../content/contact"
 
-export function getFrontendErrorMessage(inputName, validityState) {
+export function getFrontendErrorMessage(inputName, validityState, lang = mainLang) {
     try {            
         for(let key in validityState){
             if (validityState[key]) {
@@ -9,17 +10,17 @@ export function getFrontendErrorMessage(inputName, validityState) {
                     case 'valid':
                         return '';
                     case 'valueMissing':
-                        return getValueMissingMessage(inputName);
+                        return getValueMissingMessage(inputName, lang);
                     case 'tooShort':
-                        return getMinLengthMessage(inputName);
+                        return getMinLengthMessage(inputName, lang);
                     case 'tooLong':
-                        return getMaxLengthMessage(inputName);
+                        return getMaxLengthMessage(inputName, lang);
                     case 'typeMismatch':
-                        return getInvalidEmailMessage();
+                        return getInvalidEmailMessage(lang);
                     case 'patternMismatch':
-                        return getInvalidPhoneNumberMessage();
+                        return getInvalidPhoneNumberMessage(lang);
                     default:
-                        return getDefaultErrorMessage();
+                        return getDefaultErrorMessage(lang);
                 }
             }
         }
@@ -28,21 +29,21 @@ export function getFrontendErrorMessage(inputName, validityState) {
     }
 }
 
-export function getBackendErrorMessage(errorType, inputName) {
+export function getBackendErrorMessage(errorType, inputName, lang = mainLang) {
     try {
         switch(errorType) {
             case 'value_missing':
-                return getValueMissingMessage(inputName);
+                return getValueMissingMessage(inputName, lang);
             case 'too_small':
-                return getMinLengthMessage(inputName);
+                return getMinLengthMessage(inputName, lang);
             case 'too_big':
-                return getMaxLengthMessage(inputName);
+                return getMaxLengthMessage(inputName, lang);
             case 'invalid_email':
-                return getInvalidEmailMessage();
+                return getInvalidEmailMessage(lang);
             case 'invalid_phone_number':
-                return getInvalidPhoneNumberMessage();
+                return getInvalidPhoneNumberMessage(lang);
             default:
-                return getDefaultErrorMessage();
+                return getDefaultErrorMessage(lang);
         }
     } catch (error) {
         console.error(error);
@@ -65,6 +66,9 @@ function getErrorType(error) {
     return error.code;
 }
 
+function getLabel(inputName, lang) {
+    return contact[lang].form.fields[inputName].label ?? inputName;
+}
 
 function getMinLength(key) {
     switch (key) {
@@ -73,7 +77,7 @@ function getMinLength(key) {
         case 'message':
             return messageMin;
         default:
-            console.warn(`'${key}' does not have a maximum length value.`);
+            console.warn(`'${key}' does not have a minimum length value.`);
             return 0;
     }
 }
@@ -85,39 +89,87 @@ function getMaxLength(key) {
         case 'message':
             return messageMax;
         default:
-            console.warn(`'${key}' does not have a minimum length value.`);
+            console.warn(`'${key}' does not have a maximum length value.`);
             return 0;
     }
 }
 
-function getDefaultErrorMessage() {
-    return 'An error occured.';
+function getDefaultErrorMessage(lang) {
+    switch(lang) {
+        case 'da':
+            return 'Der skete en fejl.';
+        default:
+            return 'An error occured.';
+    }
 }
 
-function getValueMissingMessage(inputName) {
-    return `'${inputName}' is missing.`;
+function getValueMissingMessage(inputName, lang) {
+    const label = getLabel(inputName, lang);
+
+    switch(lang) {
+        case 'da':
+            return `'${label}' skal udfyldes.`;
+        default:
+            return `'${label}' is missing.`;
+    }
 } 
 
-function getMinLengthMessage(inputName) {
-    return `'${inputName}' should have min. ${getMinLength(inputName)} characters.`;
+function getMinLengthMessage(inputName, lang) {
+    const label = getLabel(inputName, lang);
+    const minLen = getMinLength(inputName);
+
+    switch(lang) {
+        case 'da':
+            return `'${label}' skal min. have ${minLen} karakterer.`;
+        default:
+            return `'${label}' should have min. ${minLen} characters.`;
+    }
 }
 
-function getMaxLengthMessage(inputName) {
-    return `'${inputName}' should have max. ${getMaxLength(inputName)} characters.`;
+function getMaxLengthMessage(inputName, lang) {
+    const label = getLabel(inputName, lang);
+    const maxLen = getMaxLength(inputName);
+
+    switch(lang) {
+        case 'da':
+            return `'${label}' skal max. have ${maxLen} karakterer.`;
+        default:
+            return `'${label}' should have max. ${maxLen} characters.`;
+    }
 }
 
-function getInvalidEmailMessage() {
-    return 'Please enter a valid email address.';
+function getInvalidEmailMessage(lang) {
+    switch(lang) {
+        case 'da':
+            return 'Indtast en gyldig email adresse.';
+        default: 
+            return 'Please enter a valid email address.';
+    }
 }
 
-function getInvalidPhoneNumberMessage() {
-    return 'Please enter a valid danish phone number.';
+function getInvalidPhoneNumberMessage(lang) {
+    switch(lang) {
+        case 'da':
+            return 'Indtast et gyldigt dansk telefonnummer.';
+        default:
+            return 'Please enter a valid danish phone number.';
+    }
 }
 
-export function getFormErrorMessage() {
-    return 'An error occured - please try again.';
+export function getFormErrorMessage(lang = mainLang) {
+    switch(lang) {
+        case 'da':
+            return 'Der skete en fejl - prøv igen.';
+        default:
+            return 'An error occured - please try again.';
+    }
 }
 
-export function getFormSuccessMessage() {
-    return 'Message was successfully sent!'
+export function getFormSuccessMessage(lang = mainLang) {
+    switch(lang) {
+        case 'da':
+            return 'Beskeden er blevet sendt!';
+        default:
+            return 'Message was successfully sent!';
+    }
 }
