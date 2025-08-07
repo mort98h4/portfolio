@@ -6,9 +6,6 @@ export const experience = {
         },
         education: {
             header: 'Uddannelse'
-        },
-        skills: {
-            header: 'Kompetencer'
         }
     },
     en: {
@@ -18,9 +15,6 @@ export const experience = {
         },
         education: {
             header: 'Education'
-        },
-        skills: {
-            header: 'Skills'
         }
     }
 }

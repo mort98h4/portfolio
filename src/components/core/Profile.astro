@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import { profile } from "../../content/profile";
 import Article from "../shared/Article.astro";
 import ContactInfo from "../shared/ContactInfo.astro";
@@ -10,23 +11,45 @@ interface Props {
 }
 
 const { lang } = Astro.props;
+
+let skills = await getCollection('skills').then(s => s.map(ski => ({ id: ski.data.id, icon: ski.data.icon, ...ski.data[lang]}) ));
+
+const skillTypes = []; 
+skills.map(skill => {
+    if (skillTypes.indexOf(skill.type) === -1) {
+        skillTypes.push(skill.type);
+    }
+});
+
+skills = skills.sort((a, b) => {
+    const nameA = a.text.toUpperCase();
+    const nameB = b.text.toUpperCase();
+    if (nameA < nameB) {
+        return -1;
+    }
+    if (nameA > nameB) {
+        return 1;
+    }
+
+    return 0;
+});
 ---
 
 <Section id="profile">
     <Header text={profile[lang].sectionHeader} />
 
     <Article id="aboutContent" classList="grid grid-cols-12 gap-4 sm:gap-8 print:gap-4">
-        <div class="col-span-full sm:col-span-7 lg:col-span-8 print:col-span-8">
-            <header class="mb-2">
-                <h3 class="text-3xl md:text-4xl print:text-xl">{profile[lang].introduction.header}</h3>
+        <div class="col-span-full sm:col-span-7 lg:col-span-8 print:col-span-8 print:lg:col-span-9">
+            <header class="mb-2 print:mb-0">
+                <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">{profile[lang].introduction.header}</h3>
                 <p class="uppercase font-medium text-lg lg:text-xl print:text-base">
                     {profile[lang].introduction.subheader}
                 </p>
             </header>
             <div class="hidden sm:block">
-                <p class="mb-4 print:text-sm print:mb-0">{profile[lang].introduction.paragraph}</p>
-                <h4 class="text-xl md:text-2xl print:hidden">{profile[lang].personal.header}</h4>
-                <p class="print:hidden">{profile[lang].personal.paragraph}</p>
+                <p class="mb-4 print:text-sm print:mb-0 print:lg:mb-2">{profile[lang].introduction.paragraph}</p>
+                <h4 class="text-xl md:text-2xl print:text-base print:hidden print:lg:block">{profile[lang].personal.header}</h4>
+                <p class="print:hidden print:text-sm print:lg:block">{profile[lang].personal.paragraph}</p>
             </div>
         </div>
 
@@ -41,20 +64,57 @@ const { lang } = Astro.props;
             <p>{profile[lang].introduction.paragraph}</p>
         </div>
 
-        <div class="col-span-full sm:hidden print:block print:order-3">
+        <div class="col-span-full sm:hidden print:block print:lg:hidden print:order-3">
             <h4 class="text-lg print:text-base">{profile[lang].personal.header}</h4>
             <p class="print:text-sm">{profile[lang].personal.paragraph}</p>
         </div>
 
-        <div class="col-span-full grid grid-cols-12 gap-4 print:col-span-4 print:order-2">
-            <div class="col-span-full sm:col-span-7 sm:flex sm:order-2 lg:col-span-6 lg:col-start-6 flex-col justify-center text-center print:hidden">
-                <h4 class="text-lg md:mb-2 sm:text-xl md:text-2xl">{profile[lang].contact.header}</h4>
-                <p class="uppercase font-medium sm:text-lg lg:text-xl">{profile[lang].contact.subheader}</p>
-                <p>{profile[lang].contact.paragraph} <a href={profile[lang].contact.link.href}>{profile[lang].contact.link.text}</a>.</p>
-            </div>
-            <div class="col-span-full xs:col-span-8 xs:col-start-3 sm:col-start-auto sm:col-span-5 sm:order-1 lg:col-span-4 lg:col-start-2 print:col-span-full">
-                <ContactInfo />
-            </div>
+        <div class="hidden print:block col-span-4 order-2 lg:col-span-3">
+            <ContactInfo />
+        </div>
+
+    </Article>
+
+    <Article id="skills">
+        <header class="mb-4 print:mb-0">
+            <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">{profile[lang].skills.header}</h3>
+        </header>
+
+        <div class="grid grid-cols-4 gap-4">
+            {
+                skillTypes.map(skillType => (
+                    <div class="col-span-2 sm:col-span-1 md:mb-0">
+                        <h4 class="mb-2 text-lg sm:text-xl md:text-2xl print:text-base print:mb-2">{skillType}</h4>
+                        <ul>
+                            {skills.map(skill => (
+                                skill.type == skillType ? 
+                                <li class="font-medium md:text-lg md:leading-5 flex items-center mb-1 print:text-sm">
+                                    <span class="inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 me-1 print:w-[1ren] print:h-[1rem]">
+                                        {skill.icon ? <i class={skill.icon}></i> : <i class="fa-solid fa-code"></i>}
+                                    </span>
+                                    <span class="inline-block">
+                                        {skill.text}
+                                    </span>
+                                    
+                                </li>
+                                : ''
+                            ))}
+                        </ul>
+                    </div>
+                ))
+            }
+            
+        </div>
+    </Article>
+
+    <Article id="contactInfo" classList="grid grid-cols-12 gap-4 print:hidden">
+        <div class="col-span-full sm:col-span-7 sm:flex sm:order-2 lg:col-span-6 lg:col-start-6 flex-col justify-center text-center print:hidden">
+            <h4 class="text-lg md:mb-2 sm:text-xl md:text-2xl">{profile[lang].contact.header}</h4>
+            <p class="uppercase font-medium sm:text-lg lg:text-xl">{profile[lang].contact.subheader}</p>
+            <p>{profile[lang].contact.paragraph} <a href={profile[lang].contact.link.href}>{profile[lang].contact.link.text}</a>.</p>
+        </div>
+        <div class="col-span-full xs:col-span-8 xs:col-start-3 sm:col-start-auto sm:col-span-5 sm:order-1 lg:col-span-4 lg:col-start-2 print:col-span-full">
+            <ContactInfo />
         </div>
     </Article>
 

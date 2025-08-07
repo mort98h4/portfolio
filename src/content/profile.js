@@ -18,6 +18,9 @@ export const profile = {
                 href: '#contact',
                 text: 'kontaktformularen' 
             }
+        },
+        skills: {
+            header: 'Kompetencer'
         }
     },
     en: {
@@ -39,6 +42,9 @@ export const profile = {
                 href: '#contact',
                 text: 'contact form' 
             }
+        },
+        skills: {
+            header: 'Skills'
         }
     }
 }

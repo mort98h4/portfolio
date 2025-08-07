@@ -14,35 +14,13 @@ const { lang } = Astro.props;
 
 const experiences = await getCollection('experiences').then(e => e.map(exp => ({ id: exp.data.id, ...exp.data[lang] }) ));
 const educations = await getCollection('educations').then(e => e.map(edu => ({ id: edu.data.id, ...edu.data[lang] }) ));
-
-let skills = await getCollection('skills').then(s => s.map(ski => ({ id: ski.data.id, icon: ski.data.icon, ...ski.data[lang]}) ));
-
-const skillTypes = []; 
-skills.map(skill => {
-    if (skillTypes.indexOf(skill.type) === -1) {
-        skillTypes.push(skill.type);
-    }
-});
-
-skills = skills.sort((a, b) => {
-    const nameA = a.text.toUpperCase();
-    const nameB = b.text.toUpperCase();
-    if (nameA < nameB) {
-        return -1;
-    }
-    if (nameA > nameB) {
-        return 1;
-    }
-
-    return 0;
-});
 ---
 
 <Section id="experience">
     <Header text={experience[lang].sectionHeader} />
 
     <Article id="professional" >
-        <header class="mb-4 print:mb-2">
+        <header class="mb-4 print:mb-0">
             <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">{experience[lang].professional.header}</h3>
         </header>
         
@@ -50,42 +28,10 @@ skills = skills.sort((a, b) => {
     </Article>
     
     <Article id="education">
-        <header class="mb-4 print:mb-2">
+        <header class="mb-4 print:mb-0">
             <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">{experience[lang].education.header}</h3>
         </header>
         
         <ExperienceList id="school" data={educations} />
-    </Article>
-
-    <Article id="skills">
-        <header class="mb-4 print:mb-2">
-            <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">{experience[lang].skills.header}</h3>
-        </header>
-
-        <div class="grid grid-cols-4 gap-4">
-            {
-                skillTypes.map(skillType => (
-                    <div class="col-span-2 sm:col-span-1 md:mb-0">
-                        <h4 class="mb-2 text-lg sm:text-xl md:text-2xl print:text-base">{skillType}</h4>
-                        <ul>
-                            {skills.map(skill => (
-                                skill.type == skillType ? 
-                                <li class="font-medium md:text-lg md:leading-5 flex items-center mb-1 print:text-sm">
-                                    <span class="inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 me-1 print:w-[1ren] print:h-[1rem]">
-                                        {skill.icon ? <i class={skill.icon}></i> : <i class="fa-solid fa-code"></i>}
-                                    </span>
-                                    <span class="inline-block">
-                                        {skill.text}
-                                    </span>
-                                    
-                                </li>
-                                : ''
-                            ))}
-                        </ul>
-                    </div>
-                ))
-            }
-            
-        </div>
     </Article>
 </Section>
