@@ -334,5 +334,41 @@
             "type": "Backend",
             "text": ".NET"
         }
+    },
+    {
+        "id": 29,
+        "icon": "fa-solid fa-handshake",
+        "da": {
+            "type": "Bløde Kompetencer",
+            "text": "Pålidelig"
+        },
+        "en": {
+            "type": "Soft Skills",
+            "text": "Trustworthy"
+        }
+    },
+    {
+        "id": 30,
+        "icon": "fa-solid fa-hand-point-up",
+        "da": {
+            "type": "Bløde Kompetencer",
+            "text": "Ærlighed"
+        },
+        "en": {
+            "type": "Soft Skills",
+            "text": "Honesty"
+        }
+    },
+    {
+        "id": 31,
+        "icon": "fa-solid fa-person-arrow-down-to-line",
+        "da": {
+            "type": "Bløde Kompetencer",
+            "text": "Jordnær"
+        },
+        "en": {
+            "type": "Soft Skills",
+            "text": "Grounded"
+        }
     }
 ]
