@@ -8,7 +8,7 @@ export const profile = {
         },
         personal: {
             header: 'Personligt',
-            paragraph: 'Jeg er opvokset i Hvidovre og bor i dag på Nørrebro sammen med min hustru og vores hund, Preben. I mit personlige liv, bruger jeg gerne tid på mine hobbyer – jeg nyder at bygge Lego Star Wars-sæt, tage på stadion og se fodbold, samt at spille klassiske Pokémon-spil fra barndommen. Jeg værdsætter både kreativ fordybelse og fællesskab, og det afspejler sig i min tilgang til både arbejde og fritid.'
+            paragraph: 'Jeg er opvokset i Hvidovre, men bor i dag på Nørrebro med min hustru og vores hund, Preben. I mit personlige liv, bruger jeg gerne min tid på hobbyer, der kombinerer kreativitet og nostalgi — som at bygge Lego Star Wars-sæt og spille klassiske retro Pokémon-spil. Derudover nyder jeg at se fodbold på stadion med mine venner og tage til festivaler om sommeren. Jeg værdsætter både kreativ fordybelse og fælles oplevelser, hvilket også afspejler sig i min tilgang til arbejde og hverdag.'
         },
         contact: {
             header: 'Lad os tales ved!',
@@ -32,7 +32,7 @@ export const profile = {
         },
         personal: {
             header: 'Personal life',
-            paragraph: 'I grew up in Hvidovre and now live in Nørrebro with my wife and our dog, Preben. Outside of web development, I enjoy spending my time on hobbies that mix creativity and nostalgia — building Lego Star Wars sets, and playing classic retro Pokémon games. In addition I enjoy watching football at the stadium with friends, and attending festivals in the summer.I value both focused creativity and shared experiences, which also reflects in how I approach my work and daily life.'
+            paragraph: 'I grew up in Hvidovre and now live in Nørrebro with my wife and our dog, Preben. Outside of web development, I enjoy spending my time on hobbies that mix creativity and nostalgia — building Lego Star Wars sets, and playing classic retro Pokémon games. In addition I enjoy watching football at the stadium with friends, and attending festivals in the summer. I value both focused creativity and shared experiences, which also reflects in how I approach my work and daily life.'
         },
         contact: {
             header: 'Lets get in touch!',
