@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Matt Jensen",
+        "currentPosition": "Senior Engineering Manager, LEGO Group",
+        "formerPosition": "CTO & Partner, Vuffeli A/S",
+        "phone": {
+            "href": "phone:+4522765406",
+            "text": "+45 22 76 54 06"
+        }, 
+        "email": {
+            "href": "mailto:matt.jensen@lego.com",
+            "text": "matt.jensen@lego.com"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Nicholas Thurston",
+        "currentPosition": "Area Manager, Tivoli Food",
+        "formerPosition": null,
+        "phone": {
+            "href": "phone:+4522720519",
+            "text": "+45 22 72 05 19"
+        }, 
+        "email": {
+            "href": "mailto:nith@tivoli.dk",
+            "text": "nith@tivoli.dk"
+        }
+    }
+]

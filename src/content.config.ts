@@ -10,7 +10,7 @@ const experience = z.object({
     skills: z.array(
         z.string()
     )
-})
+});
 
 const education = z.object({
     institution: z.string(),
@@ -23,12 +23,12 @@ const education = z.object({
     skills: z.array(
         z.string()
     )
-})
+});
 
 const skill = z.object({
     type: z.string(),
     text: z.string()
-})
+});
 
 const experiences = defineCollection({
     loader: file('./src/content/data/experiences.json'),
@@ -36,6 +36,24 @@ const experiences = defineCollection({
         id: z.number(),
         da: experience,
         en: experience
+    })
+});
+
+const references = defineCollection({
+    loader: file('./src/content/data/references.json'),
+    schema: z.object({
+        id: z.number(),
+        name: z.string(),
+        currentPosition: z.string(),
+        formerPosition: z.string().nullable(),
+        phone: z.object({
+            href: z.string(),
+            text: z.string()
+        }),
+        email: z.object({
+            href: z.string(),
+            text: z.string()
+        })
     })
 });
 
@@ -95,4 +113,4 @@ const projects = defineCollection({
   })
 });
 
-export const collections = { experiences: experiences, educations: educations, skills: skills, projects: projects };
+export const collections = { experiences: experiences, references: references, educations: educations, skills: skills, projects: projects };

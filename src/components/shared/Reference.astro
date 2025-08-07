@@ -1,0 +1,74 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	reference: CollectionEntry<'references'>;
+}
+
+const { reference } = Astro.props;
+const ref = reference.data;
+---
+
+<div id={`${ref.id}`} class="reference col-span-6 lg:col-span-4 p-4 rounded border border-(--color-3) flex gap-4 flex-col justify-between print:p-2 print:gap-2 print:text-sm">
+    <div class="">
+        <h4 class="">{ref.name}</h4>
+        <strong class="font-medium">{ref.currentPosition}</strong>
+        {ref.formerPosition && 
+            <em class="block font-medium">{ref.formerPosition}</em>
+        }
+    </div>
+    
+    <address class="not-italic">
+        <ul>
+            <li class="flex gap-2 items-center">
+                <span class="inline-block">
+                    <i class="fa-solid fa-phone-flip"></i>
+                </span>
+                <a href={ref.phone.href}>{ref.phone.text}</a>
+            </li>
+            <li class="flex gap-2 items-center">
+                <span class="inline-block">
+                    <i class="fa-solid fa-envelope"></i>
+                </span>
+                <a href={ref.email.href}>{ref.email.text}</a>
+            </li>
+        </ul>
+    </address>
+</div>
+
+<style>
+    .reference {
+        transition: background-color .15s ease-in-out;
+        background-color: rgba(var(--color-1-rgb), .1);
+    }
+
+    html.dark .reference {
+        background-color: var(--color-4);
+    }
+
+    h4 {
+        color: var(--color-2);
+    }
+
+    html.dark h4 {
+        color: var(--color-1); 
+    }
+
+    strong, em {
+        transition: color .15s ease-in-out;
+        color: var(--color-3);
+    }
+
+    html.dark strong, html.dark em {
+        color: var(--color-2);
+    }
+
+    i {
+        transition: color .15s ease-in-out;
+        color: var(--color-2);
+    }
+
+    html.dark i {
+        color: var(--color-1);
+    }
+</style>

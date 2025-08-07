@@ -4,6 +4,9 @@ export const experience = {
         professional: {
             header: 'Erhvervserfaring'
         },
+        references: {
+            header: 'Referencer',
+        },
         education: {
             header: 'Uddannelse'
         }
@@ -12,6 +15,9 @@ export const experience = {
         sectionHeader: 'Experience',
         professional: {
             header: 'Professional experience'
+        },
+        references: {
+            header: 'References'
         },
         education: {
             header: 'Education'
