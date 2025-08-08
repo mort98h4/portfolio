@@ -26,7 +26,7 @@ const educations = await getCollection('educations').then(e => e.map(edu => ({ i
             <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">{experience[lang].professional.header}</h3>
         </header>
         
-        <ExperienceList id="work" data={experiences} />
+        <ExperienceList id="work" data={experiences} lang={lang} />
     </Article>
 
     <Article id="references">
@@ -46,6 +46,6 @@ const educations = await getCollection('educations').then(e => e.map(edu => ({ i
             <h3 class="text-2xl sm:text-3xl md:text-4xl print:text-xl">{experience[lang].education.header}</h3>
         </header>
         
-        <ExperienceList id="school" data={educations} />
+        <ExperienceList id="school" data={educations} lang={lang} />
     </Article>
 </Section>

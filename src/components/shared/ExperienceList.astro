@@ -4,9 +4,19 @@ import Tag from './Tag.astro';
 interface Props {
     id: string;
     data: any[];
+    lang: string;
 }
 
-const { id, data } = Astro.props;
+const { id, data, lang } = Astro.props;
+let periodEndStr = '';
+
+switch(lang) {
+    case 'da':
+        periodEndStr = 'nuværende';
+        break;
+    default:
+        periodEndStr = 'present';
+}
 ---
 
 <div id={id} class="carousel col-span-full grid grid-cols-12 items-center relative">
@@ -53,7 +63,7 @@ const { id, data } = Astro.props;
                         </h5>
                     </div>
                     
-                    <span class="experience-period text-sm lg:text-base font-medium border rounded px-2 py-1 print:text-sm">{exp.periodStart} - {exp.periodEnd ? exp.periodEnd : 'present'}</span>
+                    <span class="experience-period text-sm lg:text-base font-medium border rounded px-2 py-1 print:text-xs">{exp.periodStart} - {exp.periodEnd ? exp.periodEnd : periodEndStr}</span>
                 </header>
                 <main>
                     <p class="print:text-sm print:mb-2">
