@@ -9,7 +9,7 @@ const { reference } = Astro.props;
 const ref = reference.data;
 ---
 
-<div id={`${ref.id}`} class="reference col-span-6 lg:col-span-4 p-4 rounded border border-(--color-3) flex gap-4 flex-col justify-between print:p-2 print:gap-2 print:text-sm">
+<div id={`${ref.id}`} class="reference col-span-full xs:col-span-6 lg:col-span-4 p-4 rounded border border-(--color-3) flex gap-4 flex-col justify-between print:p-2 print:gap-2 print:text-sm">
     <div class="">
         <h4 class="">{ref.name}</h4>
         <strong class="font-medium">{ref.currentPosition}</strong>
@@ -30,7 +30,7 @@ const ref = reference.data;
                 <span class="inline-block">
                     <i class="fa-solid fa-envelope"></i>
                 </span>
-                <a href={ref.email.href}>{ref.email.text}</a>
+                <a class="break-all" href={ref.email.href}>{ref.email.text}</a>
             </li>
         </ul>
     </address>
