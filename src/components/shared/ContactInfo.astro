@@ -48,7 +48,7 @@ const information = [
                         href={info.href} 
                         target={info.target} 
                         class={
-                            "items-center gap-2 print:gap-1 break-all text-sm md:text-base print:text-sm " +
+                            "items-center gap-2 print:gap-1 break-all text-sm md:text-base print:text-xs " +
                             (info.icon === 'fa-solid fa-globe' ? ' print:inline-flex hidden' : 'inline-flex')
                         }
                     >
@@ -58,7 +58,7 @@ const information = [
                         {info.text}
                     </a>
                 </li>
-            :   <li class="mb-1 inline-flex items-center gap-2 print:gap-1 text-(--color-2) font-medium text-sm md:text-base print:text-sm">
+            :   <li class="mb-1 inline-flex items-center gap-2 print:gap-1 text-(--color-2) font-medium text-sm md:text-base print:text-xs">
                     <span class="inline-flex items-center justify-center w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem] print:w-[1.25rem] print:h-[w-1.25rem]">
                         <i class={info.icon + ' text-xl md:text-2xl print:text-base'}></i>
                     </span>
