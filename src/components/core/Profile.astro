@@ -84,12 +84,12 @@ skills = skills.sort((a, b) => {
             {
                 skillTypes.map(skillType => (
                     <div class="col-span-2 sm:col-span-1 md:mb-0">
-                        <h4 class="mb-2 text-lg sm:text-xl md:text-2xl print:text-base print:mb-2">{skillType}</h4>
+                        <h4 class="mb-2 text-lg sm:text-xl md:text-2xl print:text-sm print:mb-0">{skillType}</h4>
                         <ul>
                             {skills.map(skill => (
                                 skill.type == skillType ? 
-                                <li class="font-medium md:text-lg md:leading-5 flex items-center mb-1 print:text-sm">
-                                    <span class="inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 me-1 print:w-[1ren] print:h-[1rem]">
+                                <li class="font-medium md:text-lg md:leading-5 flex items-center mb-1 print:text-xs">
+                                    <span class="inline-flex items-center justify-center w-6 h-6 md:w-8 md:h-8 me-1 print:me-0 print:w-[1ren] print:h-[1rem]">
                                         {skill.icon ? <i class={skill.icon}></i> : <i class="fa-solid fa-code"></i>}
                                     </span>
                                     <span class="inline-block">
