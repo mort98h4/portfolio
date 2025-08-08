@@ -171,6 +171,15 @@ function openModal(element) {
     element.setAttribute('aria-hidden', 'false');
     element.classList.add('show');
     document.querySelector('body').style.overflow = 'hidden';
+    element.addEventListener('keydown', modalKeyPress);
+    element.focus();
+}
+
+function modalKeyPress(event) {
+    const key = event.key.toLowerCase();
+    if (key === 'escape') {
+        closeModal(event);
+    }
 }
 
 function closeModal(event) {
@@ -187,6 +196,13 @@ function closeModal(event) {
         element.setAttribute('aria-hidden', 'true');
         element.classList.remove('show');
         document.querySelector('body').style.overflow = document.querySelector('.modal.show') ? 'hidden' : '';
+        element.removeEventListener('keydown', modalKeyPress);
+
+        try {
+            document.querySelector('.modal.show').focus();
+        } catch {
+            // Do nothing...
+        }
     } else {
         return;
     }
